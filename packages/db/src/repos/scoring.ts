@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, inArray, isNotNull, lte, sql } from 'drizzle-orm';
+import { and, asc, desc, eq, gte, inArray, isNotNull, lte, sql } from 'drizzle-orm';
 import {
   BADGES,
   computeReadiness,
@@ -574,9 +574,10 @@ export async function getTodayPlan(userId: string, now = new Date()) {
 /** Weekly XP leaderboard. (Redis ZSETs in the full design; Postgres is fine at demo scale.) */
 export async function getLeaderboard(opts: { since: Date; userIds?: string[]; limit?: number }) {
   const db = getDb();
-  const where = opts.userIds
-    ? and(sql`${xpLedger.occurredAt} >= ${opts.since}`, inArray(xpLedger.userId, opts.userIds))
-    : sql`${xpLedger.occurredAt} >= ${opts.since}`;
+  // `gte` maps the Date through the column type. A raw sql`… >= ${date}` works on PGlite but
+  // postgres-js (Neon) cannot serialize a bare Date parameter and the query throws.
+  const since = gte(xpLedger.occurredAt, opts.since);
+  const where = opts.userIds ? and(since, inArray(xpLedger.userId, opts.userIds)) : since;
   return db
     .select({
       userId: users.id,
