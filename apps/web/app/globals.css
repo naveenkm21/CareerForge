@@ -19,6 +19,7 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
   --color-danger: var(--danger);
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -42,6 +43,18 @@
 
   --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-family), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: var(--font-display-family), var(--font-sans-family), ui-sans-serif, sans-serif;
+
+  /* Landing page: slow pan across the headline's gradient. */
+  --animate-gradient-pan: gradient-pan 7s ease-in-out infinite alternate;
+  @keyframes gradient-pan {
+    from {
+      background-position: 0% 50%;
+    }
+    to {
+      background-position: 100% 50%;
+    }
+  }
 }
 
 html {
@@ -57,6 +70,60 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Page and section titles use the display face, like the landing page. */
+@layer base {
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+/*
+ * Dark mode backdrop for every page: two soft glows and a dot matrix that fades out, fixed
+ * behind the content. Surfaces are translucent, so cards read as glass over it.
+ */
+html.dark body {
+  background:
+    radial-gradient(900px 600px at 0% -10%, rgb(139 92 246 / 0.16), transparent 60%),
+    radial-gradient(800px 560px at 100% 0%, rgb(34 211 238 / 0.09), transparent 60%), var(--bg);
+  background-attachment: fixed;
+}
+html.dark body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent);
+}
+
+/*
+ * Cursor spotlight on every surface (see components/spotlight-tracker.tsx, which sets --mx/--my
+ * on the panel under the pointer). Paints a soft violet glow where the cursor is.
+ */
+html.dark .bg-surface,
+html.dark [data-spotlight] {
+  background-image: radial-gradient(
+    420px circle at var(--mx, -999px) var(--my, -999px),
+    rgb(139 92 246 / 0.11),
+    transparent 45%
+  );
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+html.dark {
+  scrollbar-color: #2a2a38 transparent;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -69,4 +136,80 @@ body {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
+}
+
+/* Page titles carry the landing page's glowing violet-to-cyan underline. */
+#main main h1:not(.flex)::after {
+  content: '';
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: 0.75rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 14px -2px var(--accent);
+}
+
+/* Each page's sections rise in one after another, like the landing page. */
+@keyframes page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+#main > main > * {
+  animation: page-rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+#main > main > *:nth-child(2) {
+  animation-delay: 0.06s;
+}
+#main > main > *:nth-child(3) {
+  animation-delay: 0.12s;
+}
+#main > main > *:nth-child(4) {
+  animation-delay: 0.18s;
+}
+#main > main > *:nth-child(n + 5) {
+  animation-delay: 0.24s;
+}
+
+/* Every text field and dropdown gets the landing page's violet focus glow. */
+#main :is(input:not([type='checkbox'], [type='radio'], [type='range']), textarea, select):focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+  outline: none;
+}
+
+/* The landing headline's slowly panning gradient, for a page's key word or number. */
+@keyframes cf-pan {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+.cf-gradient-text {
+  color: var(--accent);
+}
+html.dark .cf-gradient-text {
+  background: linear-gradient(
+    100deg,
+    #ffffff 10%,
+    #c4b5fd 35%,
+    #22d3ee 55%,
+    #a78bfa 75%,
+    #ffffff 95%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: cf-pan 7s ease-in-out infinite alternate;
 }

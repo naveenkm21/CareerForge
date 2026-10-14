@@ -25,7 +25,7 @@ export default async function AdminProblemsPage({
       </nav>
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-fg">Problem CMS</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Problem CMS</h1>
           <p className="mt-1 text-fg-muted">
             Create and version problems without a deploy. Every save bumps the version and is
             audit-logged.

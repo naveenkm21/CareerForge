@@ -13,9 +13,16 @@ export async function AuthPage({
   const sp = await searchParams;
   const redirectUrl = safeRedirectPath(sp.redirect_url);
   return (
-    <main className="mx-auto flex max-w-md flex-col gap-6 px-4 py-16">
+    <main className="relative mx-auto flex max-w-md flex-col gap-6 px-4 py-16 sm:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-10 -z-10 mx-auto h-72 w-72 rounded-full bg-accent/25 blur-[100px]"
+      />
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-fg">
+        <p className="mb-3 font-mono text-sm text-accent-2">
+          {mode === 'sign-in' ? '// welcome back' : '// readiness = f(evidence)'}
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
           {mode === 'sign-in' ? 'Sign in' : 'Create your account'}
         </h1>
         <p className="mt-1 text-sm text-fg-muted">
@@ -24,7 +31,12 @@ export async function AuthPage({
             : 'Tell us your target role and we’ll measure where you stand.'}
         </p>
       </div>
-      <SignInPanel mode={mode} fallback={<DevSignInForm redirectUrl={redirectUrl} mode={mode} />} />
+      <div className="rounded-[calc(var(--radius)+6px)] border border-border bg-surface p-6 shadow-[0_30px_80px_-30px_rgb(139_92_246/0.45)]">
+        <SignInPanel
+          mode={mode}
+          fallback={<DevSignInForm redirectUrl={redirectUrl} mode={mode} />}
+        />
+      </div>
       <p className="text-sm text-fg-muted">
         {mode === 'sign-in' ? (
           <>

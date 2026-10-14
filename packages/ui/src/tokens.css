@@ -47,53 +47,58 @@
 
   --chart-1: #4f46e5;
   --chart-grid: #ecece7;
-  --radius: 10px;
+  --accent-2: #0891b2;
+  --radius: 12px;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
 }
 
 .dark {
-  --bg: #0e0f12;
-  --surface: #16181d;
-  --surface-2: #1c1f25;
-  --surface-3: #262a32;
-  --border: #2a2e36;
-  --border-strong: #3a3f4a;
-  --fg: #ececf0;
-  --fg-muted: #a0a3ad;
-  --fg-subtle: #737784;
-  --accent: #8b87ff;
-  --accent-fg: #0e0f12;
-  --accent-soft: #23234a;
+  /* Obsidian + neon: the landing page's palette, used across the whole app. Surfaces are
+     slightly translucent so the page's background glow shows through ("glass"). */
+  --bg: #050505;
+  --surface: rgb(14 14 20 / 0.78);
+  --surface-2: rgb(24 24 34 / 0.85);
+  --surface-3: #22222f;
+  --border: rgb(255 255 255 / 0.08);
+  --border-strong: rgb(255 255 255 / 0.16);
+  --fg: #f4f4f5;
+  --fg-muted: #a1a1aa;
+  --fg-subtle: #7a7a86;
+  --accent: #8b5cf6;
+  --accent-fg: #ffffff;
+  --accent-soft: #1f1738;
+  --accent-2: #22d3ee;
   --danger: #f87171;
   --success: #4ade80;
   --warning: #fbbf24;
-  --code-bg: #121419;
-  --code-hl: #3a2e10;
-  --code-hl-border: #f59e0b;
-  --syn-keyword: #c4a7ff;
+  --code-bg: #08080d;
+  --code-hl: #0b2a33;
+  --code-hl-border: #22d3ee;
+  --syn-keyword: #c4b5fd;
   --syn-string: #5eead4;
   --syn-number: #fbbf24;
-  --syn-comment: #6b7080;
-  --syn-type: #93c5fd;
+  --syn-comment: #5b5b6b;
+  --syn-type: #67e8f9;
 
   --tone-active: #f59e0b;
-  --tone-active-soft: #3d2c0a;
-  --tone-candidate: #60a5fa;
-  --tone-candidate-soft: #14264a;
+  --tone-active-soft: #33240a;
+  --tone-candidate: #22d3ee;
+  --tone-candidate-soft: #0b2a33;
   --tone-frontier: #a78bfa;
-  --tone-frontier-soft: #2a1f4d;
+  --tone-frontier-soft: #231a44;
   --tone-visited: #94a3b8;
-  --tone-visited-soft: #252b36;
+  --tone-visited-soft: #1d2230;
   --tone-path: #2dd4bf;
-  --tone-path-soft: #0f3431;
+  --tone-path-soft: #0d302d;
   --tone-found: #4ade80;
-  --tone-found-soft: #12351f;
+  --tone-found-soft: #0f2f1c;
   --tone-excluded: #57534e;
-  --tone-excluded-soft: #1a1a1a;
+  --tone-excluded-soft: #141414;
   --tone-error: #f87171;
-  --tone-error-soft: #3f1515;
+  --tone-error-soft: #3a1313;
 
-  --chart-1: #7069e8;
-  --chart-grid: #24272e;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+  --chart-1: #8b5cf6;
+  --chart-grid: #1c1c26;
+  --radius: 14px;
+  --shadow: 0 0 0 1px rgb(255 255 255 / 0.02), 0 18px 40px -24px rgb(0 0 0 / 0.9);
 }

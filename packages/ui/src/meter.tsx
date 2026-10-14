@@ -27,7 +27,10 @@ export function Meter({
       className={cn('relative h-1.5 w-full overflow-hidden rounded-full bg-surface-3', className)}
     >
       {value !== null && (
-        <div className="h-full rounded-full bg-accent" style={{ width: `${pct}%` }} />
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 shadow-[0_0_10px_-2px_var(--accent)]"
+          style={{ width: `${pct}%` }}
+        />
       )}
       {target !== undefined && (
         <div

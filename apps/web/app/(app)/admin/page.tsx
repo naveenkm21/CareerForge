@@ -20,7 +20,7 @@ export default async function AdminPage() {
     <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-fg">Admin</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Admin</h1>
           <p className="mt-1 text-fg-muted">
             Analytics read the product’s own tables — evidence, submissions, lesson progress.
           </p>

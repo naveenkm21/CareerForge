@@ -11,7 +11,7 @@ export default function ErrorPage({
 }) {
   return (
     <main className="mx-auto flex max-w-lg flex-col items-start gap-3 px-4 py-20">
-      <h1 className="text-2xl font-semibold text-fg">Something went wrong</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-fg">Something went wrong</h1>
       <p className="text-sm text-fg-muted">
         {error.message.includes('DATABASE_URL')
           ? 'The database is not configured. See README → Local setup.'

@@ -25,7 +25,7 @@ export default async function EditProblemPage({ params }: { params: Promise<{ sl
         </Link>{' '}
         / {isNew ? 'new' : p!.problem.title}
       </nav>
-      <h1 className="text-2xl font-semibold tracking-tight text-fg">
+      <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
         {isNew ? 'New problem' : `Edit · v${p!.problem.version}`}
       </h1>
       <ProblemEditor

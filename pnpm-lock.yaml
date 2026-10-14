@@ -102,6 +102,9 @@ importers:
       monaco-editor:
         specifier: 0.52.2
         version: 0.52.2
+      motion:
+        specifier: 12.43.0
+        version: 12.43.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next:
         specifier: 15.5.26
         version: 15.5.26(@types/node@22.18.12)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)

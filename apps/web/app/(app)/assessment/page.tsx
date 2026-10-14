@@ -13,7 +13,9 @@ export default async function AssessmentPage() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Placement assessment</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+          Placement assessment
+        </h1>
         <p className="mt-2 text-fg-muted">
           {qs.length} questions across your role’s foundations. There is no pass mark: answers seed
           your skill model as evidence, so the planner knows where to start. Guessing makes the plan

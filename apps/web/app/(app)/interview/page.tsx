@@ -17,7 +17,7 @@ export default async function InterviewPage() {
   return (
     <main className="mx-auto flex max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Mock interview</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Mock interview</h1>
         <p className="mt-1 max-w-2xl text-fg-muted">
           Three rounds. Each round: a question, your answer, a follow-up that probes the weakest
           part, then a rubric — understanding, approach, complexity, communication, edge cases. The
@@ -65,7 +65,7 @@ export default async function InterviewPage() {
       </Card>
       {sessions.length > 0 && (
         <section>
-          <h2 className="mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
+          <h2 className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
             History
           </h2>
           <ul className="flex flex-col gap-2">

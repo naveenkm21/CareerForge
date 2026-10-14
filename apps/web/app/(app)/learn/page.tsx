@@ -22,7 +22,7 @@ export default async function LearnPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6">
       <header className="max-w-2xl">
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Learn</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Learn</h1>
         <p className="mt-2 text-fg-muted">
           Every topic is the same eight-stage ladder: {STAGE_NAMES.join(' → ')}. Stages 1–4 come
           from one visual trace; stages 5–8 are where you prove it.
@@ -30,7 +30,7 @@ export default async function LearnPage() {
       </header>
       {domains.map((d) => (
         <section key={d}>
-          <h2 className="mb-3 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
+          <h2 className="font-mono mb-3 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
             {DOMAIN[d]}
           </h2>
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

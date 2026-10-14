@@ -28,7 +28,7 @@ export default async function BattlesPage() {
         / Battles
       </nav>
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">1v1 battles</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">1v1 battles</h1>
         <p className="mt-1 text-fg-muted">
           Three problems, twenty minutes. Most solved wins; ties go to the faster solver. Win +200
           XP, play +50 XP.

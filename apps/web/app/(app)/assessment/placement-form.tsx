@@ -26,7 +26,7 @@ export function PlacementForm({ questions }: { questions: Q[] }) {
             className="rounded-[var(--radius)] border border-border bg-surface p-4"
           >
             <legend className="sr-only">Question {i + 1}</legend>
-            <p className="mb-1 text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
+            <p className="font-mono mb-1 text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
               {i + 1} · {q.skillName}
             </p>
             <p className="mb-3 text-sm font-medium text-fg">{q.prompt}</p>

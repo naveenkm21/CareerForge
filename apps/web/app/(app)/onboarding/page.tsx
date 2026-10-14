@@ -34,10 +34,12 @@ export default async function OnboardingPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <p className="text-xs font-semibold tracking-wider text-accent uppercase">
+      <p className="font-mono text-xs font-semibold tracking-wider text-accent uppercase">
         {actor.onboardedAt ? 'Update your goal' : 'Welcome'}
       </p>
-      <h1 className="mt-1 text-3xl font-semibold tracking-tight text-fg">Let’s set your target.</h1>
+      <h1 className="mt-1 text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+        Let’s set your target.
+      </h1>
       <p className="mt-2 mb-8 max-w-xl text-fg-muted">
         CareerForge measures where you actually are against a specific role. Nothing is scored until
         you produce evidence — so your dashboard starts honest: empty.

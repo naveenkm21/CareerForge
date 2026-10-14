@@ -25,7 +25,7 @@ export default function VizGalleryPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6">
       <header className="max-w-2xl">
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">See every step.</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">See every step.</h1>
         <p className="mt-2 text-fg-muted">
           Each algorithm is one reference implementation that records a trace. The animation, the
           highlighted code in four languages, the variable panel and the practice questions all come
@@ -36,7 +36,7 @@ export default function VizGalleryPage() {
         <section key={c} aria-labelledby={`cat-${c}`}>
           <h2
             id={`cat-${c}`}
-            className="mb-3 text-xs font-semibold tracking-wider text-fg-subtle uppercase"
+            className="font-mono mb-3 text-xs font-semibold tracking-wider text-fg-subtle uppercase"
           >
             {CATEGORY_LABELS[c]}
           </h2>

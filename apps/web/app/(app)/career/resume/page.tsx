@@ -34,7 +34,9 @@ export default async function ResumePage({
         / Resume
       </nav>
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Resume intelligence</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+          Resume intelligence
+        </h1>
         <p className="mt-1 max-w-2xl text-fg-muted">
           Skills are extracted with the sentence that proves each one. A claim is only a claim:
           verified claims count as weak evidence until practice backs them up — and you can see

@@ -16,8 +16,10 @@ export function NavLinks({ links }: { links: { href: string; label: string }[] }
             href={l.href}
             aria-current={active ? 'page' : undefined}
             className={cn(
-              'rounded-md px-2.5 py-1.5 text-sm transition-colors',
-              active ? 'bg-surface-2 font-medium text-fg' : 'text-fg-muted hover:text-fg',
+              'relative rounded-lg px-3 py-1.5 text-sm transition-colors',
+              active
+                ? 'bg-accent-soft font-medium text-fg shadow-[inset_0_0_0_1px_color-mix(in_oklab,var(--accent)_35%,transparent)]'
+                : 'text-fg-muted hover:bg-surface-2 hover:text-fg',
             )}
           >
             {l.label}

@@ -51,7 +51,7 @@ export default async function SkillsPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-fg">
+        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
           {data.role.title} skill graph
         </h1>
         <p className="mt-1 max-w-3xl text-sm text-fg-muted">

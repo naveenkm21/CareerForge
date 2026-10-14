@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { AuthProvider } from '@careerforge/auth/react';
 import { ThemeProvider } from '@/components/theme-provider';
+import { HeaderGate } from '@/components/header-gate';
 import { SiteHeader } from '@/components/site-header';
+import { SpotlightTracker } from '@/components/spotlight-tracker';
 import './globals.css';
 
 const sans = Inter({ subsets: ['latin'], variable: '--font-sans-family', display: 'swap' });
+const display = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display-family',
+  display: 'swap',
+});
 const mono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono-family',
@@ -22,13 +29,17 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#f6f6f3' },
-    { media: '(prefers-color-scheme: dark)', color: '#0e0f12' },
+    { media: '(prefers-color-scheme: dark)', color: '#050505' },
   ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+    >
       <body className="min-h-dvh font-sans">
         <AuthProvider>
           <ThemeProvider>
@@ -38,8 +49,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             >
               Skip to content
             </a>
-            <SiteHeader />
+            <HeaderGate>
+              <SiteHeader />
+            </HeaderGate>
             <div id="main">{children}</div>
+            <SpotlightTracker />
           </ThemeProvider>
         </AuthProvider>
       </body>

@@ -26,7 +26,7 @@ export default async function JobsPage() {
       </nav>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-fg">Jobs</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Jobs</h1>
           <p className="mt-1 max-w-2xl text-fg-muted">
             Fit = importance-weighted share of each job’s skills where your evidence meets the bar.
             Sample listings from fictional companies; paste any real JD to analyse it the same way.

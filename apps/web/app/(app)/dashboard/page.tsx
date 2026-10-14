@@ -115,8 +115,8 @@ export default async function DashboardPage() {
       <section className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm text-fg-muted">{greetingFor(new Date(), actor.timezone)},</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-fg">
-            {actor.name ?? actor.handle}
+          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+            <span className="cf-gradient-text">{actor.name ?? actor.handle}</span>
           </h1>
           <p className="mt-1 text-sm text-fg-muted">
             {ctx.role.title} · {actor.dailyMinutesTarget} min/day ·{' '}
@@ -178,7 +178,7 @@ export default async function DashboardPage() {
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
               <Link
                 href="/explain/readiness"
-                className="text-5xl font-semibold tracking-tight text-fg hover:text-accent"
+                className="cf-gradient-text font-display text-7xl font-bold tracking-tighter transition-[filter] hover:brightness-125"
                 aria-label={`Readiness ${pct(readiness.overall)}, explain`}
               >
                 {evidenceCount ? pct(readiness.overall) : '—'}
@@ -221,7 +221,7 @@ export default async function DashboardPage() {
               })}
             </ul>
             <div>
-              <p className="mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
+              <p className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
                 Readiness, last 30 days
               </p>
               <TrendLine

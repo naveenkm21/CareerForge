@@ -34,11 +34,11 @@ export async function SiteHeader() {
     : [{ href: '/viz', label: 'Visualizer' }];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-bg/85 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-border bg-bg/60 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6">
         <Link
           href={signedIn ? '/dashboard' : '/'}
-          className="flex items-center gap-2 font-semibold tracking-tight text-fg"
+          className="flex items-center gap-2 font-display font-bold tracking-tight text-fg"
         >
           <Logo />
           <span>CareerForge</span>
@@ -82,11 +82,17 @@ export async function SiteHeader() {
 function Logo() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
-      <rect x="2" y="2" width="20" height="20" rx="6" fill="var(--accent)" />
+      <defs>
+        <linearGradient id="cf-logo" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--accent)" />
+          <stop offset="100%" stopColor="var(--accent-2)" />
+        </linearGradient>
+      </defs>
+      <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#cf-logo)" />
       <path
         d="M7 15.5 L10.5 9 L13.5 13 L17 7.5"
         fill="none"
-        stroke="var(--accent-fg)"
+        stroke="var(--bg)"
         strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"

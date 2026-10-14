@@ -31,7 +31,7 @@ export default async function ExplainReadinessPage() {
         / Explain
       </nav>
       <header className="flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold tracking-tight text-fg">
+        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
           Readiness {pct(r.overall)} · {ctx.role?.title}
         </h1>
         <p className="text-sm text-fg-muted">

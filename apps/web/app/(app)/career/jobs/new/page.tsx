@@ -22,7 +22,9 @@ export default async function NewJobPage({
         / Paste
       </nav>
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Paste a job description</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+          Paste a job description
+        </h1>
         <p className="mt-1 text-fg-muted">
           We extract the skills it asks for — each with the sentence that mentions it — and compare
           them with your evidence. The text is treated as data and stays private to you.

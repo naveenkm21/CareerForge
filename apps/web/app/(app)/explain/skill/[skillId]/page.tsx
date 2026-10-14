@@ -62,7 +62,7 @@ export default async function SkillExplainPage({
       </nav>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight text-fg">{ex.skill.name}</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">{ex.skill.name}</h1>
           <p className="text-sm text-fg-muted">{ex.skill.summary}</p>
         </div>
         <div className="text-right">

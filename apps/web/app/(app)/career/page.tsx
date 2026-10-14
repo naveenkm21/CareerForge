@@ -63,7 +63,7 @@ export default async function CareerPage() {
   return (
     <main className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header>
-        <h1 className="text-3xl font-semibold tracking-tight text-fg">Career</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Career</h1>
         <p className="mt-1 text-fg-muted">
           The loop closes here: job → skill gap → roadmap → evidence → readiness → application.
         </p>
