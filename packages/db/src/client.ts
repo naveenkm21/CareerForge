@@ -50,12 +50,23 @@ function connect(url: string): Cached {
     return { db, kind: 'pglite', close: () => client.close() };
   }
   // `prepare: false` keeps it compatible with Neon's transaction-mode pooler.
-  const client = postgres(url, {
+  const client = postgres(withoutLibpqOnlyParams(url), {
     max: process.env.NODE_ENV === 'production' ? 5 : 3,
     prepare: false,
   });
   const db = drizzlePg(client, { schema, casing: 'snake_case' });
   return { db, kind: 'postgres', close: () => client.end({ timeout: 5 }) };
+}
+
+/**
+ * Neon's connection strings carry `channel_binding=require`, a libpq client option. postgres.js
+ * forwards unknown query parameters to the server as runtime settings, which fails, so drop it.
+ */
+function withoutLibpqOnlyParams(url: string): string {
+  if (!url.includes('channel_binding=')) return url;
+  const parsed = new URL(url);
+  parsed.searchParams.delete('channel_binding');
+  return parsed.toString();
 }
 
 /**
