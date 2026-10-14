@@ -1,0 +1,28 @@
+name: Load demo data
+
+# Run by hand (Actions → Load demo data → Run workflow). Creates the tables, the curriculum and
+# the demo account in the production database — useful when your own network blocks port 5432.
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    name: Migrate, seed and load demo data
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Require the DATABASE_URL secret
+        run: |
+          if [ -z "$DATABASE_URL" ]; then echo "::error::Add DATABASE_URL to the 'production' environment secrets first."; exit 1; fi
+      - run: pnpm db:migrate
+      - run: pnpm db:seed
+      - run: pnpm db:demo

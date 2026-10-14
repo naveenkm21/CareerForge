@@ -18,6 +18,9 @@ async function main() {
 main()
   .catch((err) => {
     console.error(err instanceof Error ? err.message : err);
+    // Drizzle wraps driver errors; the real reason (auth, network, SQL) is in `cause`.
+    if (err instanceof Error && err.cause)
+      console.error('cause:', (err.cause as Error).message ?? err.cause);
     process.exitCode = 1;
   })
   .finally(() => closeDb());
