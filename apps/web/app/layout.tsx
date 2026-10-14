@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import { Inter, Inter_Tight, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { AuthProvider } from '@careerforge/auth/react';
 import { ThemeProvider } from '@/components/theme-provider';
 import { HeaderGate } from '@/components/header-gate';
@@ -11,6 +11,12 @@ const sans = Inter({ subsets: ['latin'], variable: '--font-sans-family', display
 const display = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display-family',
+  display: 'swap',
+});
+const tight = Inter_Tight({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-tight-family',
   display: 'swap',
 });
 const mono = JetBrains_Mono({
@@ -38,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+      className={`${sans.variable} ${mono.variable} ${display.variable} ${tight.variable}`}
     >
       <body className="min-h-dvh font-sans">
         <AuthProvider>

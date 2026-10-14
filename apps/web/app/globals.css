@@ -44,17 +44,31 @@
   --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-family), ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-display: var(--font-display-family), var(--font-sans-family), ui-sans-serif, sans-serif;
+  --font-tight: var(--font-tight-family), var(--font-sans-family), ui-sans-serif, sans-serif;
 
-  /* Landing page: slow pan across the headline's gradient. */
-  --animate-gradient-pan: gradient-pan 7s ease-in-out infinite alternate;
-  @keyframes gradient-pan {
-    from {
-      background-position: 0% 50%;
-    }
-    to {
-      background-position: 100% 50%;
-    }
-  }
+  /* Landing page (DESIGN.md, "quiet analyst's desk"): stone neutrals + one cyan. */
+  --color-lp-canvas: var(--lp-canvas);
+  --color-lp-card: var(--lp-card);
+  --color-lp-border: var(--lp-border);
+  --color-lp-muted: var(--lp-muted);
+  --color-lp-ash: var(--lp-ash);
+  --color-lp-body: var(--lp-body);
+  --color-lp-ink: var(--lp-ink);
+  --color-lp-soot: var(--lp-soot);
+  --color-lp-on-soot: var(--lp-on-soot);
+  --color-lp-wash: var(--lp-wash);
+  --color-lp-hl: var(--lp-hl);
+  --color-lp-cyan: var(--lp-cyan);
+  --color-lp-cyan-edge: var(--lp-cyan-edge);
+  --color-lp-inv-bg: var(--lp-inv-bg);
+  --color-lp-inv-fg: var(--lp-inv-fg);
+  --color-lp-inv-body: var(--lp-inv-body);
+  --color-lp-inv-border: var(--lp-inv-border);
+  --color-lp-inv-wash: var(--lp-inv-wash);
+  --color-lp-inv-hl: var(--lp-inv-hl);
+  --shadow-lp-subtle: var(--lp-shadow-subtle);
+  --shadow-lp-md: var(--lp-shadow-md);
+  --shadow-lp-xl: var(--lp-shadow-xl);
 }
 
 html {
@@ -139,7 +153,7 @@ html.dark {
 }
 
 /* Page titles carry the landing page's glowing violet-to-cyan underline. */
-#main main h1:not(.flex)::after {
+#main main:not(.lp-main) h1:not(.flex)::after {
   content: '';
   display: block;
   width: 3.5rem;
@@ -163,19 +177,19 @@ html.dark {
     filter: none;
   }
 }
-#main > main > * {
+#main > main:not(.lp-main) > * {
   animation: page-rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
-#main > main > *:nth-child(2) {
+#main > main:not(.lp-main) > *:nth-child(2) {
   animation-delay: 0.06s;
 }
-#main > main > *:nth-child(3) {
+#main > main:not(.lp-main) > *:nth-child(3) {
   animation-delay: 0.12s;
 }
-#main > main > *:nth-child(4) {
+#main > main:not(.lp-main) > *:nth-child(4) {
   animation-delay: 0.18s;
 }
-#main > main > *:nth-child(n + 5) {
+#main > main:not(.lp-main) > *:nth-child(n + 5) {
   animation-delay: 0.24s;
 }
 
@@ -212,4 +226,59 @@ html.dark .cf-gradient-text {
   background-clip: text;
   color: transparent;
   animation: cf-pan 7s ease-in-out infinite alternate;
+}
+
+/*
+ * Landing page tokens. Light is DESIGN.md verbatim; dark is derived from the same stone scale
+ * (ink canvas, soot cards, stone hairlines) with the same single cyan.
+ */
+.lp {
+  --lp-canvas: #fafaf9;
+  --lp-card: #ffffff;
+  --lp-border: #e8e6e5;
+  --lp-muted: #d6d3d1;
+  --lp-ash: #a8a29e;
+  --lp-body: #78716c;
+  --lp-ink: #0c0a09;
+  --lp-soot: #1c1917;
+  --lp-on-soot: #ffffff;
+  --lp-wash: #c1e1f7;
+  --lp-hl: #3398e1;
+  --lp-cyan: #3ba6f1;
+  --lp-cyan-edge: #3398e1;
+  --lp-inv-bg: #1c1917;
+  --lp-inv-fg: #fafaf9;
+  --lp-inv-body: #a8a29e;
+  --lp-inv-border: #292524;
+  --lp-inv-wash: rgb(59 166 241 / 0.18);
+  --lp-inv-hl: #8ccdf8;
+  --lp-shadow-subtle: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  --lp-shadow-md: rgba(0, 0, 0, 0.05) 0px 4px 16px 0px;
+  --lp-shadow-xl: rgba(17, 12, 46, 0.12) 0px 12px 45px 0px;
+}
+.dark .lp {
+  --lp-canvas: #0c0a09;
+  --lp-card: #1c1917;
+  --lp-border: #292524;
+  --lp-muted: #44403c;
+  --lp-ash: #78716c;
+  --lp-body: #a8a29e;
+  --lp-ink: #fafaf9;
+  --lp-soot: #e7e5e4;
+  --lp-on-soot: #0c0a09;
+  --lp-wash: rgb(59 166 241 / 0.16);
+  --lp-hl: #7cc4f5;
+  --lp-inv-bg: #f5f5f4;
+  --lp-inv-fg: #0c0a09;
+  --lp-inv-body: #57534e;
+  --lp-inv-border: #e7e5e4;
+  --lp-inv-wash: #c1e1f7;
+  --lp-inv-hl: #2a84c9;
+  --lp-shadow-subtle: rgba(0, 0, 0, 0.4) 0px 1px 2px 0px;
+  --lp-shadow-md: rgba(0, 0, 0, 0.35) 0px 4px 16px 0px;
+  --lp-shadow-xl: rgba(0, 0, 0, 0.55) 0px 12px 45px 0px;
+}
+.lp ::selection {
+  background: var(--lp-wash);
+  color: var(--lp-ink);
 }
