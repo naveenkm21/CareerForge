@@ -3,11 +3,17 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { outputsMatch } from '@careerforge/content';
+import { judgeAi, type AiProblem } from './ai';
+
+export { aiModels } from './ai';
 
 /**
- * The code judge (docs/05 §4). One interface, two backends:
+ * The code judge (docs/05 §4). One interface, three backends:
  *
  *   judge0 — production. Judge0 CE in isolated Docker with no network (ADR-010).
+ *   ai     — when no runner exists: an OpenRouter model reviews the code against the tests
+ *            (OPENROUTER_API_KEY). Nothing is executed; verdicts are labelled and their
+ *            evidence is discounted.
  *   local  — development/demo ONLY. Runs the toolchains installed on this machine with time
  *            limits. It is NOT a sandbox, so it refuses to run unless JUDGE_PROVIDER=local is
  *            set explicitly, and never when NODE_ENV=production.
@@ -34,10 +40,11 @@ export type JudgeResult = {
   message?: string;
 };
 
-export function judgeProvider(): 'judge0' | 'local' | 'none' {
+export function judgeProvider(): 'judge0' | 'local' | 'ai' | 'none' {
   if (process.env.JUDGE0_URL) return 'judge0';
   if (process.env.JUDGE_PROVIDER === 'local' && process.env.NODE_ENV !== 'production')
     return 'local';
+  if (process.env.OPENROUTER_API_KEY) return 'ai';
   return 'none';
 }
 
@@ -49,6 +56,8 @@ export async function judge(input: {
   code: string;
   cases: JudgeCase[];
   timeLimitMs: number;
+  /** Only the AI reviewer reads it; the runners judge by output alone. */
+  problem?: AiProblem;
 }): Promise<JudgeResult> {
   if (input.code.length > MAX_CODE)
     return {
@@ -63,6 +72,7 @@ export async function judge(input: {
   const provider = judgeProvider();
   if (provider === 'judge0') return judge0(input);
   if (provider === 'local') return judgeLocal(input);
+  if (provider === 'ai') return judgeAi(input);
   return {
     status: 'error',
     passed: 0,
@@ -71,7 +81,7 @@ export async function judge(input: {
     failedCase: null,
     judge: 'none',
     message:
-      'No judge is configured. Set JUDGE0_URL (production) or JUDGE_PROVIDER=local (local development).',
+      'No judge is configured. Set OPENROUTER_API_KEY (AI review), JUDGE0_URL, or JUDGE_PROVIDER=local (local development).',
   };
 }
 

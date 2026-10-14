@@ -132,6 +132,7 @@ export async function saveSubmission(userId: string, s: JudgedSubmission) {
           hintsUsed: s.meta?.hintsUsed ?? 0,
           solutionViewed: s.meta?.solutionViewed ?? false,
           lang: s.lang,
+          aiReviewed: s.judge.startsWith('ai'),
         },
       },
     ]);

@@ -269,7 +269,10 @@ function VerdictPanel({ kind, r }: { kind: 'run' | 'submit'; r: RunResponse }) {
         <div className="grid gap-2 text-xs sm:grid-cols-3">
           <Case label="Input" text={r.failedCase.input} />
           <Case label="Expected" text={r.failedCase.expected} />
-          <Case label="Your output" text={r.failedCase.actual || '(nothing)'} />
+          <Case
+            label={r.judge.startsWith('ai') ? 'Predicted output' : 'Your output'}
+            text={r.failedCase.actual || '(nothing)'}
+          />
           {r.failedCase.stderr && <Case label="stderr" text={r.failedCase.stderr} />}
         </div>
       )}

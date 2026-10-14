@@ -44,6 +44,7 @@ export async function runSamplesAction(
     code,
     cases: p.samples.map((c) => ({ id: c.id, input: c.input, expected: c.expected })),
     timeLimitMs: p.problem.timeLimitMs,
+    problem: { title: p.problem.title, statement: p.problem.statement },
   });
 }
 
@@ -72,6 +73,7 @@ export async function submitAction(input: {
     code: input.code,
     cases: p.testcases.map((c) => ({ id: c.id, input: c.input, expected: c.expected })),
     timeLimitMs: p.problem.timeLimitMs,
+    problem: { title: p.problem.title, statement: p.problem.statement },
   });
   if (result.status === 'error') return result;
 

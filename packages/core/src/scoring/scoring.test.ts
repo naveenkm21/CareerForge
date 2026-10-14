@@ -133,6 +133,13 @@ describe('mastery (Beta posterior)', () => {
     expect(clean).toBeGreaterThan(hinted);
     expect(hinted).toBeGreaterThan(peeked);
   });
+
+  it('an AI-reviewed solve counts half of an executed one', () => {
+    const judged = replaySkill('s', [ev({})], t0);
+    const reviewed = replaySkill('s', [ev({ meta: { aiReviewed: true } })], t0);
+    expect(reviewed.mastery).toBeLessThan(judged.mastery);
+    expect(reviewed.mastery).toBeGreaterThan(replaySkill('s', [], t0).mastery);
+  });
 });
 
 describe('gating, roll-up and readiness', () => {

@@ -32,10 +32,13 @@ export type EvidenceInput = {
   outcome: number;
   difficulty: number;
   occurredAt: Date;
-  meta?: { hintsUsed?: number; attempt?: number; solutionViewed?: boolean } & Record<
-    string,
-    unknown
-  >;
+  meta?: {
+    hintsUsed?: number;
+    attempt?: number;
+    solutionViewed?: boolean;
+    /** Judged by an AI reviewer that read the code but did not run it. */
+    aiReviewed?: boolean;
+  } & Record<string, unknown>;
 };
 
 export type SkillStatus = 'untouched' | 'learning' | 'practicing' | 'strong' | 'stale';
@@ -74,6 +77,8 @@ export function integrity(meta: EvidenceInput['meta']): number {
   if (meta.solutionViewed) return 0.25;
   let f = 1;
   if ((meta.hintsUsed ?? 0) > 0) f *= 0.7;
+  // An AI review is an estimate, not an execution: it counts for half.
+  if (meta.aiReviewed) f *= 0.5;
   const attempt = meta.attempt ?? 1;
   if (attempt === 2) f *= 0.8;
   else if (attempt >= 3) f *= 0.6;

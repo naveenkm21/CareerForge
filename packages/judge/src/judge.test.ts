@@ -12,6 +12,7 @@ describe('judge provider selection', () => {
   it('refuses to run without a configured judge', async () => {
     vi.stubEnv('JUDGE_PROVIDER', '');
     vi.stubEnv('JUDGE0_URL', '');
+    vi.stubEnv('OPENROUTER_API_KEY', '');
     const r = await judge({ lang: 'javascript', code: '', cases, timeLimitMs: 1000 });
     expect(r.status).toBe('error');
   });
@@ -69,4 +70,106 @@ describe('local judge', () => {
     },
     60_000,
   );
+});
+
+describe('AI review (OpenRouter)', () => {
+  beforeEach(() => {
+    vi.stubEnv('JUDGE_PROVIDER', '');
+    vi.stubEnv('JUDGE0_URL', '');
+    vi.stubEnv('OPENROUTER_API_KEY', 'test-key');
+  });
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+  });
+
+  /** Fakes OpenRouter: answers with `answer` as the model's JSON content. */
+  function fakeModel(answer: unknown, status = 200) {
+    const fetchMock = vi.fn(
+      async () =>
+        new Response(
+          JSON.stringify({
+            model: 'test/model:free',
+            choices: [{ message: { content: JSON.stringify(answer) } }],
+          }),
+          { status },
+        ),
+    );
+    vi.stubGlobal('fetch', fetchMock);
+    return fetchMock;
+  }
+  const review = () =>
+    judge({
+      lang: 'python',
+      code: 'print(sum(map(int, input().split()[1:])))',
+      cases,
+      timeLimitMs: 1000,
+      problem: { title: 'Sum', statement: 'Print the sum.' },
+    });
+  const base = {
+    compiles: true,
+    compile_error: '',
+    likely_too_slow: false,
+    feedback: 'Looks right.',
+  };
+
+  it('is used when only an OpenRouter key is configured', async () => {
+    const fetchMock = fakeModel({
+      ...base,
+      cases: cases.map((c) => ({
+        id: c.id,
+        passes: true,
+        predicted_output: c.expected,
+        reason: 'ok',
+      })),
+    });
+    const r = await review();
+    expect(r).toMatchObject({ status: 'ac', passed: 2, total: 2, judge: 'ai:test/model:free' });
+    expect(r.message).toContain('not executed');
+    const body = JSON.parse(
+      (fetchMock.mock.calls[0] as unknown as [string, RequestInit])[1].body as string,
+    );
+    expect(body.messages[1].content).toContain('Print the sum.');
+  });
+
+  it('code counts the passes: one failing test is a wrong answer with the predicted output', async () => {
+    fakeModel({
+      ...base,
+      cases: [
+        { id: '1', passes: true, predicted_output: '6', reason: 'ok' },
+        { id: '2', passes: false, predicted_output: '-10', reason: 'reads the count as a value' },
+      ],
+    });
+    const r = await review();
+    expect(r).toMatchObject({ status: 'wa', passed: 1, total: 2 });
+    expect(r.failedCase).toMatchObject({ input: cases[1]!.input, actual: '-10' });
+  });
+
+  it('a test the model skipped is never assumed to pass', async () => {
+    fakeModel({ ...base, cases: [{ id: '1', passes: true, predicted_output: '6', reason: '' }] });
+    expect(await review()).toMatchObject({ status: 'wa', passed: 1 });
+  });
+
+  it('maps "would not compile" and "too slow"', async () => {
+    fakeModel({ ...base, compiles: false, compile_error: 'SyntaxError', cases: [] });
+    expect((await review()).status).toBe('ce');
+    fakeModel({
+      ...base,
+      likely_too_slow: true,
+      cases: cases.map((c) => ({
+        id: c.id,
+        passes: true,
+        predicted_output: c.expected,
+        reason: '',
+      })),
+    });
+    expect((await review()).status).toBe('tle');
+  });
+
+  it('rate limits and unreadable answers become errors, never verdicts', async () => {
+    fakeModel({}, 429);
+    expect(await review()).toMatchObject({ status: 'error' });
+    fakeModel('not json at all');
+    expect(await review()).toMatchObject({ status: 'error' });
+  });
 });

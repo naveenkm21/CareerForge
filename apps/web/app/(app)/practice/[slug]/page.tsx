@@ -12,6 +12,9 @@ import { Workspace } from '../workspace';
 export const metadata: Metadata = { title: 'Problem' };
 export const dynamic = 'force-dynamic';
 
+// Submissions run as server actions on this route; an AI review can take ~10–40 s.
+export const maxDuration = 60;
+
 export default async function ProblemPage({
   params,
   searchParams,
@@ -59,7 +62,9 @@ export default async function ProblemPage({
           </Link>
         )}
         <header className="flex flex-col gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight text-fg">{p.problem.title}</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
+            {p.problem.title}
+          </h1>
           <p className="flex flex-wrap items-center gap-2 text-xs">
             <Badge
               tone={
@@ -123,7 +128,7 @@ export default async function ProblemPage({
         )}
         {subs.length > 0 && (
           <div>
-            <p className="mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
+            <p className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
               Your submissions
             </p>
             <ul className="flex flex-col gap-1 text-sm">
@@ -155,8 +160,16 @@ export default async function ProblemPage({
       <section className="min-w-0">
         {provider === 'none' && (
           <p className="mb-3 rounded-md bg-tone-active-soft px-3 py-2 text-sm text-fg">
-            No judge is configured. Set <code className="font-mono">JUDGE_PROVIDER=local</code> for
-            local development or <code className="font-mono">JUDGE0_URL</code> in production.
+            No judge is configured. Set <code className="font-mono">OPENROUTER_API_KEY</code> for AI
+            review, <code className="font-mono">JUDGE0_URL</code>, or{' '}
+            <code className="font-mono">JUDGE_PROVIDER=local</code> for local development.
+          </p>
+        )}
+        {provider === 'ai' && (
+          <p className="mb-3 rounded-[var(--radius)] border border-accent/30 bg-accent-soft px-3 py-2 text-sm text-fg">
+            <span className="font-mono text-accent-2">AI review</span> · a model reads your code
+            against the tests instead of running it. Verdicts are estimates, so a solve counts half
+            as much evidence as a judged one.
           </p>
         )}
         <Workspace
