@@ -71,6 +71,7 @@ jobs:
         run: |
           if [ -z "$DATABASE_URL" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::notice::DATABASE_URL secret not set — skipping."; fi
       - if: steps.guard.outputs.skip != 'true'
-        run: pnpm db:migrate && pnpm db:seed
+        # db:demo loads the demo account once and is a no-op afterwards.
+        run: pnpm db:migrate && pnpm db:seed && pnpm db:demo
 # Deploys: Vercel's Git integration builds apps/web on every push (preview on PRs, production on
 # main). The gateway deploys to the VM with `docker compose up -d --build` (see infra/vm).

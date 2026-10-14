@@ -106,6 +106,15 @@ const PEERS = [
   { handle: 'kabir', name: 'Kabir Singh', college: 'IIT Madras', ability: 0.58, days: 8 },
 ];
 
+/** The demo is loaded once; CI runs this on every deploy and treats a second run as a no-op. */
+class DemoAlreadyLoaded extends Error {
+  constructor(email: string) {
+    super(
+      `Demo data already loaded (${email}); nothing to do. For a fresh local demo: pnpm db:reset && pnpm db:demo`,
+    );
+  }
+}
+
 async function upsertUser(input: {
   provider: string;
   subject: string;
@@ -128,11 +137,7 @@ async function upsertUser(input: {
       .from(evidenceEvents)
       .where(eq(evidenceEvents.userId, existing[0].id))
       .limit(1);
-    if (used) {
-      throw new Error(
-        `Demo data already exists (${input.email}). Run \`pnpm db:reset && pnpm db:demo\` for a fresh demo.`,
-      );
-    }
+    if (used) throw new DemoAlreadyLoaded(input.email);
     const [adopted] = await db
       .update(users)
       .set({
@@ -569,6 +574,7 @@ async function main() {
 
 main()
   .catch((err) => {
+    if (err instanceof DemoAlreadyLoaded) return console.log(err.message);
     console.error(err instanceof Error ? err.message : err);
     // Drizzle wraps driver errors; the real reason (auth, network, SQL) is in `cause`.
     if (err instanceof Error && err.cause)
