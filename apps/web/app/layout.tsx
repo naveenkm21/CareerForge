@@ -1,18 +1,12 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Inter_Tight, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
+import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
 import { AuthProvider } from '@careerforge/auth/react';
 import { ThemeProvider } from '@/components/theme-provider';
 import { HeaderGate } from '@/components/header-gate';
 import { SiteHeader } from '@/components/site-header';
-import { SpotlightTracker } from '@/components/spotlight-tracker';
 import './globals.css';
 
 const sans = Inter({ subsets: ['latin'], variable: '--font-sans-family', display: 'swap' });
-const display = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-display-family',
-  display: 'swap',
-});
 const tight = Inter_Tight({
   subsets: ['latin'],
   weight: ['400', '500'],
@@ -33,10 +27,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f6f6f3' },
-    { media: '(prefers-color-scheme: dark)', color: '#050505' },
-  ],
+  // The app opens in light mode for everyone (see ThemeProvider), so the browser chrome matches.
+  themeColor: '#fafaf9',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sans.variable} ${mono.variable} ${display.variable} ${tight.variable}`}
+      className={`${sans.variable} ${mono.variable} ${tight.variable}`}
     >
       <body className="min-h-dvh font-sans">
         <AuthProvider>
@@ -59,7 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <SiteHeader />
             </HeaderGate>
             <div id="main">{children}</div>
-            <SpotlightTracker />
           </ThemeProvider>
         </AuthProvider>
       </body>

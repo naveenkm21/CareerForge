@@ -115,8 +115,8 @@ export default async function DashboardPage() {
       <section className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-sm text-fg-muted">{greetingFor(new Date(), actor.timezone)},</p>
-          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
-            <span className="cf-gradient-text">{actor.name ?? actor.handle}</span>
+          <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
+            {actor.name ?? actor.handle}
           </h1>
           <p className="mt-1 text-sm text-fg-muted">
             {ctx.role.title} · {actor.dailyMinutesTarget} min/day ·{' '}
@@ -178,7 +178,7 @@ export default async function DashboardPage() {
             <div className="flex flex-wrap items-end gap-x-6 gap-y-2">
               <Link
                 href="/explain/readiness"
-                className="cf-gradient-text font-display text-7xl font-bold tracking-tighter transition-[filter] hover:brightness-125"
+                className="font-display text-7xl font-normal tracking-[-0.03em] text-fg transition-colors hover:text-accent"
                 aria-label={`Readiness ${pct(readiness.overall)}, explain`}
               >
                 {evidenceCount ? pct(readiness.overall) : '—'}
@@ -221,9 +221,7 @@ export default async function DashboardPage() {
               })}
             </ul>
             <div>
-              <p className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
-                Readiness, last 30 days
-              </p>
+              <p className="mb-2 text-xs text-fg-subtle">Readiness, last 30 days</p>
               <TrendLine
                 points={history.map((h) => ({ x: h.takenOn.slice(5), y: h.overall }))}
                 label="Readiness"

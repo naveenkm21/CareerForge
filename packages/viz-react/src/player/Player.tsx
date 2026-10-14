@@ -322,7 +322,7 @@ function PlayerInner({
           </section>
         </div>
 
-        <div className="sticky bottom-0 z-10 -mx-4 border-t border-border bg-bg/90 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-[var(--radius)] sm:border">
+        <div className="sticky bottom-0 z-10 -mx-4 border-t border-border bg-bg px-4 py-3 sm:mx-0 sm:rounded-[var(--radius)] sm:border">
           <div className="flex flex-wrap items-center gap-2">
             <div className="flex items-center gap-1">
               <Button variant="ghost" size="icon" aria-label="Restart" onClick={() => goto(0)}>
@@ -476,7 +476,7 @@ function Narration({
       )}
       style={result ? { background: 'var(--tone-found-soft)' } : undefined}
     >
-      <p className="mb-1 text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
+      <p className="mb-1 text-[12px] text-fg-subtle">
         Step {s.i + 1} of {total}
         {practice && s.checkpoint && (
           <span className="ml-2 text-accent normal-case">· checkpoint — press next to answer</span>

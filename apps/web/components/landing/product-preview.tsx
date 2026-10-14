@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { ArrowRight, Check, Pause, Play, RotateCcw, StepForward } from 'lucide-react';
 import { cn } from '@careerforge/ui';
+import { CursorTrace } from './cursor-trace';
 import { Mascot } from './mascot';
 
 /**
@@ -28,10 +29,10 @@ export function ProductPreview() {
     <div className="relative">
       <Mascot
         pose="laptop"
-        className="absolute -top-[110px] right-8 z-10 hidden w-[170px] sm:block"
+        className="absolute -top-[143px] right-8 z-10 hidden w-[220px] sm:block"
       />
       <div className="relative rounded-2xl border border-lp-border bg-lp-card p-2 shadow-lp-xl">
-        <div className="overflow-hidden rounded-[10px] border border-lp-border bg-lp-canvas">
+        <div className="relative overflow-hidden rounded-[10px] border border-lp-border bg-lp-canvas">
           <div className="flex items-center gap-1.5 border-b border-lp-border px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-lp-muted" />
             <span className="h-2.5 w-2.5 rounded-full bg-lp-muted" />
@@ -55,6 +56,7 @@ export function ProductPreview() {
               </motion.div>
             </AnimatePresence>
           </div>
+          <CursorTrace />
         </div>
       </div>
 

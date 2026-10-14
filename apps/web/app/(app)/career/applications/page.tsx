@@ -28,7 +28,9 @@ export default async function ApplicationsPage() {
         / Applications
       </nav>
       <header>
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Applications</h1>
+        <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
+          Applications
+        </h1>
         <p className="mt-1 text-fg-muted">
           Every status change is timestamped, so you can see how long each stage takes.
         </p>
@@ -50,7 +52,7 @@ export default async function ApplicationsPage() {
                 aria-label={c.label}
                 className="flex min-w-48 flex-col gap-2 rounded-[var(--radius)] bg-surface-2 p-2"
               >
-                <h2 className="font-mono flex items-center justify-between px-1 pt-1 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
+                <h2 className="flex items-center justify-between px-1 pt-1 text-[13px] text-fg-subtle">
                   {c.label} <span>{items.length}</span>
                 </h2>
                 {items.map(({ app, job }) => {

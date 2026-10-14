@@ -25,7 +25,9 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
         / {t.topic.title}
       </nav>
       <header className="flex flex-col gap-2">
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">{t.topic.title}</h1>
+        <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
+          {t.topic.title}
+        </h1>
         <p className="text-fg-muted">{t.topic.blurb}</p>
         <p className="text-sm text-fg-subtle">
           Skill: {t.skill.name} ·{' '}
@@ -53,7 +55,7 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
               className="flex items-center justify-between gap-3 rounded-lg border border-border bg-surface px-4 py-3 hover:border-accent"
             >
               <span>
-                <span className="font-mono block text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
+                <span className="block text-[11px] text-fg-subtle">
                   Stage {l.stage} · {STAGE_NAMES[l.stage - 1]}
                 </span>
                 <span className="text-sm font-medium text-fg">{l.title}</span>

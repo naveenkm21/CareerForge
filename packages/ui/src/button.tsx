@@ -5,17 +5,17 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'danger';
 type Size = 'sm' | 'md' | 'icon';
 
 const VARIANTS: Record<Variant, string> = {
+  // The one chromatic fill: signal cyan with ink text (DESIGN.md primary CTA).
   primary:
-    'bg-accent text-accent-fg shadow-[0_0_24px_-8px_var(--accent)] hover:brightness-110 hover:shadow-[0_0_32px_-6px_var(--accent)]',
-  secondary:
-    'border border-border-strong bg-surface-2 text-fg hover:border-accent/60 hover:text-fg',
+    'border border-accent-2 bg-accent text-accent-fg shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:brightness-105',
+  secondary: 'border border-border text-fg hover:border-border-strong hover:bg-surface',
   ghost: 'text-fg-muted hover:bg-surface-2 hover:text-fg',
   danger: 'bg-danger text-white hover:opacity-90',
 };
 
 const SIZES: Record<Size, string> = {
-  sm: 'h-8 px-3 text-sm gap-1.5',
-  md: 'h-10 px-4 text-sm gap-2',
+  sm: 'h-8 px-3.5 text-sm gap-1.5',
+  md: 'h-10 px-5 text-sm gap-2',
   icon: 'h-9 w-9 justify-center',
 };
 
@@ -25,7 +25,7 @@ export function buttonClasses(
   className?: string,
 ): string {
   return cn(
-    'inline-flex items-center rounded-[var(--radius)] font-medium transition-[color,background-color,border-color,box-shadow,filter]',
+    'inline-flex items-center rounded-full font-medium transition-[color,background-color,border-color,filter]',
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
     'disabled:pointer-events-none disabled:opacity-50',
     VARIANTS[variant],

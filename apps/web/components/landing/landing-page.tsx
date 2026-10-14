@@ -6,6 +6,7 @@ import { MotionConfig } from 'motion/react';
 import { useTheme } from 'next-themes';
 import { ArrowRight, Check, Lock, Moon, Sun } from 'lucide-react';
 import { cn } from '@careerforge/ui';
+import { EvidenceFlow } from './evidence-flow';
 import { Mascot } from './mascot';
 import { ProductPreview } from './product-preview';
 import {
@@ -109,39 +110,47 @@ function ThemeSwitch() {
 function Hero({ algorithmCount }: { algorithmCount: number }) {
   return (
     <section className={cn(WRAP, 'pt-16 pb-24 sm:pt-24')}>
-      <Reveal className="max-w-[760px]">
-        <p className="inline-flex items-center gap-2 rounded-full border border-lp-border bg-lp-card px-3 py-1 text-[12px] text-lp-body shadow-lp-subtle">
-          <span className="h-1.5 w-1.5 rounded-full bg-lp-cyan" />
-          Code → See → Understand → Solve
-        </p>
-        <h1 className="mt-6 font-tight text-[40px] leading-[1.12] font-normal tracking-[-0.021em] text-lp-ink sm:text-[52px]">
-          Prove you’re job-ready <Highlight>with evidence</Highlight>, not vibes.
-        </h1>
-        <p className="mt-5 max-w-[620px] text-[16px] leading-[1.69] text-lp-body">
-          Pick a target role. CareerForge measures where you actually are, then takes you through
-          visual lessons, active practice, and interviews, and every number it shows traces back to
-          something you did.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <PrimaryCta href="/sign-up">
-            Start with a target role <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
-          </PrimaryCta>
-          <GhostButton href="/viz/binary-search">Try the visualizer, no account</GhostButton>
-        </div>
-        <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-lp-body">
-          {[
-            `${algorithmCount} algorithms animated`,
-            '4 languages, one trace',
-            'Every number auditable',
-          ].map((t) => (
-            <span key={t} className="flex items-center gap-1.5">
-              <Check className="h-3.5 w-3.5 text-lp-ink" strokeWidth={1.75} />
-              {t}
-            </span>
-          ))}
-        </p>
-      </Reveal>
-      <Reveal className="mt-20" delay={0.1}>
+      {/* Two columns on wide screens: the pitch, and evidence turning into the number beside it,
+          centred against each other. */}
+      <div className="grid items-center gap-16 xl:grid-cols-[minmax(0,1fr)_330px]">
+        <Reveal className="max-w-[760px]">
+          <p className="inline-flex items-center gap-2 rounded-full border border-lp-border bg-lp-card px-3 py-1 text-[12px] text-lp-body shadow-lp-subtle">
+            <span className="h-1.5 w-1.5 rounded-full bg-lp-cyan" />
+            Code → See → Understand → Solve
+          </p>
+          <h1 className="mt-6 font-tight text-[40px] leading-[1.12] font-normal tracking-[-0.021em] text-lp-ink sm:text-[52px]">
+            Prove you’re job-ready <Highlight>with evidence</Highlight>, not vibes.
+          </h1>
+          <p className="mt-5 max-w-[620px] text-[16px] leading-[1.69] text-lp-body">
+            Pick a target role. CareerForge measures where you actually are, then takes you through
+            visual lessons, active practice, and interviews, and every number it shows traces back
+            to something you did.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <PrimaryCta href="/sign-up">
+              Start with a target role <ArrowRight className="h-4 w-4" strokeWidth={1.75} />
+            </PrimaryCta>
+            <GhostButton href="/viz/binary-search">Try the visualizer, no account</GhostButton>
+          </div>
+          <p className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-lp-body">
+            {[
+              `${algorithmCount} algorithms animated`,
+              '4 languages, one trace',
+              'Every number auditable',
+            ].map((t) => (
+              <span key={t} className="flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-lp-ink" strokeWidth={1.75} />
+                {t}
+              </span>
+            ))}
+          </p>
+        </Reveal>
+        <Reveal delay={0.15} className="hidden xl:block">
+          <EvidenceFlow />
+        </Reveal>
+      </div>
+      {/* Extra room on wide screens so the mascot's head clears the evidence cards. */}
+      <Reveal className="mt-20 xl:mt-36" delay={0.1}>
         <ProductPreview />
       </Reveal>
     </section>

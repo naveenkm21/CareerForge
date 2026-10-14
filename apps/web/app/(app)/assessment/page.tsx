@@ -13,7 +13,7 @@ export default async function AssessmentPage() {
   return (
     <main className="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header>
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+        <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
           Placement assessment
         </h1>
         <p className="mt-2 text-fg-muted">

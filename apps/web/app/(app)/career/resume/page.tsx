@@ -34,7 +34,7 @@ export default async function ResumePage({
         / Resume
       </nav>
       <header>
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+        <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
           Resume intelligence
         </h1>
         <p className="mt-1 max-w-2xl text-fg-muted">

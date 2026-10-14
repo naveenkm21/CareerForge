@@ -8,9 +8,7 @@ export function VarsPanel({ step, prev }: { step: Step | undefined; prev: Step |
   const entries = Object.entries(step?.vars ?? {});
   return (
     <div className="rounded-[var(--radius)] border border-border bg-surface px-3 py-2.5">
-      <p className="mb-2 text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
-        Variables
-      </p>
+      <p className="mb-2 text-[12px] text-fg-subtle">Variables</p>
       {entries.length === 0 ? (
         <p className="text-xs text-fg-subtle">none yet</p>
       ) : (

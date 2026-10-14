@@ -25,7 +25,7 @@ export function DevSignInForm({
           required
           autoComplete="email"
           autoFocus
-          className="h-11 rounded-xl border border-border-strong bg-surface-2 px-3.5 text-sm text-fg transition-shadow outline-none focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--accent)_25%,transparent)]"
+          className="h-10 rounded-[6px] border border-border-strong bg-surface px-3 text-sm text-fg outline-none"
         />
       </label>
       {mode === 'sign-up' && (
@@ -34,7 +34,7 @@ export function DevSignInForm({
           <input
             name="name"
             autoComplete="name"
-            className="h-11 rounded-xl border border-border-strong bg-surface-2 px-3.5 text-sm text-fg transition-shadow outline-none focus:border-accent focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--accent)_25%,transparent)]"
+            className="h-10 rounded-[6px] border border-border-strong bg-surface px-3 text-sm text-fg outline-none"
           />
         </label>
       )}
@@ -46,7 +46,7 @@ export function DevSignInForm({
       <Button type="submit" disabled={pending}>
         {pending ? 'Signing in…' : mode === 'sign-up' ? 'Create account' : 'Continue'}
       </Button>
-      <p className="rounded-xl border border-border bg-surface-2 px-3 py-2 text-xs text-fg-muted">
+      <p className="rounded-[6px] border border-border bg-surface-2 px-3 py-2 text-xs text-fg-muted">
         Local development sign-in: no password, a signed cookie on this machine. Production uses
         Clerk — set <code className="font-mono">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code>.
       </p>

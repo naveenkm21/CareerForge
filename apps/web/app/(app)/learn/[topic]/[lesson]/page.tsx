@@ -66,7 +66,9 @@ export default async function LessonPage({
             </li>
           ))}
         </ol>
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">{lesson.title}</h1>
+        <h1 className="text-3xl font-normal tracking-[-0.021em] text-fg sm:text-4xl">
+          {lesson.title}
+        </h1>
       </header>
 
       <div className="flex flex-col gap-6">

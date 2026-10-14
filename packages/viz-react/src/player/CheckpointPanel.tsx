@@ -36,7 +36,7 @@ export function CheckpointPanel({
       role="group"
       aria-labelledby="cf-checkpoint-prompt"
     >
-      <p className="mb-1 flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-accent uppercase">
+      <p className="mb-1 flex items-center gap-1.5 text-[12px] text-accent">
         <Lightbulb size={13} aria-hidden /> Predict the next step
       </p>
       <p id="cf-checkpoint-prompt" className="mb-3 text-sm font-medium text-fg">

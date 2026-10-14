@@ -43,7 +43,7 @@
 
   --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-family), ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-display: var(--font-display-family), var(--font-sans-family), ui-sans-serif, sans-serif;
+  --font-display: var(--font-tight-family), var(--font-sans-family), ui-sans-serif, sans-serif;
   --font-tight: var(--font-tight-family), var(--font-sans-family), ui-sans-serif, sans-serif;
 
   /* Landing page (DESIGN.md, "quiet analyst's desk"): stone neutrals + one cyan. */
@@ -84,58 +84,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Page and section titles use the display face, like the landing page. */
+/* Page and section titles: Inter Tight at weight 400 with tight tracking, as on the landing. */
 @layer base {
   h1,
   h2 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    font-weight: 400;
+    letter-spacing: -0.021em;
   }
 }
 
+/* Fills use the signal cyan; accent-coloured text uses the deeper, readable cyan. */
+html .text-accent {
+  color: var(--accent-text);
+}
+
 ::selection {
-  background: color-mix(in oklab, var(--accent) 40%, transparent);
-}
-
-/*
- * Dark mode backdrop for every page: two soft glows and a dot matrix that fades out, fixed
- * behind the content. Surfaces are translucent, so cards read as glass over it.
- */
-html.dark body {
-  background:
-    radial-gradient(900px 600px at 0% -10%, rgb(139 92 246 / 0.16), transparent 60%),
-    radial-gradient(800px 560px at 100% 0%, rgb(34 211 238 / 0.09), transparent 60%), var(--bg);
-  background-attachment: fixed;
-}
-html.dark body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black, transparent);
-}
-
-/*
- * Cursor spotlight on every surface (see components/spotlight-tracker.tsx, which sets --mx/--my
- * on the panel under the pointer). Paints a soft violet glow where the cursor is.
- */
-html.dark .bg-surface,
-html.dark [data-spotlight] {
-  background-image: radial-gradient(
-    420px circle at var(--mx, -999px) var(--my, -999px),
-    rgb(139 92 246 / 0.11),
-    transparent 45%
-  );
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  background: color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
 html.dark {
-  scrollbar-color: #2a2a38 transparent;
+  scrollbar-color: #44403c transparent;
 }
 
 :focus-visible {
@@ -152,29 +121,15 @@ html.dark {
   }
 }
 
-/* Page titles carry the landing page's glowing violet-to-cyan underline. */
-#main main:not(.lp-main) h1:not(.flex)::after {
-  content: '';
-  display: block;
-  width: 3.5rem;
-  height: 3px;
-  margin-top: 0.75rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 14px -2px var(--accent);
-}
-
-/* Each page's sections rise in one after another, like the landing page. */
+/* Each page's sections settle in one after another, calmly, like the landing page. */
 @keyframes page-rise {
   from {
     opacity: 0;
-    transform: translateY(14px);
-    filter: blur(4px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 #main > main:not(.lp-main) > * {
@@ -193,39 +148,16 @@ html.dark {
   animation-delay: 0.24s;
 }
 
-/* Every text field and dropdown gets the landing page's violet focus glow. */
+/* Text fields and dropdowns: DESIGN.md's 2px cyan focus ring. */
 #main :is(input:not([type='checkbox'], [type='radio'], [type='range']), textarea, select):focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+  box-shadow: 0 0 0 2px var(--accent);
   outline: none;
 }
 
-/* The landing headline's slowly panning gradient, for a page's key word or number. */
-@keyframes cf-pan {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
+/* Formerly a gradient; the editorial theme keeps key words in plain ink. */
 .cf-gradient-text {
-  color: var(--accent);
-}
-html.dark .cf-gradient-text {
-  background: linear-gradient(
-    100deg,
-    #ffffff 10%,
-    #c4b5fd 35%,
-    #22d3ee 55%,
-    #a78bfa 75%,
-    #ffffff 95%
-  );
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: cf-pan 7s ease-in-out infinite alternate;
+  color: inherit;
 }
 
 /*

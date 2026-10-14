@@ -70,9 +70,7 @@ export function QuizBlock({
   const [pending, start] = useTransition();
   return (
     <div className="rounded-[var(--radius)] border border-border bg-surface p-4">
-      <p className="font-mono mb-1 text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
-        Quick check
-      </p>
+      <p className="mb-1 text-[11px] text-fg-subtle">Quick check</p>
       <p className="mb-3 text-sm font-medium text-fg">{prompt}</p>
       <div className="flex flex-col gap-2">
         {options.map((o) => {
@@ -135,7 +133,7 @@ export function ExplainBlock({
   const [result, setResult] = useState<Awaited<ReturnType<typeof explainAction>> | null>(null);
   return (
     <div className="flex flex-col gap-3 rounded-[var(--radius)] border border-border bg-surface p-4">
-      <p className="font-mono flex items-center gap-1.5 text-[11px] font-semibold tracking-wider text-accent uppercase">
+      <p className="flex items-center gap-1.5 text-[11px] text-accent">
         <Lightbulb size={13} aria-hidden /> Explain it
       </p>
       <p className="text-sm font-medium text-fg">{prompt}</p>

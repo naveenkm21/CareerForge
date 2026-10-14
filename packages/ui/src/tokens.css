@@ -4,29 +4,33 @@
  * "frontier" node in BFS and a "frontier" cell in flood fill look the same.
  */
 :root {
-  --bg: #f6f6f3;
+  /* Light: DESIGN.md's stone neutrals and its single cyan (the landing page's palette). */
+  --bg: #fafaf9;
   --surface: #ffffff;
-  --surface-2: #f0f0ec;
-  --surface-3: #e6e6e0;
-  --border: #deded7;
-  --border-strong: #c6c6bd;
-  --fg: #1b1b18;
-  --fg-muted: #62625b;
-  --fg-subtle: #8c8c84;
-  --accent: #4f46e5;
-  --accent-fg: #ffffff;
-  --accent-soft: #eceafd;
+  --surface-2: #f5f5f4;
+  --surface-3: #e7e5e4;
+  --border: #e8e6e5;
+  --border-strong: #d6d3d1;
+  --fg: #0c0a09;
+  --fg-muted: #78716c;
+  --fg-subtle: #a8a29e;
+  /* Fills use the signal cyan; text-accent uses a deeper cyan so small links stay readable. */
+  --accent: #3ba6f1;
+  --accent-fg: #0c0a09;
+  --accent-text: #1f7fc4;
+  --accent-soft: #e3f1fc;
+  --accent-2: #3398e1;
   --danger: #dc2626;
   --success: #15803d;
   --warning: #b45309;
-  --code-bg: #fbfbf9;
-  --code-hl: #fff4d6;
-  --code-hl-border: #f59e0b;
+  --code-bg: #f5f5f4;
+  --code-hl: #e3f1fc;
+  --code-hl-border: #3ba6f1;
   --syn-keyword: #7c3aed;
   --syn-string: #0f766e;
   --syn-number: #b45309;
-  --syn-comment: #8c8c84;
-  --syn-type: #2563eb;
+  --syn-comment: #a8a29e;
+  --syn-type: #1f7fc4;
 
   --tone-active: #d97706;
   --tone-active-soft: #fef3c7;
@@ -34,8 +38,8 @@
   --tone-candidate-soft: #dbeafe;
   --tone-frontier: #7c3aed;
   --tone-frontier-soft: #ede9fe;
-  --tone-visited: #64748b;
-  --tone-visited-soft: #e2e8f0;
+  --tone-visited: #78716c;
+  --tone-visited-soft: #e7e5e4;
   --tone-path: #0d9488;
   --tone-path-soft: #ccfbf1;
   --tone-found: #16a34a;
@@ -45,60 +49,59 @@
   --tone-error: #dc2626;
   --tone-error-soft: #fee2e2;
 
-  --chart-1: #4f46e5;
-  --chart-grid: #ecece7;
-  --accent-2: #0891b2;
-  --radius: 12px;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
+  --chart-1: #3398e1;
+  --chart-grid: #e8e6e5;
+  --radius: 10px;
+  --shadow: rgba(0, 0, 0, 0.05) 0px 4px 16px 0px;
 }
 
 .dark {
-  /* Obsidian + neon: the landing page's palette, used across the whole app. Surfaces are
-     slightly translucent so the page's background glow shows through ("glass"). */
-  --bg: #050505;
-  --surface: rgb(14 14 20 / 0.78);
-  --surface-2: rgb(24 24 34 / 0.85);
-  --surface-3: #22222f;
-  --border: rgb(255 255 255 / 0.08);
-  --border-strong: rgb(255 255 255 / 0.16);
-  --fg: #f4f4f5;
-  --fg-muted: #a1a1aa;
-  --fg-subtle: #7a7a86;
-  --accent: #8b5cf6;
-  --accent-fg: #ffffff;
-  --accent-soft: #1f1738;
-  --accent-2: #22d3ee;
+  /* Dark: the same stone scale inverted (ink canvas, soot cards), the same single cyan. */
+  --bg: #0c0a09;
+  --surface: #1c1917;
+  --surface-2: #292524;
+  --surface-3: #44403c;
+  --border: #292524;
+  --border-strong: #44403c;
+  --fg: #fafaf9;
+  --fg-muted: #a8a29e;
+  --fg-subtle: #78716c;
+  --accent: #3ba6f1;
+  --accent-fg: #0c0a09;
+  --accent-text: #7cc4f5;
+  --accent-soft: #0f2a3d;
+  --accent-2: #3ba6f1;
   --danger: #f87171;
   --success: #4ade80;
   --warning: #fbbf24;
-  --code-bg: #08080d;
-  --code-hl: #0b2a33;
-  --code-hl-border: #22d3ee;
+  --code-bg: #171412;
+  --code-hl: #0f2a3d;
+  --code-hl-border: #3ba6f1;
   --syn-keyword: #c4b5fd;
   --syn-string: #5eead4;
   --syn-number: #fbbf24;
-  --syn-comment: #5b5b6b;
-  --syn-type: #67e8f9;
+  --syn-comment: #78716c;
+  --syn-type: #7cc4f5;
 
   --tone-active: #f59e0b;
   --tone-active-soft: #33240a;
-  --tone-candidate: #22d3ee;
-  --tone-candidate-soft: #0b2a33;
+  --tone-candidate: #60a5fa;
+  --tone-candidate-soft: #14264a;
   --tone-frontier: #a78bfa;
   --tone-frontier-soft: #231a44;
-  --tone-visited: #94a3b8;
-  --tone-visited-soft: #1d2230;
+  --tone-visited: #a8a29e;
+  --tone-visited-soft: #292524;
   --tone-path: #2dd4bf;
   --tone-path-soft: #0d302d;
   --tone-found: #4ade80;
   --tone-found-soft: #0f2f1c;
   --tone-excluded: #57534e;
-  --tone-excluded-soft: #141414;
+  --tone-excluded-soft: #1c1917;
   --tone-error: #f87171;
   --tone-error-soft: #3a1313;
 
-  --chart-1: #8b5cf6;
-  --chart-grid: #1c1c26;
-  --radius: 14px;
-  --shadow: 0 0 0 1px rgb(255 255 255 / 0.02), 0 18px 40px -24px rgb(0 0 0 / 0.9);
+  --chart-1: #3ba6f1;
+  --chart-grid: #292524;
+  --radius: 10px;
+  --shadow: rgba(0, 0, 0, 0.35) 0px 4px 16px 0px;
 }

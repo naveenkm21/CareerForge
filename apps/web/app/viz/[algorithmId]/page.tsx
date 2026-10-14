@@ -65,7 +65,9 @@ export default async function VizPage({
         >
           <ChevronLeft size={13} aria-hidden /> All algorithms
         </Link>
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">{meta.title}</h1>
+        <h1 className="text-3xl font-normal tracking-[-0.021em] text-fg sm:text-4xl">
+          {meta.title}
+        </h1>
         <p className="max-w-3xl text-sm text-fg-muted">{meta.summary}</p>
       </div>
       <EvidencePlayer

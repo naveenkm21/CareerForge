@@ -186,7 +186,7 @@ export function HBars({
                 className="h-[18px] rounded-r-[4px]"
                 style={{
                   width: `${Math.max(1.5, (r.value / top) * 85)}%`,
-                  background: 'linear-gradient(90deg, var(--chart-1), var(--accent-2))',
+                  background: 'var(--chart-1)',
                 }}
                 aria-hidden
               />

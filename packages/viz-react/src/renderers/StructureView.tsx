@@ -53,9 +53,7 @@ export function StructureView({
 
   return (
     <figure className="flex min-w-0 flex-col gap-2">
-      <figcaption className="text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
-        {label}
-      </figcaption>
+      <figcaption className="text-[12px] text-fg-subtle">{label}</figcaption>
       <div className={decl.kind === 'stack' ? 'pl-9' : undefined}>{body}</div>
     </figure>
   );

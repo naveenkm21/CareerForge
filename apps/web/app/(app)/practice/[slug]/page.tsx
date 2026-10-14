@@ -62,7 +62,7 @@ export default async function ProblemPage({
           </Link>
         )}
         <header className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
+          <h1 className="text-3xl font-normal tracking-[-0.021em] text-fg sm:text-4xl">
             {p.problem.title}
           </h1>
           <p className="flex flex-wrap items-center gap-2 text-xs">
@@ -128,9 +128,7 @@ export default async function ProblemPage({
         )}
         {subs.length > 0 && (
           <div>
-            <p className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
-              Your submissions
-            </p>
+            <p className="mb-2 text-xs text-fg-subtle">Your submissions</p>
             <ul className="flex flex-col gap-1 text-sm">
               {subs.map((s) => (
                 <li key={s.id}>
@@ -167,7 +165,7 @@ export default async function ProblemPage({
         )}
         {provider === 'ai' && (
           <p className="mb-3 rounded-[var(--radius)] border border-accent/30 bg-accent-soft px-3 py-2 text-sm text-fg">
-            <span className="font-mono text-accent-2">AI review</span> · a model reads your code
+            <span className="font-medium text-accent">AI review</span> · a model reads your code
             against the tests instead of running it. Verdicts are estimates, so a solve counts half
             as much evidence as a judged one.
           </p>

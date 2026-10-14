@@ -22,7 +22,7 @@ export default async function NewJobPage({
         / Paste
       </nav>
       <header>
-        <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+        <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
           Paste a job description
         </h1>
         <p className="mt-1 text-fg-muted">

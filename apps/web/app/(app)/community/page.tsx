@@ -55,7 +55,9 @@ export default async function CommunityPage({
       <section className="flex flex-col gap-4">
         <header className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Community</h1>
+            <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">
+              Community
+            </h1>
             <p className="mt-1 text-fg-muted">
               XP comes from the same evidence as your mastery, capped per skill per day — it can’t
               be farmed.

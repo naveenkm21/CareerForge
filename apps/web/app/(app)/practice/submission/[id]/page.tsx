@@ -22,7 +22,7 @@ export default async function SubmissionPage({ params }: { params: Promise<{ id:
         </Link>{' '}
         / submission
       </nav>
-      <h1 className="flex flex-wrap items-center gap-3 text-3xl font-bold tracking-tight text-fg">
+      <h1 className="flex flex-wrap items-center gap-3 text-3xl font-normal tracking-[-0.021em] text-fg">
         Submission{' '}
         <Badge tone={s.status === 'ac' ? 'success' : 'danger'}>{s.status.toUpperCase()}</Badge>
       </h1>

@@ -34,11 +34,11 @@ export async function SiteHeader() {
     : [{ href: '/viz', label: 'Visualizer' }];
 
   return (
-    <header className="sticky top-0 z-30 border-b border-border bg-bg/60 backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-border bg-bg">
       <div className="mx-auto flex h-14 max-w-7xl items-center gap-3 px-4 sm:px-6">
         <Link
           href={signedIn ? '/dashboard' : '/'}
-          className="flex items-center gap-2 font-display font-bold tracking-tight text-fg"
+          className="flex items-center gap-2 text-sm font-medium text-fg"
         >
           <Logo />
           <span>CareerForge</span>
@@ -79,24 +79,19 @@ export async function SiteHeader() {
   );
 }
 
+/** Same mark as the landing page: an ink trend line ending in the one cyan dot. */
 function Logo() {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
-      <defs>
-        <linearGradient id="cf-logo" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--accent)" />
-          <stop offset="100%" stopColor="var(--accent-2)" />
-        </linearGradient>
-      </defs>
-      <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#cf-logo)" />
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden>
       <path
-        d="M7 15.5 L10.5 9 L13.5 13 L17 7.5"
+        d="M4 16.5 L9 8.5 L13 13.5 L20 5"
         fill="none"
-        stroke="var(--bg)"
-        strokeWidth="2.2"
+        stroke="var(--fg)"
+        strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <circle cx="20" cy="5" r="2.2" fill="var(--accent)" />
     </svg>
   );
 }

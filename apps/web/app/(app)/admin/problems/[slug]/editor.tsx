@@ -99,9 +99,7 @@ export function ProblemEditor({
       </div>
 
       <fieldset className="flex flex-col gap-2">
-        <legend className="font-mono mb-1 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
-          Testcases
-        </legend>
+        <legend className="mb-1 text-xs text-fg-subtle">Testcases</legend>
         {cases.map((c, i) => (
           <div
             key={i}

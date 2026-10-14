@@ -31,7 +31,7 @@ export default async function ExplainReadinessPage() {
         / Explain
       </nav>
       <header className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
+        <h1 className="text-3xl font-normal tracking-[-0.021em] text-fg sm:text-4xl">
           Readiness {pct(r.overall)} · {ctx.role?.title}
         </h1>
         <p className="text-sm text-fg-muted">
@@ -93,7 +93,7 @@ function Pillar({
     <section id={id} className="scroll-mt-20">
       <Card>
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border px-5 py-3.5">
-          <h2 className="font-semibold text-fg">
+          <h2 className="font-normal text-fg">
             {p.label}{' '}
             <span className="font-normal text-fg-muted">· weight {p.weight.toFixed(2)}</span>
           </h2>

@@ -24,14 +24,9 @@ export function Meter({
       aria-valuemax={100}
       aria-valuenow={value === null ? undefined : pct}
       aria-valuetext={value === null ? 'not measured yet' : `${pct}%`}
-      className={cn('relative h-1.5 w-full overflow-hidden rounded-full bg-surface-3', className)}
+      className={cn('relative h-1.5 w-full overflow-hidden rounded-full bg-border', className)}
     >
-      {value !== null && (
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 shadow-[0_0_10px_-2px_var(--accent)]"
-          style={{ width: `${pct}%` }}
-        />
-      )}
+      {value !== null && <div className="h-full rounded-full bg-fg" style={{ width: `${pct}%` }} />}
       {target !== undefined && (
         <div
           className="absolute top-0 h-full w-px bg-fg-subtle"

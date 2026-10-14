@@ -43,9 +43,7 @@ export function InputEditor({
       }}
     >
       <div className="flex items-center justify-between">
-        <p className="text-[11px] font-semibold tracking-wider text-fg-subtle uppercase">
-          Edit input
-        </p>
+        <p className="text-[12px] text-fg-subtle">Edit input</p>
         <button type="button" onClick={onClose} className="text-xs text-fg-muted hover:text-fg">
           Close
         </button>

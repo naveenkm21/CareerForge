@@ -51,7 +51,7 @@ export default async function SkillsPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-fg sm:text-4xl">
+        <h1 className="text-3xl font-normal tracking-[-0.021em] text-fg sm:text-4xl">
           {data.role.title} skill graph
         </h1>
         <p className="mt-1 max-w-3xl text-sm text-fg-muted">
@@ -61,7 +61,7 @@ export default async function SkillsPage() {
         </p>
       </div>
       <SkillGraph skills={skills} edges={edges} />
-      <h2 className="text-lg font-semibold text-fg">Navigation tree</h2>
+      <h2 className="text-lg font-normal text-fg">Navigation tree</h2>
       <p className="-mt-4 max-w-2xl text-sm text-fg-muted">
         The tree is for browsing; prerequisites are a separate graph. <em>Heaps</em> lives under
         data structures but gates Dijkstra.

@@ -34,7 +34,7 @@ export default async function PracticePage({
     <main className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">Practice</h1>
+          <h1 className="text-4xl font-normal tracking-[-0.021em] text-fg sm:text-5xl">Practice</h1>
           <p className="mt-1 text-fg-muted">
             {all.length} problems mapped to skills. A judged submission is the strongest evidence in
             your skill model. {solved} solved.
@@ -55,9 +55,7 @@ export default async function PracticePage({
       </header>
       {groups.map((g) => (
         <section key={g}>
-          <h2 className="font-mono mb-2 text-xs font-semibold tracking-wider text-fg-subtle uppercase">
-            {g}
-          </h2>
+          <h2 className="mb-2 text-[13px] text-fg-subtle">{g}</h2>
           <ul className="overflow-hidden rounded-[var(--radius)] border border-border bg-surface">
             {rows
               .filter((r) => r.skillName === g)

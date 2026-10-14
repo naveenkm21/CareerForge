@@ -1,29 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@careerforge/ui';
 
-const ORDER = ['system', 'light', 'dark'] as const;
-const ICONS = { system: Monitor, light: Sun, dark: Moon };
-
+/** Light ↔ dark. The icon shows where a click takes you. */
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  const current = (
-    mounted && ORDER.includes(theme as (typeof ORDER)[number]) ? theme : 'system'
-  ) as (typeof ORDER)[number];
-  const Icon = ICONS[current];
-  const nextTheme = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length]!;
+  const dark = mounted && resolvedTheme === 'dark';
+  const Icon = dark ? Sun : Moon;
   return (
     <Button
       variant="ghost"
       size="icon"
-      aria-label={`Theme: ${current}. Switch to ${nextTheme}.`}
-      title={`Theme: ${current}`}
-      onClick={() => setTheme(nextTheme)}
+      aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      title={dark ? 'Light mode' : 'Dark mode'}
+      onClick={() => setTheme(dark ? 'light' : 'dark')}
     >
       <Icon size={16} />
     </Button>
