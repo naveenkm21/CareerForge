@@ -15,6 +15,7 @@ import {
   battleParticipants,
   battles,
   enrollments,
+  evidenceEvents,
   follows,
   interviewScores,
   interviewSessions,
@@ -120,9 +121,36 @@ async function upsertUser(input: {
     .from(users)
     .where(and(eq(users.authProvider, input.provider), eq(users.authSubject, input.subject)));
   if (existing[0]) {
-    throw new Error(
-      `Demo data already exists (${input.email}). Run \`pnpm db:reset && pnpm db:demo\` for a fresh demo.`,
-    );
+    // Signing in before the demo was loaded creates an empty account with this identity.
+    // Adopt it while it has no history; refuse once it holds real evidence.
+    const [used] = await db
+      .select({ id: evidenceEvents.id })
+      .from(evidenceEvents)
+      .where(eq(evidenceEvents.userId, existing[0].id))
+      .limit(1);
+    if (used) {
+      throw new Error(
+        `Demo data already exists (${input.email}). Run \`pnpm db:reset && pnpm db:demo\` for a fresh demo.`,
+      );
+    }
+    const [adopted] = await db
+      .update(users)
+      .set({
+        email: input.email,
+        handle: input.handle,
+        name: input.name,
+        college: input.college,
+        gradYear: 2027,
+        timezone: TZ,
+        dailyMinutesTarget: 90,
+        role: input.role ?? 'user',
+        onboardedAt: new Date(Date.now() - 25 * DAY),
+      })
+      .where(eq(users.id, existing[0].id))
+      .returning();
+    await db.delete(enrollments).where(eq(enrollments.userId, adopted!.id));
+    await db.insert(userSettings).values({ userId: adopted!.id }).onConflictDoNothing();
+    return adopted!;
   }
   const [row] = await db
     .insert(users)
