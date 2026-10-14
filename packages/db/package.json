@@ -1,0 +1,38 @@
+{
+  "name": "@careerforge/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "generate": "drizzle-kit generate",
+    "migrate": "tsx src/scripts/migrate.ts",
+    "seed": "tsx src/scripts/seed.ts",
+    "studio": "drizzle-kit studio",
+    "reset": "tsx src/scripts/reset.ts",
+    "demo": "tsx src/scripts/demo.ts"
+  },
+  "dependencies": {
+    "@careerforge/contracts": "workspace:*",
+    "@careerforge/core": "workspace:*",
+    "@careerforge/viz": "workspace:*",
+    "@electric-sql/pglite": "0.3.16",
+    "drizzle-orm": "0.44.7",
+    "postgres": "3.4.7",
+    "yaml": "2.8.1",
+    "@careerforge/content": "workspace:*",
+    "@careerforge/ai": "workspace:*"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@types/node": "22.18.12",
+    "drizzle-kit": "0.31.5",
+    "tsx": "4.20.6",
+    "vitest": "3.2.4"
+  }
+}

@@ -1,0 +1,1332 @@
+{
+ "algorithmId": "http-lifecycle",
+ "input": {
+  "url": "https://careerforge.dev/jobs?role=sde",
+  "rttMs": 40,
+  "dnsCached": 0,
+  "serverMs": 30
+ },
+ "result": 190,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "parse",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {}
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40
+   },
+   "narration": "Parse the URL: scheme https, host careerforge.dev, path /jobs?role=sde. Port 443 by default.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 1,
+   "anchor": "dns",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "browser->dns": "A? careerforge.dev"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "browser",
+     "to": "dns",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 1,
+    "elapsed": 40
+   },
+   "narration": "Ask the resolver for careerforge.dev's IP address: one round trip (40 ms) if the resolver has it cached.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 2,
+   "anchor": "tcp",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "dns->tcp": "SYN → SYN-ACK → ACK"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "dns",
+     "to": "tcp",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 1,
+    "elapsed": 40
+   },
+   "narration": "Open a TCP connection to port 443 with the three-way handshake.",
+   "emphasis": "normal",
+   "invariant": "Nothing encrypted can be sent before a TCP connection exists.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which handshake comes next?",
+    "options": [
+     "TLS handshake",
+     "HTTP request",
+     "DNS lookup"
+    ],
+    "answer": "TLS handshake",
+    "explain": "HTTPS needs an encrypted channel first: TLS runs on top of the new TCP connection."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "tls",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "tcp->tls": "ClientHello / ServerHello + cert"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        1,
+        40,
+        80
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tcp,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tls",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "tcp",
+     "to": "tls",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 2,
+    "elapsed": 80
+   },
+   "narration": "TLS 1.3: client and server agree on keys and the browser verifies the certificate for the host. One round trip.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "request",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "tls->http": "GET /jobs?role=sde"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        1,
+        40,
+        80
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        1,
+        40,
+        120
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tcp,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tls,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tls",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "http",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "tls",
+     "to": "http",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 3,
+    "elapsed": 120
+   },
+   "narration": "Send the encrypted HTTP request: GET /jobs?role=sde with Host: careerforge.dev.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "Counting this request/response, how many round trips before the first byte arrives?",
+    "answer": "4",
+    "explain": "DNS 1 + TCP 1 + TLS 1 + HTTP 1 = 4."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "server",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "http->server": "route → handler → DB"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        1,
+        40,
+        80
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        1,
+        40,
+        120
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tcp,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tls,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tls",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "http",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "server",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "http",
+     "to": "server",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 3,
+    "elapsed": 120
+   },
+   "narration": "The server routes the request, runs the handler, maybe queries a database (30 ms).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "response",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "http->server": "200 OK + HTML"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        1,
+        40,
+        80
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        1,
+        40,
+        120
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        1,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tcp,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tls,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tls",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "http",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "http,2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "http",
+     "to": "server",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "server",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 4,
+    "elapsed": 190
+   },
+   "narration": "First byte after 190 ms (4 RTT + server). The browser now parses HTML and fetches more resources — reusing this connection.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "done",
+   "snapshot": {
+    "net": {
+     "kind": "flow",
+     "nodes": [
+      {
+       "id": "browser",
+       "label": "Browser",
+       "sub": "careerforge.dev"
+      },
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "sub": "93.184.x.x"
+      },
+      {
+       "id": "tcp",
+       "label": "TCP"
+      },
+      {
+       "id": "tls",
+       "label": "TLS"
+      },
+      {
+       "id": "http",
+       "label": "HTTP"
+      },
+      {
+       "id": "server",
+       "label": "Server"
+      }
+     ],
+     "edges": [
+      {
+       "from": "browser",
+       "to": "dns"
+      },
+      {
+       "from": "dns",
+       "to": "tcp"
+      },
+      {
+       "from": "tcp",
+       "to": "tls"
+      },
+      {
+       "from": "tls",
+       "to": "http"
+      },
+      {
+       "from": "http",
+       "to": "server"
+      }
+     ],
+     "messages": {
+      "http->server": "200 OK + HTML"
+     }
+    },
+    "timing": {
+     "kind": "table",
+     "columns": [
+      "round trips",
+      "ms",
+      "elapsed"
+     ],
+     "rows": [
+      {
+       "id": "dns",
+       "label": "DNS resolver",
+       "cells": [
+        1,
+        40,
+        40
+       ]
+      },
+      {
+       "id": "tcp",
+       "label": "TCP",
+       "cells": [
+        1,
+        40,
+        80
+       ]
+      },
+      {
+       "id": "tls",
+       "label": "TLS",
+       "cells": [
+        1,
+        40,
+        120
+       ]
+      },
+      {
+       "id": "http",
+       "label": "HTTP",
+       "cells": [
+        1,
+        70,
+        190
+       ]
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "dns,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "dns",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tcp,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tcp",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "tls,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "tls",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "http",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "timing",
+     "at": "http,2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "net",
+     "from": "http",
+     "to": "server",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "server",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "net",
+     "at": "browser",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "host": "careerforge.dev",
+    "path": "/jobs?role=sde",
+    "rttMs": 40,
+    "rtts": 4,
+    "elapsed": 190
+   },
+   "narration": "Time to first byte: 190 ms. Network latency dominates: 160 ms of it is round trips.",
+   "emphasis": "result"
+  }
+ ]
+}

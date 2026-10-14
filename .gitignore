@@ -1,0 +1,18 @@
+node_modules/
+.next/
+.turbo/
+dist/
+coverage/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.vercel/
+.DS_Store
+next-env.d.ts
+.data/
+apps/web/public/monaco/
+
+# Not part of CareerForge
+speech_assignment/
+.claude/

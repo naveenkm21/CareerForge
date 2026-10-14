@@ -1,0 +1,426 @@
+{
+ "algorithmId": "binary-search",
+ "input": {
+  "arr": [
+   2,
+   5,
+   8,
+   12,
+   16,
+   23,
+   38
+  ],
+  "target": 23
+ },
+ "result": 5,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 2
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 8
+      },
+      {
+       "id": "a3",
+       "value": 12
+      },
+      {
+       "id": "a4",
+       "value": 16
+      },
+      {
+       "id": "a5",
+       "value": 23
+      },
+      {
+       "id": "a6",
+       "value": 38
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "lo",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "hi",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "lo": 0,
+    "hi": 6,
+    "target": 23
+   },
+   "narration": "Search the whole array: lo = 0, hi = 6.",
+   "emphasis": "normal",
+   "invariant": "If the target exists, it is inside [lo, hi]."
+  },
+  {
+   "i": 1,
+   "anchor": "mid",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 2
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 8
+      },
+      {
+       "id": "a3",
+       "value": 12
+      },
+      {
+       "id": "a4",
+       "value": 16
+      },
+      {
+       "id": "a5",
+       "value": 23
+      },
+      {
+       "id": "a6",
+       "value": 38
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "lo",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "hi",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "mid",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "lo": 0,
+    "hi": 6,
+    "target": 23,
+    "mid": 3
+   },
+   "narration": "mid = 0 + (6 − 0) / 2 = 3, and a[mid] = 12.",
+   "emphasis": "normal",
+   "invariant": "If the target exists, it is inside [lo, hi].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[mid] = 12 and the target is 23. What happens next?",
+    "options": [
+     "Found it",
+     "Search the left half",
+     "Search the right half"
+    ],
+    "answer": "Search the right half",
+    "explain": "12 < 23; the array is sorted, so everything at or left of mid is too small."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "goRight",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 2
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 8
+      },
+      {
+       "id": "a3",
+       "value": 12
+      },
+      {
+       "id": "a4",
+       "value": 16
+      },
+      {
+       "id": "a5",
+       "value": 23
+      },
+      {
+       "id": "a6",
+       "value": 38
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "excluded",
+     "key": "exL"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 4,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "lo",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "hi",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "lo": 4,
+    "hi": 6,
+    "target": 23
+   },
+   "narration": "12 < 23: discard the left half. lo = mid + 1 = 4.",
+   "emphasis": "normal",
+   "invariant": "If the target exists, it is inside [lo, hi]."
+  },
+  {
+   "i": 3,
+   "anchor": "mid",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 2
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 8
+      },
+      {
+       "id": "a3",
+       "value": 12
+      },
+      {
+       "id": "a4",
+       "value": 16
+      },
+      {
+       "id": "a5",
+       "value": 23
+      },
+      {
+       "id": "a6",
+       "value": 38
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "excluded",
+     "key": "exL"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 4,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "lo",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "hi",
+     "tone": "candidate"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "mid",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "lo": 4,
+    "hi": 6,
+    "target": 23,
+    "mid": 5
+   },
+   "narration": "mid = 4 + (6 − 4) / 2 = 5, and a[mid] = 23.",
+   "emphasis": "normal",
+   "invariant": "If the target exists, it is inside [lo, hi].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[mid] = 23 and the target is 23. What happens next?",
+    "options": [
+     "Found it",
+     "Search the left half",
+     "Search the right half"
+    ],
+    "answer": "Found it",
+    "explain": "a[mid] equals the target."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "found",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 2
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 8
+      },
+      {
+       "id": "a3",
+       "value": 12
+      },
+      {
+       "id": "a4",
+       "value": 16
+      },
+      {
+       "id": "a5",
+       "value": 23
+      },
+      {
+       "id": "a6",
+       "value": 38
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "excluded",
+     "key": "exL"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "mid",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "lo": 4,
+    "hi": 6,
+    "target": 23,
+    "mid": 5
+   },
+   "narration": "a[5] = 23. Found at index 5.",
+   "emphasis": "result"
+  }
+ ]
+}

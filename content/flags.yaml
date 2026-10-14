@@ -1,0 +1,24 @@
+# Feature flag defaults. The seed inserts missing flags only — it never overwrites a value
+# that was toggled in production.
+flags:
+  - key: viz.public
+    description: Public, unauthenticated algorithm visualizer at /viz.
+    enabled: true
+  - key: viz.practice-mode
+    description: Interactive "predict the next step" checkpoints in the player.
+    enabled: true
+  - key: dashboard.plan
+    description: Deterministic daily plan on the dashboard (Phase 7).
+    enabled: true
+  - key: roles.backend
+    description: Offer the Backend Developer role during onboarding.
+    enabled: true
+  - key: roles.data-ml
+    description: Offer the Data / ML Engineer role during onboarding.
+    enabled: true
+  - key: battles.live
+    description: 1v1 battles (async submit-and-compare in v1).
+    enabled: true
+  - key: roles.frontend
+    description: Offer the Frontend Developer role during onboarding.
+    enabled: true

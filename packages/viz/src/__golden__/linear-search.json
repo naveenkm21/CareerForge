@@ -1,0 +1,539 @@
+{
+ "algorithmId": "linear-search",
+ "input": {
+  "arr": [
+   7,
+   3,
+   9,
+   1,
+   12,
+   5,
+   8
+  ],
+  "target": 12
+ },
+ "result": 4,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 7,
+    "target": 12
+   },
+   "narration": "Scan left to right, looking for 12.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 1,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 0
+   },
+   "narration": "a[0] = 7, not 12.",
+   "emphasis": "normal",
+   "invariant": "12 is not in a[0..-1].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 7. Does the scan stop here?",
+    "options": [
+     "Yes — return i",
+     "No — keep scanning"
+    ],
+    "answer": "No — keep scanning",
+    "explain": "Only an exact match stops a linear search."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 1
+   },
+   "narration": "a[1] = 3, not 12.",
+   "emphasis": "normal",
+   "invariant": "12 is not in a[0..0].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 3. Does the scan stop here?",
+    "options": [
+     "Yes — return i",
+     "No — keep scanning"
+    ],
+    "answer": "No — keep scanning",
+    "explain": "Only an exact match stops a linear search."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 2
+   },
+   "narration": "a[2] = 9, not 12.",
+   "emphasis": "normal",
+   "invariant": "12 is not in a[0..1].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 9. Does the scan stop here?",
+    "options": [
+     "Yes — return i",
+     "No — keep scanning"
+    ],
+    "answer": "No — keep scanning",
+    "explain": "Only an exact match stops a linear search."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 3
+   },
+   "narration": "a[3] = 1, not 12.",
+   "emphasis": "normal",
+   "invariant": "12 is not in a[0..2].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[3] = 1. Does the scan stop here?",
+    "options": [
+     "Yes — return i",
+     "No — keep scanning"
+    ],
+    "answer": "No — keep scanning",
+    "explain": "Only an exact match stops a linear search."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 4
+   },
+   "narration": "a[4] = 12 — that is 12!",
+   "emphasis": "normal",
+   "invariant": "12 is not in a[0..3].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[4] = 12. Does the scan stop here?",
+    "options": [
+     "Yes — return i",
+     "No — keep scanning"
+    ],
+    "answer": "Yes — return i",
+    "explain": "The element equals the target, so we return its index."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "found",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 7
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 12
+      },
+      {
+       "id": "a5",
+       "value": 5
+      },
+      {
+       "id": "a6",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 7,
+    "target": 12,
+    "i": 4
+   },
+   "narration": "Found 12 at index 4 after 5 comparisons.",
+   "emphasis": "result"
+  }
+ ]
+}

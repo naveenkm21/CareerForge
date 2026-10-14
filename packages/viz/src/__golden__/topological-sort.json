@@ -1,0 +1,4657 @@
+{
+ "algorithmId": "topological-sort",
+ "input": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "edges": [
+   {
+    "from": "A",
+    "to": "C"
+   },
+   {
+    "from": "B",
+    "to": "C"
+   },
+   {
+    "from": "B",
+    "to": "D"
+   },
+   {
+    "from": "C",
+    "to": "E"
+   },
+   {
+    "from": "D",
+    "to": "F"
+   },
+   {
+    "from": "E",
+    "to": "F"
+   }
+  ]
+ },
+ "result": [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "count",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        2,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {},
+   "narration": "Count incoming edges for every node.",
+   "emphasis": "normal",
+   "invariant": "A node is ready exactly when every edge into it has been removed."
+  },
+  {
+   "i": 1,
+   "anchor": "seed",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        2,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue0",
+       "value": "A"
+      },
+      {
+       "id": "queue1",
+       "value": "B"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "found"
+    }
+   ],
+   "vars": {},
+   "narration": "Nodes with in-degree 0 have no prerequisites: A, B.",
+   "emphasis": "normal",
+   "invariant": "A node is ready exactly when every edge into it has been removed."
+  },
+  {
+   "i": 2,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        2,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue0",
+       "value": "A"
+      },
+      {
+       "id": "queue1",
+       "value": "B"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "found"
+    }
+   ],
+   "vars": {},
+   "narration": "Several nodes are ready.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which ready node does Kahn’s algorithm (with a FIFO queue) take next?",
+    "options": [
+     "A",
+     "B"
+    ],
+    "answer": "A",
+    "explain": "Any ready node gives a valid order; with a FIFO queue it is the earliest to become ready."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        2,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": "B"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,0",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "A"
+   },
+   "narration": "Take A and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        2,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": "B"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "A",
+    "v": "C"
+   },
+   "narration": "Remove edge A → C.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[C] is 2. What is it after removing A → C?",
+    "answer": "1",
+    "explain": "One fewer incoming edge: 2 − 1 = 1."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": "B"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    }
+   ],
+   "vars": {
+    "u": "A",
+    "v": "C"
+   },
+   "narration": "in-degree[C] = 1; still waiting.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "C"
+   },
+   "narration": "Take B and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "C"
+   },
+   "narration": "Remove edge B → C.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[C] is 1. What is it after removing B → C?",
+    "answer": "0",
+    "explain": "One fewer incoming edge: 1 − 1 = 0."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": "C"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "C"
+   },
+   "narration": "in-degree[C] = 0 — C is ready. Enqueue it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": "C"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "D"
+   },
+   "narration": "Remove edge B → D.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[D] is 1. What is it after removing B → D?",
+    "answer": "0",
+    "explain": "One fewer incoming edge: 1 − 1 = 0."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": "C"
+      },
+      {
+       "id": "queue3",
+       "value": "D"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "D"
+   },
+   "narration": "in-degree[D] = 0 — D is ready. Enqueue it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": "C"
+      },
+      {
+       "id": "queue3",
+       "value": "D"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "B",
+    "v": "D"
+   },
+   "narration": "Several nodes are ready.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which ready node does Kahn’s algorithm (with a FIFO queue) take next?",
+    "options": [
+     "C",
+     "D"
+    ],
+    "answer": "C",
+    "explain": "Any ready node gives a valid order; with a FIFO queue it is the earliest to become ready."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": "D"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "C",
+    "v": "D"
+   },
+   "narration": "Take C and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": "D"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "C",
+    "v": "E"
+   },
+   "narration": "Remove edge C → E.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[E] is 1. What is it after removing C → E?",
+    "answer": "0",
+    "explain": "One fewer incoming edge: 1 − 1 = 0."
+   }
+  },
+  {
+   "i": 14,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": "D"
+      },
+      {
+       "id": "queue4",
+       "value": "E"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "u": "C",
+    "v": "E"
+   },
+   "narration": "in-degree[E] = 0 — E is ready. Enqueue it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": "D"
+      },
+      {
+       "id": "queue4",
+       "value": "E"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "C",
+    "v": "E"
+   },
+   "narration": "Several nodes are ready.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which ready node does Kahn’s algorithm (with a FIFO queue) take next?",
+    "options": [
+     "D",
+     "E"
+    ],
+    "answer": "D",
+    "explain": "Any ready node gives a valid order; with a FIFO queue it is the earliest to become ready."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": "E"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "D",
+    "v": "E"
+   },
+   "narration": "Take D and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": "E"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "D",
+    "v": "F"
+   },
+   "narration": "Remove edge D → F.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[F] is 2. What is it after removing D → F?",
+    "answer": "1",
+    "explain": "One fewer incoming edge: 2 − 1 = 1."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": "E"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,3",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    }
+   ],
+   "vars": {
+    "u": "D",
+    "v": "F"
+   },
+   "narration": "in-degree[F] = 1; still waiting.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "E",
+    "v": "F"
+   },
+   "narration": "Take E and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "edge",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "u": "E",
+    "v": "F"
+   },
+   "narration": "Remove edge E → F.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "in-degree[F] is 1. What is it after removing E → F?",
+    "answer": "0",
+    "explain": "One fewer incoming edge: 1 − 1 = 0."
+   }
+  },
+  {
+   "i": 21,
+   "anchor": "decrement",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue5",
+       "value": "F"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,4",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "u": "E",
+    "v": "F"
+   },
+   "narration": "in-degree[F] = 0 — F is ready. Enqueue it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "take",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,5",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "u": "F",
+    "v": "F"
+   },
+   "narration": "Take F and append it to the order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "done",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "C",
+       "to": "E"
+      },
+      {
+       "from": "D",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      }
+     ],
+     "badges": {}
+    },
+    "indeg": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "indeg",
+       "label": "in-degree",
+       "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     ]
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "C"
+      },
+      {
+       "id": "order3",
+       "value": "D"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "excluded"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "excluded"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "indeg",
+     "at": "indeg,5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    }
+   ],
+   "vars": {},
+   "narration": "Topological order: A → B → C → D → E → F. Every edge points forward.",
+   "emphasis": "result"
+  }
+ ]
+}

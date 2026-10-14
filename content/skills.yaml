@@ -1,0 +1,304 @@
+# The skill taxonomy. Nesting = navigation tree (skills.parent_id).
+# `requires` = prerequisite DAG edges (skill_edges kind=prereq). The two are different
+# relationships (ADR-008): heaps live under data structures but gate Dijkstra.
+#
+# Seeded by `pnpm db:seed`. Idempotent: rows are upserted by slug. Never hand-edit prod.
+version: 1
+domains:
+  - domain: dsa
+    skills:
+      - slug: dsa.arrays
+        name: Arrays & Strings
+        icon: brackets
+        summary: Contiguous storage, indexing, and the patterns built on it.
+        children:
+          - slug: dsa.arrays.traversal
+            name: Traversal
+            summary: Visiting every element in order; linear scans.
+          - slug: dsa.arrays.two-pointers
+            name: Two Pointers
+            summary: Two indices moving toward or alongside each other.
+            requires: [dsa.arrays.traversal]
+          - slug: dsa.arrays.sliding-window
+            name: Sliding Window
+            summary: A contiguous window that grows and shrinks as it slides.
+            requires: [dsa.arrays.two-pointers]
+          - slug: dsa.arrays.prefix-sum
+            name: Prefix Sum
+            summary: Precomputed running totals for O(1) range queries.
+            requires: [dsa.arrays.traversal]
+      - slug: dsa.hashing
+        name: Hashing
+        icon: hash
+        summary: Hash maps and sets for constant-time lookup.
+        requires: [dsa.arrays.traversal]
+      - slug: dsa.searching
+        name: Searching
+        icon: search
+        summary: Finding elements efficiently.
+        children:
+          - slug: dsa.searching.linear-search
+            name: Linear Search
+            summary: Check every element until found.
+            requires: [dsa.arrays.traversal]
+          - slug: dsa.searching.binary-search
+            name: Binary Search
+            summary: Halve a sorted search space every step.
+            requires: [dsa.searching.linear-search]
+      - slug: dsa.sorting
+        name: Sorting
+        icon: arrow-down-up
+        summary: Ordering elements; the foundation of many other techniques.
+        children:
+          - slug: dsa.sorting.elementary
+            name: Elementary Sorts
+            summary: Bubble, selection and insertion sort.
+            requires: [dsa.arrays.traversal]
+          - slug: dsa.sorting.divide-conquer
+            name: Divide & Conquer Sorts
+            summary: Merge sort and quicksort.
+            requires: [dsa.sorting.elementary, dsa.recursion]
+      - slug: dsa.recursion
+        name: Recursion
+        icon: repeat
+        summary: Functions defined in terms of themselves; the call stack.
+        requires: [dsa.arrays.traversal]
+      - slug: dsa.linked-lists
+        name: Linked Lists
+        icon: link
+        summary: Pointer-based sequences; reversal, cycles, merging.
+        requires: [dsa.arrays.traversal]
+      - slug: dsa.stacks-queues
+        name: Stacks & Queues
+        icon: layers
+        summary: LIFO and FIFO structures and their patterns.
+        children:
+          - slug: dsa.stacks-queues.stack
+            name: Stack
+            summary: Last in, first out — matching, undo, parsing.
+            requires: [dsa.arrays.traversal]
+          - slug: dsa.stacks-queues.queue
+            name: Queue
+            summary: First in, first out — scheduling and BFS.
+            requires: [dsa.arrays.traversal]
+          - slug: dsa.stacks-queues.monotonic-stack
+            name: Monotonic Stack
+            summary: A stack kept sorted to answer next-greater queries in O(n).
+            requires: [dsa.stacks-queues.stack]
+      - slug: dsa.trees
+        name: Trees
+        icon: git-fork
+        summary: Hierarchical structures and their traversals.
+        children:
+          - slug: dsa.trees.traversal
+            name: Tree Traversal
+            summary: Pre-, in-, post-order and level-order.
+            requires: [dsa.recursion, dsa.stacks-queues.queue]
+          - slug: dsa.trees.bst
+            name: Binary Search Trees
+            summary: Ordered trees; search, insert, delete.
+            requires: [dsa.trees.traversal, dsa.searching.binary-search]
+      - slug: dsa.heaps
+        name: Heaps & Priority Queues
+        icon: triangle
+        summary: Complete binary trees that keep the minimum on top.
+        requires: [dsa.trees.traversal]
+      - slug: dsa.graphs
+        name: Graphs
+        icon: share-2
+        summary: Nodes and edges — the most general structure.
+        children:
+          - slug: dsa.graphs.traversal
+            name: Graph Traversal
+            summary: BFS and DFS over adjacency lists.
+            requires: [dsa.trees.traversal, dsa.stacks-queues.queue, dsa.stacks-queues.stack]
+          - slug: dsa.graphs.grid
+            name: Grid Graphs
+            summary: Treating a 2D grid as a graph; flood fill and islands.
+            requires: [dsa.graphs.traversal]
+          - slug: dsa.graphs.shortest-path
+            name: Shortest Paths
+            summary: Dijkstra, Bellman–Ford, Floyd–Warshall.
+            requires: [dsa.graphs.traversal, dsa.heaps]
+          - slug: dsa.graphs.topological-sort
+            name: Topological Sort
+            summary: Ordering a DAG so every edge points forward.
+            requires: [dsa.graphs.traversal]
+      - slug: dsa.greedy
+        name: Greedy
+        icon: zap
+        summary: Locally optimal choices that are globally optimal.
+        requires: [dsa.sorting.elementary]
+      - slug: dsa.backtracking
+        name: Backtracking
+        icon: undo-2
+        summary: Explore choices, undo, try the next.
+        requires: [dsa.recursion]
+      - slug: dsa.dp
+        name: Dynamic Programming
+        icon: table
+        summary: Overlapping subproblems solved once and reused.
+        children:
+          - slug: dsa.dp.1d
+            name: 1D DP
+            summary: A single table indexed by one parameter.
+            requires: [dsa.recursion, dsa.arrays.prefix-sum]
+          - slug: dsa.dp.2d
+            name: 2D DP
+            summary: Grids of subproblems — LCS, knapsack, edit distance.
+            requires: [dsa.dp.1d]
+
+  - domain: cs
+    skills:
+      - slug: cs.oop
+        name: Object-Oriented Programming
+        icon: boxes
+        summary: Encapsulation, inheritance, polymorphism, SOLID.
+      - slug: cs.os
+        name: Operating Systems
+        icon: cpu
+        summary: Processes, memory and concurrency.
+        children:
+          - slug: cs.os.scheduling
+            name: CPU Scheduling
+            summary: FCFS, SJF, Round Robin, priority.
+            requires: [dsa.stacks-queues.queue]
+          - slug: cs.os.memory
+            name: Memory Management
+            summary: Paging, segmentation, page replacement.
+          - slug: cs.os.concurrency
+            name: Concurrency
+            summary: Threads, locks, semaphores, deadlock.
+            requires: [cs.os.scheduling]
+      - slug: cs.dbms
+        name: Databases
+        icon: database
+        summary: Relational modelling, SQL and transactions.
+        children:
+          - slug: cs.dbms.sql
+            name: SQL
+            summary: Queries, joins, aggregation.
+          - slug: cs.dbms.indexing
+            name: Indexing
+            summary: B-trees, hash indexes, query plans.
+            requires: [cs.dbms.sql, dsa.trees.bst]
+          - slug: cs.dbms.transactions
+            name: Transactions
+            summary: ACID, isolation levels, locking.
+            requires: [cs.dbms.sql]
+          - slug: cs.dbms.normalization
+            name: Normalization
+            summary: Functional dependencies and normal forms.
+            requires: [cs.dbms.sql]
+      - slug: cs.networks
+        name: Computer Networks
+        icon: globe
+        summary: How bytes get from a browser to a server and back.
+        children:
+          - slug: cs.networks.http-lifecycle
+            name: Request Lifecycle
+            summary: DNS → TCP → TLS → HTTP.
+          - slug: cs.networks.tcp
+            name: TCP/IP
+            summary: Handshakes, reliability, congestion control.
+            requires: [cs.networks.http-lifecycle]
+
+  - domain: dev
+    skills:
+      - slug: dev.git
+        name: Git
+        icon: git-branch
+        summary: Branching, rebasing, collaboration.
+      - slug: dev.web
+        name: Web Platform
+        icon: layout
+        summary: The browser as a runtime.
+        children:
+          - slug: dev.web.html-css
+            name: HTML & CSS
+            summary: Semantic markup, layout, responsive design.
+          - slug: dev.web.javascript
+            name: JavaScript
+            summary: The language, the event loop, async.
+          - slug: dev.web.react
+            name: React
+            summary: Components, state, effects, rendering.
+            requires: [dev.web.javascript, dev.web.html-css]
+          - slug: dev.web.nextjs
+            name: Next.js
+            summary: Server components, routing, data fetching.
+            requires: [dev.web.react]
+          - slug: dev.web.performance
+            name: Web Performance
+            summary: Core Web Vitals, bundles, rendering cost.
+            requires: [dev.web.react]
+          - slug: dev.web.accessibility
+            name: Accessibility
+            summary: WCAG, semantics, keyboard and screen readers.
+            requires: [dev.web.html-css]
+      - slug: dev.backend
+        name: Backend
+        icon: server
+        summary: APIs, persistence and auth.
+        children:
+          - slug: dev.backend.apis
+            name: API Design
+            summary: REST, validation, versioning, errors.
+          - slug: dev.backend.auth
+            name: Authentication
+            summary: Sessions, tokens, OAuth.
+            requires: [dev.backend.apis]
+          - slug: dev.backend.caching
+            name: Caching
+            summary: Redis, cache invalidation, CDNs.
+            requires: [dev.backend.apis]
+          - slug: dev.backend.docker
+            name: Docker & Containers
+            summary: Images, containers, compose.
+          - slug: dev.backend.cloud
+            name: Cloud Deployment
+            summary: Deploying and operating services on a cloud provider.
+            requires: [dev.backend.docker]
+      - slug: dev.data
+        name: Data & ML
+        icon: brain
+        summary: From data to deployed models.
+        children:
+          - slug: dev.data.python
+            name: Python for Data
+            summary: Python, NumPy, pandas.
+          - slug: dev.data.statistics
+            name: Statistics
+            summary: Probability, distributions, hypothesis testing.
+          - slug: dev.data.ml
+            name: Machine Learning
+            summary: Training, evaluation, overfitting, common models.
+            requires: [dev.data.python, dev.data.statistics]
+          - slug: dev.data.deployment
+            name: Model Deployment
+            summary: Serving, monitoring and retraining models.
+            requires: [dev.data.ml]
+      - slug: dev.testing
+        name: Testing
+        icon: flask-conical
+        summary: Unit, integration and end-to-end testing.
+      - slug: dev.system-design
+        name: System Design
+        icon: network
+        summary: Scaling, trade-offs, distributed systems basics.
+        requires: [cs.dbms.indexing, dev.backend.caching, cs.networks.http-lifecycle]
+      - slug: dev.projects
+        name: Projects
+        icon: folder-git-2
+        summary: Shipped work that demonstrates skills end to end.
+
+  - domain: soft
+    skills:
+      - slug: soft.communication
+        name: Technical Communication
+        icon: message-square
+        summary: Explaining an approach and its trade-offs clearly.
+      - slug: soft.behavioral
+        name: Behavioral Interviews
+        icon: users
+        summary: STAR stories, ownership, conflict, impact.

@@ -1,0 +1,32 @@
+{
+  "name": "@careerforge/viz-react",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@careerforge/ui": "workspace:*",
+    "@careerforge/viz": "workspace:*",
+    "d3-hierarchy": "3.1.2",
+    "lucide-react": "0.577.0",
+    "motion": "12.43.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@types/d3-hierarchy": "3.1.7",
+    "@types/react": "19.2.18",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "vitest": "3.2.4"
+  }
+}

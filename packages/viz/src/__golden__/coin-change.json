@@ -1,0 +1,2387 @@
+{
+ "algorithmId": "coin-change",
+ "input": {
+  "coins": [
+   1,
+   3,
+   4
+  ],
+  "amount": 6
+ },
+ "result": 2,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6
+   },
+   "narration": "dp[0] = 0 (no coins make 0). Every other amount starts at ∞ (not yet reachable).",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x."
+  },
+  {
+   "i": 1,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 1,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[0] + 1 = 0 + 1 = 1 vs dp[1] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[0] = 0. Does coin 1 improve dp[1] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "1 < ∞."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 1,
+    "c": 1,
+    "dp[x]": 1
+   },
+   "narration": "dp[1] = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 1,
+    "c": 3,
+    "dp[x]": 1
+   },
+   "narration": "Coin 3 is larger than 1 — it cannot be used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 1,
+    "c": 4,
+    "dp[x]": 1
+   },
+   "narration": "Coin 4 is larger than 1 — it cannot be used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 2,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[1] + 1 = 1 + 1 = 2 vs dp[2] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[1] = 1. Does coin 1 improve dp[2] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "2 < ∞."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 2,
+    "c": 1,
+    "dp[x]": 2
+   },
+   "narration": "dp[2] = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 2,
+    "c": 3,
+    "dp[x]": 2
+   },
+   "narration": "Coin 3 is larger than 2 — it cannot be used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 8,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 2,
+    "c": 4,
+    "dp[x]": 2
+   },
+   "narration": "Coin 4 is larger than 2 — it cannot be used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 3,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[2] + 1 = 2 + 1 = 3 vs dp[3] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[2] = 2. Does coin 1 improve dp[3] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "3 < ∞."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        3,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 3,
+    "c": 1,
+    "dp[x]": 3
+   },
+   "narration": "dp[3] = 3.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        3,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 3,
+    "c": 3,
+    "dp[x]": 3
+   },
+   "narration": "Use coin 3: dp[0] + 1 = 0 + 1 = 1 vs dp[3] = 3.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[0] = 0. Does coin 3 improve dp[3] = 3?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "1 < 3."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 3,
+    "c": 3,
+    "dp[x]": 1
+   },
+   "narration": "dp[3] = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 3,
+    "c": 4,
+    "dp[x]": 1
+   },
+   "narration": "Coin 4 is larger than 3 — it cannot be used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 4,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[3] + 1 = 1 + 1 = 2 vs dp[4] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[3] = 1. Does coin 1 improve dp[4] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "2 < ∞."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 4,
+    "c": 1,
+    "dp[x]": 2
+   },
+   "narration": "dp[4] = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 16,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 4,
+    "c": 3,
+    "dp[x]": 2
+   },
+   "narration": "Use coin 3: dp[1] + 1 = 1 + 1 = 2 vs dp[4] = 2.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[1] = 1. Does coin 3 improve dp[4] = 2?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "No",
+    "explain": "2 ≥ 2."
+   }
+  },
+  {
+   "i": 17,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        2,
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 4,
+    "c": 4,
+    "dp[x]": 2
+   },
+   "narration": "Use coin 4: dp[0] + 1 = 0 + 1 = 1 vs dp[4] = 2.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[0] = 0. Does coin 4 improve dp[4] = 2?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "1 < 2."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,0",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 4,
+    "c": 4,
+    "dp[x]": 1
+   },
+   "narration": "dp[4] = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        "∞",
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 5,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[4] + 1 = 1 + 1 = 2 vs dp[5] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[4] = 1. Does coin 1 improve dp[5] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "2 < ∞."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,4",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 5,
+    "c": 1,
+    "dp[x]": 2
+   },
+   "narration": "dp[5] = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 5,
+    "c": 3,
+    "dp[x]": 2
+   },
+   "narration": "Use coin 3: dp[2] + 1 = 2 + 1 = 3 vs dp[5] = 2.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[2] = 2. Does coin 3 improve dp[5] = 2?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "No",
+    "explain": "3 ≥ 2."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 5,
+    "c": 4,
+    "dp[x]": 2
+   },
+   "narration": "Use coin 4: dp[1] + 1 = 1 + 1 = 2 vs dp[5] = 2.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[1] = 1. Does coin 4 improve dp[5] = 2?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "No",
+    "explain": "2 ≥ 2."
+   }
+  },
+  {
+   "i": 23,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        "∞"
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 6,
+    "c": 1,
+    "dp[x]": "∞"
+   },
+   "narration": "Use coin 1: dp[5] + 1 = 2 + 1 = 3 vs dp[6] = ∞.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[5] = 2. Does coin 1 improve dp[6] = ∞?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "3 < ∞."
+   }
+  },
+  {
+   "i": 24,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        3
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 0,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,5",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 6,
+    "c": 1,
+    "dp[x]": 3
+   },
+   "narration": "dp[6] = 3.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        3
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 6,
+    "c": 3,
+    "dp[x]": 3
+   },
+   "narration": "Use coin 3: dp[3] + 1 = 1 + 1 = 2 vs dp[6] = 3.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[3] = 1. Does coin 3 improve dp[6] = 3?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "Yes",
+    "explain": "2 < 3."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "improve",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 1,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,3",
+     "tone": "candidate"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 6,
+    "c": 3,
+    "dp[x]": 2
+   },
+   "narration": "dp[6] = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "try",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "coins",
+     "at": 2,
+     "label": "c",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "amount": 6,
+    "x": 6,
+    "c": 4,
+    "dp[x]": 2
+   },
+   "narration": "Use coin 4: dp[2] + 1 = 2 + 1 = 3 vs dp[6] = 2.",
+   "emphasis": "normal",
+   "invariant": "dp[y] is final for every y < x.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "dp[2] = 2. Does coin 4 improve dp[6] = 2?",
+    "options": [
+     "Yes",
+     "No"
+    ],
+    "answer": "No",
+    "explain": "3 ≥ 2."
+   }
+  },
+  {
+   "i": 28,
+   "anchor": "done",
+   "snapshot": {
+    "dp": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+     ],
+     "rows": [
+      {
+       "id": "dp",
+       "label": "dp[x]",
+       "cells": [
+        0,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2
+       ]
+      }
+     ]
+    },
+    "coins": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "coins0",
+       "value": 1
+      },
+      {
+       "id": "coins1",
+       "value": 3
+      },
+      {
+       "id": "coins2",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "dp",
+     "at": "dp,6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "amount": 6
+   },
+   "narration": "Fewest coins for 6: 2.",
+   "emphasis": "result"
+  }
+ ]
+}

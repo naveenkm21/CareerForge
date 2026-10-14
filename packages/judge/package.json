@@ -1,0 +1,21 @@
+{
+  "name": "@careerforge/judge",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@careerforge/content": "workspace:*"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@types/node": "22.18.12",
+    "vitest": "3.2.4"
+  }
+}

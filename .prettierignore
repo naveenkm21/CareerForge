@@ -1,0 +1,8 @@
+pnpm-lock.yaml
+packages/db/drizzle/
+packages/viz/src/generated/
+packages/viz/sources/
+**/__golden__/
+docs/
+apps/web/public/monaco/
+AGENTS.md

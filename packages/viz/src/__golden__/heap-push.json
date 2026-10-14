@@ -1,0 +1,2354 @@
+{
+ "algorithmId": "heap-push",
+ "input": {
+  "values": [
+   9,
+   5,
+   7,
+   2,
+   8,
+   1,
+   6
+  ]
+ },
+ "result": [
+  1,
+  5,
+  2,
+  9,
+  8,
+  7,
+  6
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": null,
+     "nodes": {}
+    },
+    "heap": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {},
+   "narration": "A min-heap is a complete binary tree stored level by level in an array: children of i are 2i+1 and 2i+2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 1,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 9,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap0",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 9,
+    "i": 0
+   },
+   "narration": "Push 9: append it at index 0, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 2,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 9,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 5,
+    "i": 1
+   },
+   "narration": "Push 5: append it at index 1, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 3,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 9,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 0,
+     "b": 1
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 5,
+    "i": 1,
+    "p": 0
+   },
+   "narration": "Parent of index 1 is (1 − 1) / 2 = 0, holding 9.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 9, child 5. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Swap",
+    "explain": "9 > 5 violates the min-heap property."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "swap",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 5,
+    "i": 0,
+    "p": 0
+   },
+   "narration": "Swap — 5 reaches the root.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 7,
+    "i": 2,
+    "p": 0
+   },
+   "narration": "Push 7: append it at index 2, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 6,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 0,
+     "b": 2
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 7,
+    "i": 2,
+    "p": 0
+   },
+   "narration": "Parent of index 2 is (2 − 1) / 2 = 0, holding 5.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 5, child 7. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Stop",
+    "explain": "5 ≤ 7: the heap property holds."
+   }
+  },
+  {
+   "i": 7,
+   "anchor": "stop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 2,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 7,
+    "i": 2,
+    "p": 0
+   },
+   "narration": "5 ≤ 7 — 7 has settled at index 2.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 8,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 2,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 3,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 2,
+    "i": 3,
+    "p": 0
+   },
+   "narration": "Push 2: append it at index 3, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 9,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 9,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 2,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 3,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 1,
+     "b": 3
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 2,
+    "i": 3,
+    "p": 1
+   },
+   "narration": "Parent of index 3 is (3 − 1) / 2 = 1, holding 9.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 9, child 2. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Swap",
+    "explain": "9 > 2 violates the min-heap property."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "swap",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 2,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 2,
+    "i": 1,
+    "p": 1
+   },
+   "narration": "Swap 2 up to index 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 5,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 2,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 0,
+     "b": 1
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 2,
+    "i": 1,
+    "p": 0
+   },
+   "narration": "Parent of index 1 is (1 − 1) / 2 = 0, holding 5.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 5, child 2. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Swap",
+    "explain": "5 > 2 violates the min-heap property."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "swap",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 2,
+    "i": 0,
+    "p": 0
+   },
+   "narration": "Swap — 2 reaches the root.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 4,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 8,
+    "i": 4,
+    "p": 0
+   },
+   "narration": "Push 8: append it at index 4, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 14,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 4,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 1,
+     "b": 4
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 8,
+    "i": 4,
+    "p": 1
+   },
+   "narration": "Parent of index 4 is (4 − 1) / 2 = 1, holding 5.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 5, child 8. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Stop",
+    "explain": "5 ≤ 8: the heap property holds."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "stop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 4,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 8,
+    "i": 4,
+    "p": 1
+   },
+   "narration": "5 ≤ 8 — 8 has settled at index 4.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 16,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 1,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap5",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 5,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 1,
+    "i": 5,
+    "p": 1
+   },
+   "narration": "Push 1: append it at index 5, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 17,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 7,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 1,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap5",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 5,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 2,
+     "b": 5
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 1,
+    "i": 5,
+    "p": 2
+   },
+   "narration": "Parent of index 5 is (5 − 1) / 2 = 2, holding 7.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 7, child 1. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Swap",
+    "explain": "7 > 1 violates the min-heap property."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "swap",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 1,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 1,
+    "i": 2,
+    "p": 2
+   },
+   "narration": "Swap 1 up to index 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 2,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 1,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 0,
+     "b": 2
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 1,
+    "i": 2,
+    "p": 0
+   },
+   "narration": "Parent of index 2 is (2 − 1) / 2 = 0, holding 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 2, child 1. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Swap",
+    "explain": "2 > 1 violates the min-heap property."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "swap",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 1,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 2,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 1,
+    "i": 0,
+    "p": 0
+   },
+   "narration": "Swap — 1 reaches the root.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "append",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 1,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 2,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 6,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap6",
+       "value": 6
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 6,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 6,
+    "i": 6,
+    "p": 0
+   },
+   "narration": "Push 6: append it at index 6, the next free slot of the bottom level.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 22,
+   "anchor": "parent",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 1,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 2,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 6,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap6",
+       "value": 6
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 6,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "heap",
+     "a": 2,
+     "b": 6
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "candidate"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 6,
+    "i": 6,
+    "p": 2
+   },
+   "narration": "Parent of index 6 is (6 − 1) / 2 = 2, holding 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Parent 2, child 6. Swap?",
+    "options": [
+     "Swap",
+     "Stop"
+    ],
+    "answer": "Stop",
+    "explain": "2 ≤ 6: the heap property holds."
+   }
+  },
+  {
+   "i": 23,
+   "anchor": "stop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 1,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 2,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 6,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap6",
+       "value": 6
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 6,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 6,
+    "i": 6,
+    "p": 2
+   },
+   "narration": "2 ≤ 6 — 6 has settled at index 6.",
+   "emphasis": "normal",
+   "invariant": "Every parent ≤ its children (except along the path being repaired)."
+  },
+  {
+   "i": 24,
+   "anchor": "done",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 1,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 5,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 2,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 9,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 8,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 7,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 6,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "heap": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "heap5",
+       "value": 1
+      },
+      {
+       "id": "heap1",
+       "value": 5
+      },
+      {
+       "id": "heap3",
+       "value": 2
+      },
+      {
+       "id": "heap0",
+       "value": 9
+      },
+      {
+       "id": "heap4",
+       "value": 8
+      },
+      {
+       "id": "heap2",
+       "value": 7
+      },
+      {
+       "id": "heap6",
+       "value": 6
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "heap",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    }
+   ],
+   "vars": {},
+   "narration": "Heap built. The minimum, 1, is at the root.",
+   "emphasis": "result"
+  }
+ ]
+}

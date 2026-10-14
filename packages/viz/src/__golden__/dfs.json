@@ -1,0 +1,9121 @@
+{
+ "algorithmId": "dfs",
+ "input": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "edges": [
+   {
+    "from": "A",
+    "to": "B"
+   },
+   {
+    "from": "A",
+    "to": "C"
+   },
+   {
+    "from": "B",
+    "to": "D"
+   },
+   {
+    "from": "B",
+    "to": "E"
+   },
+   {
+    "from": "C",
+    "to": "F"
+   },
+   {
+    "from": "E",
+    "to": "F"
+   },
+   {
+    "from": "D",
+    "to": "G"
+   },
+   {
+    "from": "E",
+    "to": "G"
+   }
+  ],
+  "source": "A"
+ },
+ "result": [
+  "A",
+  "B",
+  "D",
+  "G",
+  "E",
+  "F",
+  "C"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {
+    "source": "A"
+   },
+   "narration": "Call dfs(A).",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 1,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A"
+   },
+   "narration": "Enter dfs(A): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 2,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "v": "B"
+   },
+   "narration": "Look at neighbour B.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From A, neighbour B: recurse or skip?",
+    "options": [
+     "Recurse into B",
+     "Skip B"
+    ],
+    "answer": "Recurse into B",
+    "explain": "B has not been visited yet."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "v": "B"
+   },
+   "narration": "B is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "B"
+   },
+   "narration": "Enter dfs(B): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 5,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "A"
+   },
+   "narration": "Look at neighbour A.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From B, neighbour A: recurse or skip?",
+    "options": [
+     "Recurse into A",
+     "Skip A"
+    ],
+    "answer": "Skip A",
+    "explain": "A is already visited."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "D"
+   },
+   "narration": "Look at neighbour D.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From B, neighbour D: recurse or skip?",
+    "options": [
+     "Recurse into D",
+     "Skip D"
+    ],
+    "answer": "Recurse into D",
+    "explain": "D has not been visited yet."
+   }
+  },
+  {
+   "i": 7,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "D"
+   },
+   "narration": "D is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 8,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "v": "D"
+   },
+   "narration": "Enter dfs(D): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 9,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "v": "B"
+   },
+   "narration": "Look at neighbour B.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From D, neighbour B: recurse or skip?",
+    "options": [
+     "Recurse into B",
+     "Skip B"
+    ],
+    "answer": "Skip B",
+    "explain": "B is already visited."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "G",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "v": "G"
+   },
+   "narration": "Look at neighbour G.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From D, neighbour G: recurse or skip?",
+    "options": [
+     "Recurse into G",
+     "Skip G"
+    ],
+    "answer": "Recurse into G",
+    "explain": "G has not been visited yet."
+   }
+  },
+  {
+   "i": 11,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "v": "G"
+   },
+   "narration": "G is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 12,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "G",
+    "v": "G"
+   },
+   "narration": "Enter dfs(G): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 13,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "G",
+    "v": "D"
+   },
+   "narration": "Look at neighbour D.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From G, neighbour D: recurse or skip?",
+    "options": [
+     "Recurse into D",
+     "Skip D"
+    ],
+    "answer": "Skip D",
+    "explain": "D is already visited."
+   }
+  },
+  {
+   "i": 14,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "G",
+    "v": "E"
+   },
+   "narration": "Look at neighbour E.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From G, neighbour E: recurse or skip?",
+    "options": [
+     "Recurse into E",
+     "Skip E"
+    ],
+    "answer": "Recurse into E",
+    "explain": "E has not been visited yet."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "G",
+    "v": "E"
+   },
+   "narration": "E is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 16,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "E"
+   },
+   "narration": "Enter dfs(E): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 17,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "B",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "B"
+   },
+   "narration": "Look at neighbour B.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From E, neighbour B: recurse or skip?",
+    "options": [
+     "Recurse into B",
+     "Skip B"
+    ],
+    "answer": "Skip B",
+    "explain": "B is already visited."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "F"
+   },
+   "narration": "Look at neighbour F.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From E, neighbour F: recurse or skip?",
+    "options": [
+     "Recurse into F",
+     "Skip F"
+    ],
+    "answer": "Recurse into F",
+    "explain": "F has not been visited yet."
+   }
+  },
+  {
+   "i": 19,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "F"
+   },
+   "narration": "F is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "v": "F"
+   },
+   "narration": "Enter dfs(F): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 21,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "C",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "v": "C"
+   },
+   "narration": "Look at neighbour C.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From F, neighbour C: recurse or skip?",
+    "options": [
+     "Recurse into C",
+     "Skip C"
+    ],
+    "answer": "Recurse into C",
+    "explain": "C has not been visited yet."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "recurse",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "v": "C"
+   },
+   "narration": "C is unvisited — go deeper.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "visit",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      },
+      {
+       "id": "calls6",
+       "value": "dfs(C)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "v": "C"
+   },
+   "narration": "Enter dfs(C): mark it visited.",
+   "emphasis": "normal",
+   "invariant": "The call stack is exactly the path from the start to the current node."
+  },
+  {
+   "i": 24,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      },
+      {
+       "id": "calls6",
+       "value": "dfs(C)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "v": "A"
+   },
+   "narration": "Look at neighbour A.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From C, neighbour A: recurse or skip?",
+    "options": [
+     "Recurse into A",
+     "Skip A"
+    ],
+    "answer": "Skip A",
+    "explain": "A is already visited."
+   }
+  },
+  {
+   "i": 25,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      },
+      {
+       "id": "calls6",
+       "value": "dfs(C)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "v": "F"
+   },
+   "narration": "Look at neighbour F.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From C, neighbour F: recurse or skip?",
+    "options": [
+     "Recurse into F",
+     "Skip F"
+    ],
+    "answer": "Skip F",
+    "explain": "F is already visited."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "v": "F"
+   },
+   "narration": "Every neighbour of C is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      },
+      {
+       "id": "calls5",
+       "value": "dfs(F)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "v": "E"
+   },
+   "narration": "Look at neighbour E.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From F, neighbour E: recurse or skip?",
+    "options": [
+     "Recurse into E",
+     "Skip E"
+    ],
+    "answer": "Skip E",
+    "explain": "E is already visited."
+   }
+  },
+  {
+   "i": 28,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "v": "E"
+   },
+   "narration": "Every neighbour of F is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 29,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      },
+      {
+       "id": "calls4",
+       "value": "dfs(E)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "G"
+   },
+   "narration": "Look at neighbour G.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From E, neighbour G: recurse or skip?",
+    "options": [
+     "Recurse into G",
+     "Skip G"
+    ],
+    "answer": "Skip G",
+    "explain": "G is already visited."
+   }
+  },
+  {
+   "i": 30,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      },
+      {
+       "id": "calls3",
+       "value": "dfs(G)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "v": "G"
+   },
+   "narration": "Every neighbour of E is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 31,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      },
+      {
+       "id": "calls2",
+       "value": "dfs(D)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "G",
+    "v": "G"
+   },
+   "narration": "Every neighbour of G is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 32,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "v": "G"
+   },
+   "narration": "Every neighbour of D is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 33,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      },
+      {
+       "id": "calls1",
+       "value": "dfs(B)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "E",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "E"
+   },
+   "narration": "Look at neighbour E.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From B, neighbour E: recurse or skip?",
+    "options": [
+     "Recurse into E",
+     "Skip E"
+    ],
+    "answer": "Skip E",
+    "explain": "E is already visited."
+   }
+  },
+  {
+   "i": 34,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "v": "E"
+   },
+   "narration": "Every neighbour of B is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 35,
+   "anchor": "check",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "dfs(A)"
+      }
+     ]
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "v": "C"
+   },
+   "narration": "Look at neighbour C.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "From A, neighbour C: recurse or skip?",
+    "options": [
+     "Recurse into C",
+     "Skip C"
+    ],
+    "answer": "Skip C",
+    "explain": "C is already visited."
+   }
+  },
+  {
+   "i": 36,
+   "anchor": "return",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "v": "C"
+   },
+   "narration": "Every neighbour of A is done — backtrack.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 37,
+   "anchor": "done",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      },
+      {
+       "id": "G",
+       "label": "G"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B"
+      },
+      {
+       "from": "A",
+       "to": "C"
+      },
+      {
+       "from": "B",
+       "to": "D"
+      },
+      {
+       "from": "B",
+       "to": "E"
+      },
+      {
+       "from": "C",
+       "to": "F"
+      },
+      {
+       "from": "E",
+       "to": "F"
+      },
+      {
+       "from": "D",
+       "to": "G"
+      },
+      {
+       "from": "E",
+       "to": "G"
+      }
+     ],
+     "badges": {}
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "order": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "order0",
+       "value": "A"
+      },
+      {
+       "id": "order1",
+       "value": "B"
+      },
+      {
+       "id": "order2",
+       "value": "D"
+      },
+      {
+       "id": "order3",
+       "value": "G"
+      },
+      {
+       "id": "order4",
+       "value": "E"
+      },
+      {
+       "id": "order5",
+       "value": "F"
+      },
+      {
+       "id": "order6",
+       "value": "C"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "G",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "order",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "G",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "G",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A"
+   },
+   "narration": "DFS order: A → B → D → G → E → F → C.",
+   "emphasis": "result"
+  }
+ ]
+}

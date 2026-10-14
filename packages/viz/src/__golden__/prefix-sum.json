@@ -1,0 +1,1339 @@
+{
+ "algorithmId": "prefix-sum",
+ "input": {
+  "arr": [
+   3,
+   1,
+   4,
+   1,
+   5,
+   9,
+   2,
+   6
+  ],
+  "l": 2,
+  "r": 5
+ },
+ "result": 19,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": null
+      },
+      {
+       "id": "p2",
+       "value": null
+      },
+      {
+       "id": "p3",
+       "value": null
+      },
+      {
+       "id": "p4",
+       "value": null
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 8
+   },
+   "narration": "p[i] will hold the sum of the first i elements. p[0] = 0 (the empty prefix).",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]"
+  },
+  {
+   "i": 1,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": null
+      },
+      {
+       "id": "p2",
+       "value": null
+      },
+      {
+       "id": "p3",
+       "value": null
+      },
+      {
+       "id": "p4",
+       "value": null
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 0
+   },
+   "narration": "p[1] = p[0] + a[0] = 0 + 3.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[1] = p[0] + a[0]?",
+    "answer": "3",
+    "explain": "0 + 3 = 3."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": null
+      },
+      {
+       "id": "p3",
+       "value": null
+      },
+      {
+       "id": "p4",
+       "value": null
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 1
+   },
+   "narration": "p[2] = p[1] + a[1] = 3 + 1.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[2] = p[1] + a[1]?",
+    "answer": "4",
+    "explain": "3 + 1 = 4."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": null
+      },
+      {
+       "id": "p4",
+       "value": null
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 2
+   },
+   "narration": "p[3] = p[2] + a[2] = 4 + 4.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[3] = p[2] + a[2]?",
+    "answer": "8",
+    "explain": "4 + 4 = 8."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": null
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 4,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 3
+   },
+   "narration": "p[4] = p[3] + a[3] = 8 + 1.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[4] = p[3] + a[3]?",
+    "answer": "9",
+    "explain": "8 + 1 = 9."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": 9
+      },
+      {
+       "id": "p5",
+       "value": null
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 5,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 4
+   },
+   "narration": "p[5] = p[4] + a[4] = 9 + 5.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[5] = p[4] + a[4]?",
+    "answer": "14",
+    "explain": "9 + 5 = 14."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": 9
+      },
+      {
+       "id": "p5",
+       "value": 14
+      },
+      {
+       "id": "p6",
+       "value": null
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 6,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 5
+   },
+   "narration": "p[6] = p[5] + a[5] = 14 + 9.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[6] = p[5] + a[5]?",
+    "answer": "23",
+    "explain": "14 + 9 = 23."
+   }
+  },
+  {
+   "i": 7,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": 9
+      },
+      {
+       "id": "p5",
+       "value": 14
+      },
+      {
+       "id": "p6",
+       "value": 23
+      },
+      {
+       "id": "p7",
+       "value": null
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 6,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 6,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 7,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 6
+   },
+   "narration": "p[7] = p[6] + a[6] = 23 + 2.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[7] = p[6] + a[6]?",
+    "answer": "25",
+    "explain": "23 + 2 = 25."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "build",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": 9
+      },
+      {
+       "id": "p5",
+       "value": 14
+      },
+      {
+       "id": "p6",
+       "value": 23
+      },
+      {
+       "id": "p7",
+       "value": 25
+      },
+      {
+       "id": "p8",
+       "value": null
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 6,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 7,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 7,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "p",
+     "at": 8,
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 7
+   },
+   "narration": "p[8] = p[7] + a[7] = 25 + 6.",
+   "emphasis": "normal",
+   "invariant": "p[i] = a[0] + … + a[i−1]",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "What is p[8] = p[7] + a[7]?",
+    "answer": "31",
+    "explain": "25 + 6 = 31."
+   }
+  },
+  {
+   "i": 9,
+   "anchor": "query",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 3
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 1
+      },
+      {
+       "id": "a4",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 9
+      },
+      {
+       "id": "a6",
+       "value": 2
+      },
+      {
+       "id": "a7",
+       "value": 6
+      }
+     ]
+    },
+    "p": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "p0",
+       "value": 0
+      },
+      {
+       "id": "p1",
+       "value": 3
+      },
+      {
+       "id": "p2",
+       "value": 4
+      },
+      {
+       "id": "p3",
+       "value": 8
+      },
+      {
+       "id": "p4",
+       "value": 9
+      },
+      {
+       "id": "p5",
+       "value": 14
+      },
+      {
+       "id": "p6",
+       "value": 23
+      },
+      {
+       "id": "p7",
+       "value": 25
+      },
+      {
+       "id": "p8",
+       "value": 31
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 2,
+     "to": 5,
+     "tone": "found",
+     "key": "query"
+    },
+    {
+     "type": "pointer",
+     "struct": "p",
+     "at": 6,
+     "label": "p[r+1]",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "p",
+     "at": 2,
+     "label": "p[l]",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "n": 8,
+    "i": 7,
+    "l": 2,
+    "r": 5,
+    "sum": 19
+   },
+   "narration": "sum(a[2..5]) = p[6] − p[2] = 23 − 4 = 19.",
+   "emphasis": "result"
+  }
+ ]
+}

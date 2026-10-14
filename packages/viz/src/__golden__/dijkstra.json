@@ -1,0 +1,10367 @@
+{
+ "algorithmId": "dijkstra",
+ "input": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "edges": [
+   {
+    "from": "A",
+    "to": "B",
+    "weight": 4
+   },
+   {
+    "from": "A",
+    "to": "C",
+    "weight": 2
+   },
+   {
+    "from": "B",
+    "to": "C",
+    "weight": 1
+   },
+   {
+    "from": "B",
+    "to": "D",
+    "weight": 5
+   },
+   {
+    "from": "C",
+    "to": "D",
+    "weight": 8
+   },
+   {
+    "from": "C",
+    "to": "E",
+    "weight": 10
+   },
+   {
+    "from": "D",
+    "to": "E",
+    "weight": 2
+   },
+   {
+    "from": "D",
+    "to": "F",
+    "weight": 6
+   },
+   {
+    "from": "E",
+    "to": "F",
+    "weight": 2
+   }
+  ],
+  "source": "A"
+ },
+ "result": [
+  "0",
+  "3",
+  "2",
+  "8",
+  "10",
+  "12"
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "∞",
+      "C": "∞",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq0",
+       "value": "A",
+       "note": "d=0"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A"
+   },
+   "narration": "dist[A] = 0, every other node ∞. Push (0, A).",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 1,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "∞",
+      "C": "∞",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0
+   },
+   "narration": "Pop (0, A). A is settled with distance 0.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 2,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "∞",
+      "C": "∞",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        "∞",
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0,
+    "v": "B",
+    "w": 4,
+    "dist[u] + w": 4,
+    "dist[v]": "∞"
+   },
+   "narration": "Edge A–B (w = 4): 0 + 4 = 4 vs dist[B] = ∞.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "0 + 4 = 4; dist[B] = ∞. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "4 < ∞."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "∞",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "—",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0,
+    "v": "B",
+    "w": 4,
+    "dist[u] + w": 4,
+    "dist[v]": 4
+   },
+   "narration": "dist[B] = 4 via A. Push (4, B).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "∞",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        "∞",
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "—",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0,
+    "v": "C",
+    "w": 2,
+    "dist[u] + w": 2,
+    "dist[v]": "∞"
+   },
+   "narration": "Edge A–C (w = 2): 0 + 2 = 2 vs dist[C] = ∞.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "0 + 2 = 2; dist[C] = ∞. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "2 < ∞."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq2",
+       "value": "C",
+       "note": "d=2"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0,
+    "v": "C",
+    "w": 2,
+    "dist[u] + w": 2,
+    "dist[v]": 2
+   },
+   "narration": "dist[C] = 2 via A. Push (2, C).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq2",
+       "value": "C",
+       "note": "d=2"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "A",
+    "d": 0,
+    "v": "C",
+    "w": 2,
+    "dist[u] + w": 2,
+    "dist[v]": 2
+   },
+   "narration": "Which node does Dijkstra settle next?",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node should be processed next?",
+    "options": [
+     "B",
+     "C"
+    ],
+    "answer": "C",
+    "explain": "C has the smallest tentative distance (2) among unvisited nodes. Any other route to it would have to pass through a node that is already at least that far."
+   }
+  },
+  {
+   "i": 7,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "C",
+    "w": 2,
+    "dist[u] + w": 2,
+    "dist[v]": 2
+   },
+   "narration": "Pop (2, C). C is settled with distance 2.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 8,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "A",
+    "w": 2,
+    "dist[u] + w": 4,
+    "dist[v]": "0"
+   },
+   "narration": "Edge C–A (w = 2): 2 + 2 = 4 vs dist[A] = 0.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "2 + 2 = 4; dist[A] = 0. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "4 ≥ 0."
+   }
+  },
+  {
+   "i": 9,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "4",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        4,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "A",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "A",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "B",
+    "w": 1,
+    "dist[u] + w": 3,
+    "dist[v]": "4"
+   },
+   "narration": "Edge C–B (w = 1): 2 + 1 = 3 vs dist[B] = 4.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "2 + 1 = 3; dist[B] = 4. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "3 < 4."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "B",
+    "w": 1,
+    "dist[u] + w": 3,
+    "dist[v]": 3
+   },
+   "narration": "dist[B] = 3 via C (was via A). Push (3, B).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "∞",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        "∞",
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "—",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "D",
+    "w": 8,
+    "dist[u] + w": 10,
+    "dist[v]": "∞"
+   },
+   "narration": "Edge C–D (w = 8): 2 + 8 = 10 vs dist[D] = ∞.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "2 + 8 = 10; dist[D] = ∞. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "10 < ∞."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "D",
+    "w": 8,
+    "dist[u] + w": 10,
+    "dist[v]": 10
+   },
+   "narration": "dist[D] = 10 via C. Push (10, D).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "∞",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        "∞",
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "—",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,3",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "E",
+    "w": 10,
+    "dist[u] + w": 12,
+    "dist[v]": "∞"
+   },
+   "narration": "Edge C–E (w = 10): 2 + 10 = 12 vs dist[E] = ∞.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "2 + 10 = 12; dist[E] = ∞. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "12 < ∞."
+   }
+  },
+  {
+   "i": 14,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,3",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "E",
+    "w": 10,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "dist[E] = 12 via C. Push (12, E).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq3",
+       "value": "B",
+       "note": "d=3"
+      },
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "C",
+    "d": 2,
+    "v": "E",
+    "w": 10,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "Which node does Dijkstra settle next?",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node should be processed next?",
+    "options": [
+     "B",
+     "D",
+     "E"
+    ],
+    "answer": "B",
+    "explain": "B has the smallest tentative distance (3) among unvisited nodes. Any other route to it would have to pass through a node that is already at least that far."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 3,
+    "v": "E",
+    "w": 10,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "Pop (3, B). B is settled with distance 3.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 17,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "A",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 3,
+    "v": "A",
+    "w": 4,
+    "dist[u] + w": 7,
+    "dist[v]": "0"
+   },
+   "narration": "Edge B–A (w = 4): 3 + 4 = 7 vs dist[A] = 0.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "3 + 4 = 7; dist[A] = 0. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "7 ≥ 0."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 3,
+    "v": "C",
+    "w": 1,
+    "dist[u] + w": 4,
+    "dist[v]": "2"
+   },
+   "narration": "Edge B–C (w = 1): 3 + 1 = 4 vs dist[C] = 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "3 + 1 = 4; dist[C] = 2. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "4 ≥ 2."
+   }
+  },
+  {
+   "i": 19,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "10",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        10,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "C",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 3,
+    "v": "D",
+    "w": 5,
+    "dist[u] + w": 8,
+    "dist[v]": "10"
+   },
+   "narration": "Edge B–D (w = 5): 3 + 5 = 8 vs dist[D] = 10.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "3 + 5 = 8; dist[D] = 10. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "8 < 10."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq1",
+       "value": "B",
+       "note": "d=4"
+      },
+      {
+       "id": "pq6",
+       "value": "D",
+       "note": "d=8"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 3,
+    "v": "D",
+    "w": 5,
+    "dist[u] + w": 8,
+    "dist[v]": 8
+   },
+   "narration": "dist[D] = 8 via B (was via C). Push (8, D).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "stale",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq6",
+       "value": "D",
+       "note": "d=8"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 4,
+    "v": "D",
+    "w": 5,
+    "dist[u] + w": 8,
+    "dist[v]": 8
+   },
+   "narration": "Popped (4, B), but dist[B] is already 3 — a stale entry. Skip it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq6",
+       "value": "D",
+       "note": "d=8"
+      },
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "B",
+    "d": 4,
+    "v": "D",
+    "w": 5,
+    "dist[u] + w": 8,
+    "dist[v]": 8
+   },
+   "narration": "Which node does Dijkstra settle next?",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node should be processed next?",
+    "options": [
+     "D",
+     "E"
+    ],
+    "answer": "D",
+    "explain": "D has the smallest tentative distance (8) among unvisited nodes. Any other route to it would have to pass through a node that is already at least that far."
+   }
+  },
+  {
+   "i": 23,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "D",
+    "w": 5,
+    "dist[u] + w": 8,
+    "dist[v]": 8
+   },
+   "narration": "Pop (8, D). D is settled with distance 8.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 24,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "B",
+    "w": 5,
+    "dist[u] + w": 13,
+    "dist[v]": "3"
+   },
+   "narration": "Edge D–B (w = 5): 8 + 5 = 13 vs dist[B] = 3.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "8 + 5 = 13; dist[B] = 3. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "13 ≥ 3."
+   }
+  },
+  {
+   "i": 25,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "C",
+    "w": 8,
+    "dist[u] + w": 16,
+    "dist[v]": "2"
+   },
+   "narration": "Edge D–C (w = 8): 8 + 8 = 16 vs dist[C] = 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "8 + 8 = 16; dist[C] = 2. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "16 ≥ 2."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "12",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        12,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "C",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "E",
+    "w": 2,
+    "dist[u] + w": 10,
+    "dist[v]": "12"
+   },
+   "narration": "Edge D–E (w = 2): 8 + 2 = 10 vs dist[E] = 12.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "8 + 2 = 10; dist[E] = 12. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "10 < 12."
+   }
+  },
+  {
+   "i": 27,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq7",
+       "value": "E",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "E",
+    "w": 2,
+    "dist[u] + w": 10,
+    "dist[v]": 10
+   },
+   "narration": "dist[E] = 10 via D (was via C). Push (10, E).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 28,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "∞"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        "∞"
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "—"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq7",
+       "value": "E",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,4",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "F",
+    "w": 6,
+    "dist[u] + w": 14,
+    "dist[v]": "∞"
+   },
+   "narration": "Edge D–F (w = 6): 8 + 6 = 14 vs dist[F] = ∞.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "8 + 6 = 14; dist[F] = ∞. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "14 < ∞."
+   }
+  },
+  {
+   "i": 29,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq4",
+       "value": "D",
+       "note": "d=10"
+      },
+      {
+       "id": "pq7",
+       "value": "E",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,4",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 8,
+    "v": "F",
+    "w": 6,
+    "dist[u] + w": 14,
+    "dist[v]": 14
+   },
+   "narration": "dist[F] = 14 via D. Push (14, F).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 30,
+   "anchor": "stale",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq7",
+       "value": "E",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 10,
+    "v": "F",
+    "w": 6,
+    "dist[u] + w": 14,
+    "dist[v]": 14
+   },
+   "narration": "Popped (10, D), but dist[D] is already 8 — a stale entry. Skip it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 31,
+   "anchor": "loop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq7",
+       "value": "E",
+       "note": "d=10"
+      },
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "D",
+    "d": 10,
+    "v": "F",
+    "w": 6,
+    "dist[u] + w": 14,
+    "dist[v]": 14
+   },
+   "narration": "Which node does Dijkstra settle next?",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node should be processed next?",
+    "options": [
+     "E",
+     "F"
+    ],
+    "answer": "E",
+    "explain": "E has the smallest tentative distance (10) among unvisited nodes. Any other route to it would have to pass through a node that is already at least that far."
+   }
+  },
+  {
+   "i": 32,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 10,
+    "v": "F",
+    "w": 6,
+    "dist[u] + w": 14,
+    "dist[v]": 14
+   },
+   "narration": "Pop (10, E). E is settled with distance 10.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 33,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "C",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 10,
+    "v": "C",
+    "w": 10,
+    "dist[u] + w": 20,
+    "dist[v]": "2"
+   },
+   "narration": "Edge E–C (w = 10): 10 + 10 = 20 vs dist[C] = 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "10 + 10 = 20; dist[C] = 2. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "20 ≥ 2."
+   }
+  },
+  {
+   "i": 34,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 10,
+    "v": "D",
+    "w": 2,
+    "dist[u] + w": 12,
+    "dist[v]": "8"
+   },
+   "narration": "Edge E–D (w = 2): 10 + 2 = 12 vs dist[D] = 8.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "10 + 2 = 12; dist[D] = 8. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "12 ≥ 8."
+   }
+  },
+  {
+   "i": 35,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "14"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        14
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "D"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 10,
+    "v": "F",
+    "w": 2,
+    "dist[u] + w": 12,
+    "dist[v]": "14"
+   },
+   "narration": "Edge E–F (w = 2): 10 + 2 = 12 vs dist[F] = 14.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "10 + 2 = 12; dist[F] = 14. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "Yes — shorter path found",
+    "explain": "12 < 14."
+   }
+  },
+  {
+   "i": 36,
+   "anchor": "relax",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq5",
+       "value": "E",
+       "note": "d=12"
+      },
+      {
+       "id": "pq9",
+       "value": "F",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "prev,5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 10,
+    "v": "F",
+    "w": 2,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "dist[F] = 12 via E (was via D). Push (12, F).",
+   "emphasis": "normal"
+  },
+  {
+   "i": 37,
+   "anchor": "stale",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq9",
+       "value": "F",
+       "note": "d=12"
+      },
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "E",
+    "d": 12,
+    "v": "F",
+    "w": 2,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "Popped (12, E), but dist[E] is already 10 — a stale entry. Skip it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 38,
+   "anchor": "pop",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "d": 12,
+    "v": "F",
+    "w": 2,
+    "dist[u] + w": 12,
+    "dist[v]": 12
+   },
+   "narration": "Pop (12, F). F is settled with distance 12.",
+   "emphasis": "normal",
+   "invariant": "Every settled node already has its final shortest distance."
+  },
+  {
+   "i": 39,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "F",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "active"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "D",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "d": 12,
+    "v": "D",
+    "w": 6,
+    "dist[u] + w": 18,
+    "dist[v]": "8"
+   },
+   "narration": "Edge F–D (w = 6): 12 + 6 = 18 vs dist[D] = 8.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "12 + 6 = 18; dist[D] = 8. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "18 ≥ 8."
+   }
+  },
+  {
+   "i": 40,
+   "anchor": "relaxCheck",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "pq8",
+       "value": "F",
+       "note": "d=14"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "d": 12,
+    "v": "E",
+    "w": 2,
+    "dist[u] + w": 14,
+    "dist[v]": "10"
+   },
+   "narration": "Edge F–E (w = 2): 12 + 2 = 14 vs dist[E] = 10.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "12 + 2 = 14; dist[E] = 10. Relax the edge?",
+    "options": [
+     "Yes — shorter path found",
+     "No — keep the current distance"
+    ],
+    "answer": "No — keep the current distance",
+    "explain": "14 ≥ 10."
+   }
+  },
+  {
+   "i": 41,
+   "anchor": "stale",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A",
+    "u": "F",
+    "d": 14,
+    "v": "E",
+    "w": 2,
+    "dist[u] + w": 14,
+    "dist[v]": "10"
+   },
+   "narration": "Popped (14, F), but dist[F] is already 12 — a stale entry. Skip it.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 42,
+   "anchor": "done",
+   "snapshot": {
+    "g": {
+     "kind": "graph",
+     "nodes": [
+      {
+       "id": "A",
+       "label": "A"
+      },
+      {
+       "id": "B",
+       "label": "B"
+      },
+      {
+       "id": "C",
+       "label": "C"
+      },
+      {
+       "id": "D",
+       "label": "D"
+      },
+      {
+       "id": "E",
+       "label": "E"
+      },
+      {
+       "id": "F",
+       "label": "F"
+      }
+     ],
+     "edges": [
+      {
+       "from": "A",
+       "to": "B",
+       "weight": 4
+      },
+      {
+       "from": "A",
+       "to": "C",
+       "weight": 2
+      },
+      {
+       "from": "B",
+       "to": "C",
+       "weight": 1
+      },
+      {
+       "from": "B",
+       "to": "D",
+       "weight": 5
+      },
+      {
+       "from": "C",
+       "to": "D",
+       "weight": 8
+      },
+      {
+       "from": "C",
+       "to": "E",
+       "weight": 10
+      },
+      {
+       "from": "D",
+       "to": "E",
+       "weight": 2
+      },
+      {
+       "from": "D",
+       "to": "F",
+       "weight": 6
+      },
+      {
+       "from": "E",
+       "to": "F",
+       "weight": 2
+      }
+     ],
+     "badges": {
+      "A": "0",
+      "B": "3",
+      "C": "2",
+      "D": "8",
+      "E": "10",
+      "F": "12"
+     }
+    },
+    "dist": {
+     "kind": "table",
+     "columns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "rows": [
+      {
+       "id": "dist",
+       "label": "dist",
+       "cells": [
+        0,
+        3,
+        2,
+        8,
+        10,
+        12
+       ]
+      },
+      {
+       "id": "prev",
+       "label": "prev",
+       "cells": [
+        "—",
+        "C",
+        "A",
+        "B",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    "pq": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "A",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "C",
+     "to": "A",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "C",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "B",
+     "to": "C",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "B",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "D",
+     "to": "B",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "D",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "E",
+     "to": "D",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "E",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "g",
+     "from": "F",
+     "to": "E",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "g",
+     "at": "F",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,3",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "dist",
+     "at": "dist,5",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "source": "A"
+   },
+   "narration": "Final distances from A: A=0, B=3, C=2, D=8, E=10, F=12. Highlighted edges form the shortest-path tree.",
+   "emphasis": "result"
+  }
+ ]
+}

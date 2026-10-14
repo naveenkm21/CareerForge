@@ -1,0 +1,3402 @@
+{
+ "algorithmId": "next-greater-element",
+ "input": {
+  "arr": [
+   4,
+   5,
+   2,
+   10,
+   8,
+   1,
+   3
+  ]
+ },
+ "result": [
+  5,
+  10,
+  10,
+  -1,
+  -1,
+  3,
+  -1
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": -1
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {},
+   "narration": "res starts as −1 everywhere. The stack holds indices still waiting for a greater value.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top."
+  },
+  {
+   "i": 1,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": -1
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "i",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "i": 0,
+    "a[i]": 4,
+    "top": null
+   },
+   "narration": "The stack is empty.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "The stack is empty. Pop?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": -1
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack0",
+       "value": 4,
+       "note": "i=0"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 0,
+    "a[i]": 4,
+    "top": null
+   },
+   "narration": "Push index 0 (4); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": -1
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack0",
+       "value": 4,
+       "note": "i=0"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack0",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "i": 1,
+    "a[i]": 5,
+    "top": 0
+   },
+   "narration": "Top index 0 holds 4; a[i] = 5.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 4, a[i] = 5. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "Yes — pop and record",
+    "explain": "5 > 4, so 5 is the next greater element of index 0."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "resolve",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 1,
+    "a[i]": 5,
+    "top": 0
+   },
+   "narration": "res[0] = 5. Pop index 0.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 1,
+    "a[i]": 5,
+    "top": null
+   },
+   "narration": "The stack is empty.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "The stack is empty. Pop?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 1,
+    "a[i]": 5,
+    "top": null
+   },
+   "narration": "Push index 1 (5); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack1",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "i": 2,
+    "a[i]": 2,
+    "top": 1
+   },
+   "narration": "Top index 1 holds 5; a[i] = 2.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 5, a[i] = 2. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      },
+      {
+       "id": "stack2",
+       "value": 2,
+       "note": "i=2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 2,
+    "a[i]": 2,
+    "top": 1
+   },
+   "narration": "Push index 2 (2); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": -1
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      },
+      {
+       "id": "stack2",
+       "value": 2,
+       "note": "i=2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack2",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": 2
+   },
+   "narration": "Top index 2 holds 2; a[i] = 10.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 2, a[i] = 10. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "Yes — pop and record",
+    "explain": "10 > 2, so 10 is the next greater element of index 2."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "resolve",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": 2
+   },
+   "narration": "res[2] = 10. Pop index 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": -1
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack1",
+       "value": 5,
+       "note": "i=1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack1",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": 1
+   },
+   "narration": "Top index 1 holds 5; a[i] = 10.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 5, a[i] = 10. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "Yes — pop and record",
+    "explain": "10 > 5, so 10 is the next greater element of index 1."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "resolve",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": 1
+   },
+   "narration": "res[1] = 10. Pop index 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": null
+   },
+   "narration": "The stack is empty.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "The stack is empty. Pop?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 14,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 3,
+    "a[i]": 10,
+    "top": null
+   },
+   "narration": "Push index 3 (10); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack3",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 3,
+     "b": 4
+    }
+   ],
+   "vars": {
+    "i": 4,
+    "a[i]": 8,
+    "top": 3
+   },
+   "narration": "Top index 3 holds 10; a[i] = 8.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 10, a[i] = 8. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 4,
+    "a[i]": 8,
+    "top": 3
+   },
+   "narration": "Push index 4 (8); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack4",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 4,
+     "b": 5
+    }
+   ],
+   "vars": {
+    "i": 5,
+    "a[i]": 1,
+    "top": 4
+   },
+   "narration": "Top index 4 holds 8; a[i] = 1.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 8, a[i] = 1. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      },
+      {
+       "id": "stack5",
+       "value": 1,
+       "note": "i=5"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 5,
+    "a[i]": 1,
+    "top": 4
+   },
+   "narration": "Push index 5 (1); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": -1
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      },
+      {
+       "id": "stack5",
+       "value": 1,
+       "note": "i=5"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack5",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 5,
+     "b": 6
+    }
+   ],
+   "vars": {
+    "i": 6,
+    "a[i]": 3,
+    "top": 5
+   },
+   "narration": "Top index 5 holds 1; a[i] = 3.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 1, a[i] = 3. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "Yes — pop and record",
+    "explain": "3 > 1, so 3 is the next greater element of index 5."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "resolve",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": 3
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "i": 6,
+    "a[i]": 3,
+    "top": 5
+   },
+   "narration": "res[5] = 3. Pop index 5.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": 3
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "stack",
+     "at": "stack4",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 4,
+     "b": 6
+    }
+   ],
+   "vars": {
+    "i": 6,
+    "a[i]": 3,
+    "top": 4
+   },
+   "narration": "Top index 4 holds 8; a[i] = 3.",
+   "emphasis": "normal",
+   "invariant": "Values on the stack are decreasing from bottom to top.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[top] = 8, a[i] = 3. Does a[i] resolve the top?",
+    "options": [
+     "Yes — pop and record",
+     "No — push i"
+    ],
+    "answer": "No — push i",
+    "explain": "Nothing on the stack is smaller than a[i]."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "push",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": 3
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      },
+      {
+       "id": "stack6",
+       "value": 3,
+       "note": "i=6"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "i",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 6,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 6,
+    "a[i]": 3,
+    "top": 4
+   },
+   "narration": "Push index 6 (3); it waits for something greater.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "done",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 4
+      },
+      {
+       "id": "a1",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 10
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 1
+      },
+      {
+       "id": "a6",
+       "value": 3
+      }
+     ]
+    },
+    "res": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "res0",
+       "value": 5
+      },
+      {
+       "id": "res1",
+       "value": 10
+      },
+      {
+       "id": "res2",
+       "value": 10
+      },
+      {
+       "id": "res3",
+       "value": -1
+      },
+      {
+       "id": "res4",
+       "value": -1
+      },
+      {
+       "id": "res5",
+       "value": 3
+      },
+      {
+       "id": "res6",
+       "value": -1
+      }
+     ]
+    },
+    "stack": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "stack3",
+       "value": 10,
+       "note": "i=3"
+      },
+      {
+       "id": "stack4",
+       "value": 8,
+       "note": "i=4"
+      },
+      {
+       "id": "stack6",
+       "value": 3,
+       "note": "i=6"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "frontier"
+    },
+    {
+     "type": "cell",
+     "struct": "res",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 6,
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "i": 6,
+    "a[i]": 3,
+    "top": 4
+   },
+   "narration": "Indices left on the stack have no greater element: res = [5, 10, 10, -1, -1, 3, -1].",
+   "emphasis": "result"
+  }
+ ]
+}

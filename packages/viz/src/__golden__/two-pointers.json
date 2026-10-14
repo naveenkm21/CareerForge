@@ -1,0 +1,435 @@
+{
+ "algorithmId": "two-pointers",
+ "input": {
+  "arr": [
+   1,
+   3,
+   4,
+   6,
+   8,
+   11,
+   14
+  ],
+  "target": 17
+ },
+ "result": [
+  1,
+  6
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 11
+      },
+      {
+       "id": "a6",
+       "value": 14
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "l",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "r",
+     "tone": "active"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    }
+   ],
+   "vars": {
+    "l": 0,
+    "r": 6,
+    "target": 17
+   },
+   "narration": "Start with the smallest and the largest value.",
+   "emphasis": "normal",
+   "invariant": "Any valid pair uses indices inside [l, r]."
+  },
+  {
+   "i": 1,
+   "anchor": "sum",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 11
+      },
+      {
+       "id": "a6",
+       "value": 14
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "l",
+     "tone": "active"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "r",
+     "tone": "active"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 6
+    }
+   ],
+   "vars": {
+    "l": 0,
+    "r": 6,
+    "target": 17,
+    "sum": 15
+   },
+   "narration": "a[l] + a[r] = 1 + 14 = 15.",
+   "emphasis": "normal",
+   "invariant": "Any valid pair uses indices inside [l, r].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "The sum is 15 and the target is 17. What next?",
+    "options": [
+     "Found the pair",
+     "Move l right",
+     "Move r left"
+    ],
+    "answer": "Move l right",
+    "explain": "The sum is too small; only a larger left value can raise it."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "moveLeft",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 11
+      },
+      {
+       "id": "a6",
+       "value": 14
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "r",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "l",
+     "tone": "active"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 1,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    }
+   ],
+   "vars": {
+    "l": 1,
+    "r": 6,
+    "target": 17,
+    "sum": 15
+   },
+   "narration": "15 < 17: a[l] cannot pair with anything, so l = 1.",
+   "emphasis": "normal",
+   "invariant": "Any valid pair uses indices inside [l, r]."
+  },
+  {
+   "i": 3,
+   "anchor": "sum",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 11
+      },
+      {
+       "id": "a6",
+       "value": 14
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "r",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "l",
+     "tone": "active"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 1,
+     "to": 6,
+     "tone": "candidate",
+     "key": "window"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 6
+    }
+   ],
+   "vars": {
+    "l": 1,
+    "r": 6,
+    "target": 17,
+    "sum": 17
+   },
+   "narration": "a[l] + a[r] = 3 + 14 = 17.",
+   "emphasis": "normal",
+   "invariant": "Any valid pair uses indices inside [l, r].",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "The sum is 17 and the target is 17. What next?",
+    "options": [
+     "Found the pair",
+     "Move l right",
+     "Move r left"
+    ],
+    "answer": "Found the pair",
+    "explain": "The sum matches."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "found",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 11
+      },
+      {
+       "id": "a6",
+       "value": 14
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 6,
+     "label": "r",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "excluded"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "l",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 6,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "l": 1,
+    "r": 6,
+    "target": 17,
+    "sum": 17
+   },
+   "narration": "3 + 14 = 17. Pair at indices (1, 6).",
+   "emphasis": "result"
+  }
+ ]
+}

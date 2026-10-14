@@ -1,0 +1,45 @@
+{
+  "name": "@careerforge/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "predev": "node scripts/copy-monaco.mjs",
+    "prebuild": "node scripts/copy-monaco.mjs"
+  },
+  "dependencies": {
+    "@careerforge/ai": "workspace:*",
+    "@careerforge/auth": "workspace:*",
+    "@careerforge/content": "workspace:*",
+    "@careerforge/contracts": "workspace:*",
+    "@careerforge/core": "workspace:*",
+    "@careerforge/db": "workspace:*",
+    "@careerforge/judge": "workspace:*",
+    "@careerforge/ui": "workspace:*",
+    "@careerforge/viz": "workspace:*",
+    "@careerforge/viz-react": "workspace:*",
+    "@electric-sql/pglite": "0.3.16",
+    "@monaco-editor/react": "4.7.0",
+    "@xyflow/react": "12.8.4",
+    "cmdk": "1.1.1",
+    "lucide-react": "0.577.0",
+    "monaco-editor": "0.52.2",
+    "next": "15.5.26",
+    "next-themes": "0.4.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "0.0.1"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.18.12",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "tailwindcss": "4.3.3"
+  }
+}

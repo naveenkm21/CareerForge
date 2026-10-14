@@ -1,0 +1,1684 @@
+{
+ "algorithmId": "bubble-sort",
+ "input": {
+  "arr": [
+   5,
+   1,
+   4,
+   2,
+   8,
+   3
+  ]
+ },
+ "result": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  8
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 6
+   },
+   "narration": "Each pass compares neighbours and swaps any pair that is out of order.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 1,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 0,
+    "swapped": false
+   },
+   "narration": "Compare a[0] = 5 with a[1] = 1.",
+   "emphasis": "normal",
+   "invariant": "The last 0 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 5, a[1] = 1. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "5 > 1, so they are out of order."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 0,
+    "swapped": true
+   },
+   "narration": "Swap → a[0] = 1, a[1] = 5.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 1,
+    "swapped": true
+   },
+   "narration": "Compare a[1] = 5 with a[2] = 4.",
+   "emphasis": "normal",
+   "invariant": "The last 0 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 5, a[2] = 4. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "5 > 4, so they are out of order."
+   }
+  },
+  {
+   "i": 4,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 1,
+    "swapped": true
+   },
+   "narration": "Swap → a[1] = 4, a[2] = 5.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 2,
+    "swapped": true
+   },
+   "narration": "Compare a[2] = 5 with a[3] = 2.",
+   "emphasis": "normal",
+   "invariant": "The last 0 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 5, a[3] = 2. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "5 > 2, so they are out of order."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 2,
+    "swapped": true
+   },
+   "narration": "Swap → a[2] = 2, a[3] = 5.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 3,
+     "b": 4
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 3,
+    "swapped": true
+   },
+   "narration": "Compare a[3] = 5 with a[4] = 8.",
+   "emphasis": "normal",
+   "invariant": "The last 0 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[3] = 5, a[4] = 8. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      },
+      {
+       "id": "a5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 4,
+     "b": 5
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 4,
+    "swapped": true
+   },
+   "narration": "Compare a[4] = 8 with a[5] = 3.",
+   "emphasis": "normal",
+   "invariant": "The last 0 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[4] = 8, a[5] = 3. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "8 > 3, so they are out of order."
+   }
+  },
+  {
+   "i": 9,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 4,
+    "swapped": true
+   },
+   "narration": "Swap → a[4] = 3, a[5] = 8.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 10,
+   "anchor": "passDone",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 0,
+    "j": 4,
+    "swapped": true
+   },
+   "narration": "Pass 1 done: 8 is in its final place.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 0,
+    "swapped": false
+   },
+   "narration": "Compare a[0] = 1 with a[1] = 4.",
+   "emphasis": "normal",
+   "invariant": "The last 1 element is in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 1, a[1] = 4. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 1,
+    "swapped": false
+   },
+   "narration": "Compare a[1] = 4 with a[2] = 2.",
+   "emphasis": "normal",
+   "invariant": "The last 1 element is in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 4, a[2] = 2. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "4 > 2, so they are out of order."
+   }
+  },
+  {
+   "i": 13,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 1,
+    "swapped": true
+   },
+   "narration": "Swap → a[1] = 2, a[2] = 4.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 2,
+    "swapped": true
+   },
+   "narration": "Compare a[2] = 4 with a[3] = 5.",
+   "emphasis": "normal",
+   "invariant": "The last 1 element is in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 4, a[3] = 5. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 3,
+     "b": 4
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 3,
+    "swapped": true
+   },
+   "narration": "Compare a[3] = 5 with a[4] = 3.",
+   "emphasis": "normal",
+   "invariant": "The last 1 element is in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[3] = 5, a[4] = 3. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "5 > 3, so they are out of order."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 3,
+    "swapped": true
+   },
+   "narration": "Swap → a[3] = 3, a[4] = 5.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "passDone",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "j": 3,
+    "swapped": true
+   },
+   "narration": "Pass 2 done: 5 is in its final place.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 18,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "j": 0,
+    "swapped": false
+   },
+   "narration": "Compare a[0] = 1 with a[1] = 2.",
+   "emphasis": "normal",
+   "invariant": "The last 2 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 1, a[1] = 2. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 19,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "j": 1,
+    "swapped": false
+   },
+   "narration": "Compare a[1] = 2 with a[2] = 4.",
+   "emphasis": "normal",
+   "invariant": "The last 2 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 2, a[2] = 4. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "j": 2,
+    "swapped": false
+   },
+   "narration": "Compare a[2] = 4 with a[3] = 3.",
+   "emphasis": "normal",
+   "invariant": "The last 2 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 4, a[3] = 3. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Swap",
+    "explain": "4 > 3, so they are out of order."
+   }
+  },
+  {
+   "i": 21,
+   "anchor": "swap",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "j": 2,
+    "swapped": true
+   },
+   "narration": "Swap → a[2] = 3, a[3] = 4.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "passDone",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "j": 2,
+    "swapped": true
+   },
+   "narration": "Pass 3 done: 4 is in its final place.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "j": 0,
+    "swapped": false
+   },
+   "narration": "Compare a[0] = 1 with a[1] = 2.",
+   "emphasis": "normal",
+   "invariant": "The last 3 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 1, a[1] = 2. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 24,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "j": 1,
+    "swapped": false
+   },
+   "narration": "Compare a[1] = 2 with a[2] = 3.",
+   "emphasis": "normal",
+   "invariant": "The last 3 elements are in final position.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 2, a[2] = 3. Swap them?",
+    "options": [
+     "Swap",
+     "Don't swap"
+    ],
+    "answer": "Don't swap",
+    "explain": "They are already in order."
+   }
+  },
+  {
+   "i": 25,
+   "anchor": "passDone",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "j": 1,
+    "swapped": false
+   },
+   "narration": "No swaps in pass 4 — the array is sorted. Stop early.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 26,
+   "anchor": "done",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 2
+      },
+      {
+       "id": "a5",
+       "value": 3
+      },
+      {
+       "id": "a2",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 5
+      },
+      {
+       "id": "a4",
+       "value": 8
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "j": 1,
+    "swapped": false
+   },
+   "narration": "Sorted: [1, 2, 3, 4, 5, 8].",
+   "emphasis": "result"
+  }
+ ]
+}

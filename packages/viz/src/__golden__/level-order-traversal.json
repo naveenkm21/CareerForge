@@ -1,0 +1,4613 @@
+{
+ "algorithmId": "level-order-traversal",
+ "input": {
+  "values": [
+   50,
+   30,
+   70,
+   20,
+   40,
+   60,
+   80
+  ]
+ },
+ "result": [
+  50,
+  30,
+  70,
+  20,
+  40,
+  60,
+  80
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue0",
+       "value": 50
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {},
+   "narration": "Start with the root in the queue.",
+   "emphasis": "normal",
+   "invariant": "The queue holds discovered nodes in the order they will be visited."
+  },
+  {
+   "i": 1,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Dequeue 50 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 2,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Output 50.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "enqueueLeft",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": 30
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Enqueue the left child 30 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "enqueueRight",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": 30
+      },
+      {
+       "id": "queue2",
+       "value": 70
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Enqueue the right child 70 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "loop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue1",
+       "value": 30
+      },
+      {
+       "id": "queue2",
+       "value": 70
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Back to the top of the loop.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node is visited next?",
+    "options": [
+     "30",
+     "70"
+    ],
+    "answer": "30",
+    "explain": "A queue is FIFO: the node enqueued earliest is at the front."
+   }
+  },
+  {
+   "i": 6,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": 70
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Dequeue 30 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": 70
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Output 30.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 8,
+   "anchor": "enqueueLeft",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": 70
+      },
+      {
+       "id": "queue3",
+       "value": 20
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Enqueue the left child 20 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "enqueueRight",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": 70
+      },
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Enqueue the right child 40 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 10,
+   "anchor": "loop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue2",
+       "value": 70
+      },
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Back to the top of the loop.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node is visited next?",
+    "options": [
+     "70",
+     "20",
+     "40"
+    ],
+    "answer": "70",
+    "explain": "A queue is FIFO: the node enqueued earliest is at the front."
+   }
+  },
+  {
+   "i": 11,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Dequeue 70 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 12,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Output 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "enqueueLeft",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Enqueue the left child 60 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "enqueueRight",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Enqueue the right child 80 at the back.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "loop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue3",
+       "value": 20
+      },
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Back to the top of the loop.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node is visited next?",
+    "options": [
+     "20",
+     "40",
+     "60",
+     "80"
+    ],
+    "answer": "20",
+    "explain": "A queue is FIFO: the node enqueued earliest is at the front."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "Dequeue 20 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "Output 20.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 18,
+   "anchor": "loop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue4",
+       "value": 40
+      },
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "Back to the top of the loop.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node is visited next?",
+    "options": [
+     "40",
+     "60",
+     "80"
+    ],
+    "answer": "40",
+    "explain": "A queue is FIFO: the node enqueued earliest is at the front."
+   }
+  },
+  {
+   "i": 19,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "Dequeue 40 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "Output 40.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "loop",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue5",
+       "value": 60
+      },
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "Back to the top of the loop.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which node is visited next?",
+    "options": [
+     "60",
+     "80"
+    ],
+    "answer": "60",
+    "explain": "A queue is FIFO: the node enqueued earliest is at the front."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 60
+   },
+   "narration": "Dequeue 60 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "queue6",
+       "value": 80
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      },
+      {
+       "id": "out5",
+       "value": 60
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 60
+   },
+   "narration": "Output 60.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 24,
+   "anchor": "dequeue",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      },
+      {
+       "id": "out5",
+       "value": 60
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "node": 80
+   },
+   "narration": "Dequeue 80 from the front.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      },
+      {
+       "id": "out5",
+       "value": 60
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 80
+   },
+   "narration": "Output 80.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 26,
+   "anchor": "done",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "queue": {
+     "kind": "queue",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 50
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 70
+      },
+      {
+       "id": "out3",
+       "value": 20
+      },
+      {
+       "id": "out4",
+       "value": 40
+      },
+      {
+       "id": "out5",
+       "value": 60
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {},
+   "narration": "Level order: 50, 30, 70, 20, 40, 60, 80.",
+   "emphasis": "result"
+  }
+ ]
+}

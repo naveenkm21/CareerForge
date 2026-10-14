@@ -1,0 +1,4770 @@
+{
+ "algorithmId": "lru-page-replacement",
+ "input": {
+  "refs": [
+   7,
+   0,
+   1,
+   2,
+   0,
+   3,
+   0,
+   4,
+   2,
+   3
+  ],
+  "frames": 3
+ },
+ "result": 8,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": null
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {
+    "frames": 3,
+    "faults": 0
+   },
+   "narration": "3 empty frames. The recency list tracks which page was used least recently.",
+   "emphasis": "normal",
+   "invariant": "The front of the recency list is always the eviction victim."
+  },
+  {
+   "i": 1,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": null
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 0,
+    "page": 7,
+    "step": 0
+   },
+   "narration": "Reference page 7.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 7 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 7 is not in memory."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": null
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,0",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 1,
+    "page": 7,
+    "step": 0
+   },
+   "narration": "Miss — frame 0 is free.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,0",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 1,
+    "page": 7,
+    "step": 0
+   },
+   "narration": "Page 7 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 1,
+    "page": 0,
+    "step": 1
+   },
+   "narration": "Reference page 0.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 0 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 0 is not in memory."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": null
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,1",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 2,
+    "page": 0,
+    "step": 1
+   },
+   "narration": "Miss — frame 1 is free.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,1",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 2,
+    "page": 0,
+    "step": 1
+   },
+   "narration": "Page 0 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 2,
+    "page": 1,
+    "step": 2
+   },
+   "narration": "Reference page 1.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 1 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 1 is not in memory."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": null
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,2",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 3,
+    "page": 1,
+    "step": 2
+   },
+   "narration": "Miss — frame 2 is free.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,2",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 3,
+    "page": 1,
+    "step": 2
+   },
+   "narration": "Page 1 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 10,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 3,
+    "page": 2,
+    "step": 3
+   },
+   "narration": "Reference page 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 2 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 2 is not in memory."
+   }
+  },
+  {
+   "i": 11,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency0",
+       "value": 7
+      },
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,3",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency0",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 2,
+    "step": 3
+   },
+   "narration": "Miss, and memory is full.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which page does LRU evict?",
+    "options": [
+     "0",
+     "1",
+     "7"
+    ],
+    "answer": "7",
+    "explain": "Page 7 was used least recently."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "evict",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 7
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,3",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 0,
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 2,
+    "step": 3
+   },
+   "narration": "Evict page 7 from frame 0.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,3",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 2,
+    "step": 3
+   },
+   "narration": "Page 2 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency1",
+       "value": 0
+      },
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 0,
+    "step": 4
+   },
+   "narration": "Reference page 0.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 0 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Hit",
+    "explain": "Page 0 is already in frame 1."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "hit",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 0,
+    "step": 4
+   },
+   "narration": "Hit: page 0 is in frame 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 16,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 0,
+    "step": 4
+   },
+   "narration": "Page 0 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 4,
+    "page": 3,
+    "step": 5
+   },
+   "narration": "Reference page 3.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 3 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 3 is not in memory."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency2",
+       "value": 1
+      },
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,5",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency2",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 3,
+    "step": 5
+   },
+   "narration": "Miss, and memory is full.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which page does LRU evict?",
+    "options": [
+     "0",
+     "1",
+     "2"
+    ],
+    "answer": "1",
+    "explain": "Page 1 was used least recently."
+   }
+  },
+  {
+   "i": 19,
+   "anchor": "evict",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 1
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,5",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 2,
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 3,
+    "step": 5
+   },
+   "narration": "Evict page 1 from frame 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,5",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 3,
+    "step": 5
+   },
+   "narration": "Page 3 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency4",
+       "value": 0
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 0,
+    "step": 6
+   },
+   "narration": "Reference page 0.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 0 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Hit",
+    "explain": "Page 0 is already in frame 1."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "hit",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 0,
+    "step": 6
+   },
+   "narration": "Hit: page 0 is in frame 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,6",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 0,
+    "step": 6
+   },
+   "narration": "Page 0 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 24,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,7",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 5,
+    "page": 4,
+    "step": 7
+   },
+   "narration": "Reference page 4.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 4 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 4 is not in memory."
+   }
+  },
+  {
+   "i": 25,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency3",
+       "value": 2
+      },
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,7",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency3",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 6,
+    "page": 4,
+    "step": 7
+   },
+   "narration": "Miss, and memory is full.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which page does LRU evict?",
+    "options": [
+     "0",
+     "2",
+     "3"
+    ],
+    "answer": "2",
+    "explain": "Page 2 was used least recently."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "evict",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 2
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,7",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 0,
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 6,
+    "page": 4,
+    "step": 7
+   },
+   "narration": "Evict page 2 from frame 0.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,7",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 0,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 6,
+    "page": 4,
+    "step": 7
+   },
+   "narration": "Page 4 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 28,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,8",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 6,
+    "page": 2,
+    "step": 8
+   },
+   "narration": "Reference page 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 2 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 2 is not in memory."
+   }
+  },
+  {
+   "i": 29,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency5",
+       "value": 3
+      },
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,8",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency5",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 7,
+    "page": 2,
+    "step": 8
+   },
+   "narration": "Miss, and memory is full.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which page does LRU evict?",
+    "options": [
+     "0",
+     "3",
+     "4"
+    ],
+    "answer": "3",
+    "explain": "Page 3 was used least recently."
+   }
+  },
+  {
+   "i": 30,
+   "anchor": "evict",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 3
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,8",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 2,
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 7,
+    "page": 2,
+    "step": 8
+   },
+   "narration": "Evict page 3 from frame 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 31,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,8",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 2,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 7,
+    "page": 2,
+    "step": 8
+   },
+   "narration": "Page 2 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 32,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        null
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,9",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,9",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 7,
+    "page": 3,
+    "step": 9
+   },
+   "narration": "Reference page 3.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Page 3 — hit or miss?",
+    "options": [
+     "Hit",
+     "Miss"
+    ],
+    "answer": "Miss",
+    "explain": "Page 3 is not in memory."
+   }
+  },
+  {
+   "i": 33,
+   "anchor": "access",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        "M"
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency6",
+       "value": 0
+      },
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,9",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,9",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency6",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 8,
+    "page": 3,
+    "step": 9
+   },
+   "narration": "Miss, and memory is full.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which page does LRU evict?",
+    "options": [
+     "0",
+     "2",
+     "4"
+    ],
+    "answer": "0",
+    "explain": "Page 0 was used least recently."
+   }
+  },
+  {
+   "i": 34,
+   "anchor": "evict",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 0
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        "M"
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,9",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,9",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 8,
+    "page": 3,
+    "step": 9
+   },
+   "narration": "Evict page 0 from frame 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 35,
+   "anchor": "load",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 3
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        "M"
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      },
+      {
+       "id": "recency9",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "page,9",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "log",
+     "at": "result,9",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "frames",
+     "at": 1,
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency9",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 8,
+    "page": 3,
+    "step": 9
+   },
+   "narration": "Page 3 is now the most recently used.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 36,
+   "anchor": "done",
+   "snapshot": {
+    "frames": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "frames0",
+       "value": 4
+      },
+      {
+       "id": "frames1",
+       "value": 3
+      },
+      {
+       "id": "frames2",
+       "value": 2
+      }
+     ]
+    },
+    "log": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+     ],
+     "rows": [
+      {
+       "id": "page",
+       "label": "page",
+       "cells": [
+        7,
+        0,
+        1,
+        2,
+        0,
+        3,
+        0,
+        4,
+        2,
+        3
+       ]
+      },
+      {
+       "id": "result",
+       "label": "hit/miss",
+       "cells": [
+        "M",
+        "M",
+        "M",
+        "M",
+        "H",
+        "M",
+        "H",
+        "M",
+        "M",
+        "M"
+       ]
+      }
+     ]
+    },
+    "recency": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "recency7",
+       "value": 4
+      },
+      {
+       "id": "recency8",
+       "value": 2
+      },
+      {
+       "id": "recency9",
+       "value": 3
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency8",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "recency",
+     "at": "recency9",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "frames": 3,
+    "faults": 8
+   },
+   "narration": "8 page faults out of 10 references (hit rate 20%).",
+   "emphasis": "result"
+  }
+ ]
+}

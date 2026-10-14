@@ -1,0 +1,33 @@
+{
+  "name": "@careerforge/auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/config.ts",
+    "./server": "./src/server.ts",
+    "./middleware": "./src/middleware.ts",
+    "./react": "./src/react.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "6.39.7",
+    "server-only": "0.0.1"
+  },
+  "peerDependencies": {
+    "next": "15.5.26",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@types/node": "22.18.12",
+    "@types/react": "19.2.18",
+    "next": "15.5.26",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "vitest": "3.2.4"
+  }
+}

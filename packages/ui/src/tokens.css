@@ -1,0 +1,99 @@
+/*
+ * CareerForge design tokens. Semantic, theme-aware; components never hardcode colours.
+ * The eight algorithm tones are one vocabulary across the whole product (docs/03 §4), so a
+ * "frontier" node in BFS and a "frontier" cell in flood fill look the same.
+ */
+:root {
+  --bg: #f6f6f3;
+  --surface: #ffffff;
+  --surface-2: #f0f0ec;
+  --surface-3: #e6e6e0;
+  --border: #deded7;
+  --border-strong: #c6c6bd;
+  --fg: #1b1b18;
+  --fg-muted: #62625b;
+  --fg-subtle: #8c8c84;
+  --accent: #4f46e5;
+  --accent-fg: #ffffff;
+  --accent-soft: #eceafd;
+  --danger: #dc2626;
+  --success: #15803d;
+  --warning: #b45309;
+  --code-bg: #fbfbf9;
+  --code-hl: #fff4d6;
+  --code-hl-border: #f59e0b;
+  --syn-keyword: #7c3aed;
+  --syn-string: #0f766e;
+  --syn-number: #b45309;
+  --syn-comment: #8c8c84;
+  --syn-type: #2563eb;
+
+  --tone-active: #d97706;
+  --tone-active-soft: #fef3c7;
+  --tone-candidate: #2563eb;
+  --tone-candidate-soft: #dbeafe;
+  --tone-frontier: #7c3aed;
+  --tone-frontier-soft: #ede9fe;
+  --tone-visited: #64748b;
+  --tone-visited-soft: #e2e8f0;
+  --tone-path: #0d9488;
+  --tone-path-soft: #ccfbf1;
+  --tone-found: #16a34a;
+  --tone-found-soft: #dcfce7;
+  --tone-excluded: #a8a29e;
+  --tone-excluded-soft: #f5f5f4;
+  --tone-error: #dc2626;
+  --tone-error-soft: #fee2e2;
+
+  --chart-1: #4f46e5;
+  --chart-grid: #ecece7;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
+}
+
+.dark {
+  --bg: #0e0f12;
+  --surface: #16181d;
+  --surface-2: #1c1f25;
+  --surface-3: #262a32;
+  --border: #2a2e36;
+  --border-strong: #3a3f4a;
+  --fg: #ececf0;
+  --fg-muted: #a0a3ad;
+  --fg-subtle: #737784;
+  --accent: #8b87ff;
+  --accent-fg: #0e0f12;
+  --accent-soft: #23234a;
+  --danger: #f87171;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --code-bg: #121419;
+  --code-hl: #3a2e10;
+  --code-hl-border: #f59e0b;
+  --syn-keyword: #c4a7ff;
+  --syn-string: #5eead4;
+  --syn-number: #fbbf24;
+  --syn-comment: #6b7080;
+  --syn-type: #93c5fd;
+
+  --tone-active: #f59e0b;
+  --tone-active-soft: #3d2c0a;
+  --tone-candidate: #60a5fa;
+  --tone-candidate-soft: #14264a;
+  --tone-frontier: #a78bfa;
+  --tone-frontier-soft: #2a1f4d;
+  --tone-visited: #94a3b8;
+  --tone-visited-soft: #252b36;
+  --tone-path: #2dd4bf;
+  --tone-path-soft: #0f3431;
+  --tone-found: #4ade80;
+  --tone-found-soft: #12351f;
+  --tone-excluded: #57534e;
+  --tone-excluded-soft: #1a1a1a;
+  --tone-error: #f87171;
+  --tone-error-soft: #3f1515;
+
+  --chart-1: #7069e8;
+  --chart-grid: #24272e;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+}

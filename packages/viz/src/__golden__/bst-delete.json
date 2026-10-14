@@ -1,0 +1,595 @@
+{
+ "algorithmId": "bst-delete",
+ "input": {
+  "values": [
+   50,
+   30,
+   70,
+   20,
+   40,
+   60,
+   80,
+   65
+  ],
+  "key": 50
+ },
+ "result": true,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "visit",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": "n7"
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50
+   },
+   "narration": "Visit 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Deleting 50; the current node is 50. What next?",
+    "options": [
+     "Go left",
+     "Go right",
+     "Found it"
+    ],
+    "answer": "Found it",
+    "explain": "The keys match."
+   }
+  },
+  {
+   "i": 1,
+   "anchor": "found",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": "n7"
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50
+   },
+   "narration": "Found 50. It has two children.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which deletion case applies?",
+    "options": [
+     "No left child",
+     "No right child",
+     "Two children"
+    ],
+    "answer": "Two children",
+    "explain": "Both subtrees exist, so the in-order successor must take its place."
+   }
+  },
+  {
+   "i": 2,
+   "anchor": "findSucc",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": "n7"
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50
+   },
+   "narration": "The in-order successor is the smallest key in the right subtree. Start at 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "findSucc",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": "n7"
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "error"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n5",
+     "tone": "candidate"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50
+   },
+   "narration": "Go left to 60.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "copy",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 60,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": "n7"
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n5",
+     "tone": "error"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50,
+    "succ": 60
+   },
+   "narration": "Copy the successor 60 into the node being deleted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "removeSucc",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 60,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n7",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "key": 50,
+    "root.val": 50,
+    "succ": 60
+   },
+   "narration": "Delete the old 60: it has no left child, so splice its right subtree up.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree."
+  },
+  {
+   "i": 6,
+   "anchor": "done",
+   "snapshot": {
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 60,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n7",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      },
+      "n7": {
+       "id": "n7",
+       "value": 65,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [],
+   "vars": {
+    "key": 50,
+    "root.val": 50,
+    "succ": 60
+   },
+   "narration": "50 deleted. The BST ordering still holds.",
+   "emphasis": "result"
+  }
+ ]
+}

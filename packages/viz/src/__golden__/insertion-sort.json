@@ -1,0 +1,2400 @@
+{
+ "algorithmId": "insertion-sort",
+ "input": {
+  "arr": [
+   6,
+   2,
+   9,
+   4,
+   1,
+   7
+  ]
+ },
+ "result": [
+  1,
+  2,
+  4,
+  6,
+  7,
+  9
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "n": 6
+   },
+   "narration": "a[0] alone is a sorted prefix. Insert the rest one at a time.",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 1,
+   "anchor": "pick",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 0,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "key": 2,
+    "j": 0
+   },
+   "narration": "Take key = a[1] = 2 and insert it into the sorted prefix a[0..0].",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 2,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 0,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "key": 2,
+    "j": 0
+   },
+   "narration": "a[0] = 6 > key 2.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 6, key = 2. Shift a[0] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "6 > 2, so it moves right to make room."
+   }
+  },
+  {
+   "i": 3,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 0,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "key": 2,
+    "j": 0
+   },
+   "narration": "Shift 6 right; the key slides to index 0.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 0,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "key": 2,
+    "j": -1
+   },
+   "narration": "j < 0: reached the front.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "j = −1. Shift again?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Stop and place the key",
+    "explain": "Nothing larger remains to the left, so the key belongs here."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "place",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "found"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 1,
+     "tone": "visited",
+     "key": "sorted"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 1,
+    "key": 2,
+    "j": -1
+   },
+   "narration": "Place key 2 at index 0. a[0..1] is sorted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "pick",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 1,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "key": 9,
+    "j": 1
+   },
+   "narration": "Take key = a[2] = 9 and insert it into the sorted prefix a[0..1].",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 7,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 1,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "key": 9,
+    "j": 1
+   },
+   "narration": "a[1] = 6 ≤ key 9.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 6, key = 9. Shift a[1] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Stop and place the key",
+    "explain": "Nothing larger remains to the left, so the key belongs here."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "place",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "found"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 2,
+    "key": 9,
+    "j": 1
+   },
+   "narration": "Place key 9 at index 2. a[0..2] is sorted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "pick",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 2
+   },
+   "narration": "Take key = a[3] = 4 and insert it into the sorted prefix a[0..2].",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 10,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 2
+   },
+   "narration": "a[2] = 9 > key 4.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 9, key = 4. Shift a[2] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "9 > 4, so it moves right to make room."
+   }
+  },
+  {
+   "i": 11,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 2
+   },
+   "narration": "Shift 9 right; the key slides to index 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 12,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 1
+   },
+   "narration": "a[1] = 6 > key 4.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 6, key = 4. Shift a[1] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "6 > 4, so it moves right to make room."
+   }
+  },
+  {
+   "i": 13,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 1
+   },
+   "narration": "Shift 6 right; the key slides to index 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 2,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 0
+   },
+   "narration": "a[0] = 2 ≤ key 4.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 2, key = 4. Shift a[0] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Stop and place the key",
+    "explain": "Nothing larger remains to the left, so the key belongs here."
+   }
+  },
+  {
+   "i": 15,
+   "anchor": "place",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "found"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 3,
+    "key": 4,
+    "j": 0
+   },
+   "narration": "Place key 4 at index 1. a[0..3] is sorted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 16,
+   "anchor": "pick",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 3
+   },
+   "narration": "Take key = a[4] = 1 and insert it into the sorted prefix a[0..3].",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 17,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 3,
+     "b": 4
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 3
+   },
+   "narration": "a[3] = 9 > key 1.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[3] = 9, key = 1. Shift a[3] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "9 > 1, so it moves right to make room."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 3
+   },
+   "narration": "Shift 9 right; the key slides to index 3.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 3,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 2,
+     "b": 3
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 2
+   },
+   "narration": "a[2] = 6 > key 1.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[2] = 6, key = 1. Shift a[2] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "6 > 1, so it moves right to make room."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 2
+   },
+   "narration": "Shift 6 right; the key slides to index 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 2,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 1,
+     "b": 2
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 1
+   },
+   "narration": "a[1] = 4 > key 1.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[1] = 4, key = 1. Shift a[1] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "4 > 1, so it moves right to make room."
+   }
+  },
+  {
+   "i": 22,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 1
+   },
+   "narration": "Shift 4 right; the key slides to index 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 1,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 0,
+     "b": 1
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 0
+   },
+   "narration": "a[0] = 2 > key 1.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[0] = 2, key = 1. Shift a[0] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "2 > 1, so it moves right to make room."
+   }
+  },
+  {
+   "i": 24,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": 0
+   },
+   "narration": "Shift 2 right; the key slides to index 0.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 3,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": -1
+   },
+   "narration": "j < 0: reached the front.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "j = −1. Shift again?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Stop and place the key",
+    "explain": "Nothing larger remains to the left, so the key belongs here."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "place",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 0,
+     "label": "key",
+     "tone": "found"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 4,
+     "tone": "visited",
+     "key": "sorted"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 4,
+    "key": 1,
+    "j": -1
+   },
+   "narration": "Place key 1 at index 0. a[0..4] is sorted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "pick",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 4,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 4
+   },
+   "narration": "Take key = a[5] = 7 and insert it into the sorted prefix a[0..4].",
+   "emphasis": "normal",
+   "invariant": "a[0..i−1] is sorted."
+  },
+  {
+   "i": 28,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a2",
+       "value": 9
+      },
+      {
+       "id": "a5",
+       "value": 7
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 4,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 5,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 4,
+     "b": 5
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 4
+   },
+   "narration": "a[4] = 9 > key 7.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[4] = 9, key = 7. Shift a[4] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Shift",
+    "explain": "9 > 7, so it moves right to make room."
+   }
+  },
+  {
+   "i": 29,
+   "anchor": "shift",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a5",
+       "value": 7
+      },
+      {
+       "id": "a2",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 4,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "key",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 4
+   },
+   "narration": "Shift 9 right; the key slides to index 4.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 30,
+   "anchor": "compare",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a5",
+       "value": 7
+      },
+      {
+       "id": "a2",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 4,
+     "tone": "visited",
+     "key": "sorted"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "key",
+     "tone": "active"
+    },
+    {
+     "type": "compare",
+     "struct": "a",
+     "a": 3,
+     "b": 4
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 3
+   },
+   "narration": "a[3] = 6 ≤ key 7.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "a[3] = 6, key = 7. Shift a[3] right?",
+    "options": [
+     "Shift",
+     "Stop and place the key"
+    ],
+    "answer": "Stop and place the key",
+    "explain": "Nothing larger remains to the left, so the key belongs here."
+   }
+  },
+  {
+   "i": 31,
+   "anchor": "place",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a5",
+       "value": 7
+      },
+      {
+       "id": "a2",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "a",
+     "at": 4,
+     "label": "key",
+     "tone": "found"
+    },
+    {
+     "type": "range",
+     "struct": "a",
+     "from": 0,
+     "to": 5,
+     "tone": "visited",
+     "key": "sorted"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 3
+   },
+   "narration": "Place key 7 at index 4. a[0..5] is sorted.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 32,
+   "anchor": "done",
+   "snapshot": {
+    "a": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "a4",
+       "value": 1
+      },
+      {
+       "id": "a1",
+       "value": 2
+      },
+      {
+       "id": "a3",
+       "value": 4
+      },
+      {
+       "id": "a0",
+       "value": 6
+      },
+      {
+       "id": "a5",
+       "value": 7
+      },
+      {
+       "id": "a2",
+       "value": 9
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "a",
+     "at": 5,
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "n": 6,
+    "i": 5,
+    "key": 7,
+    "j": 3
+   },
+   "narration": "Sorted: [1, 2, 4, 6, 7, 9].",
+   "emphasis": "result"
+  }
+ ]
+}

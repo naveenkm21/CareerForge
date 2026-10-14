@@ -1,0 +1,5132 @@
+{
+ "algorithmId": "inorder-traversal",
+ "input": {
+  "values": [
+   50,
+   30,
+   70,
+   20,
+   40,
+   60,
+   80
+  ]
+ },
+ "result": [
+  20,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80
+ ],
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {},
+   "narration": "Call inorder(root). Each call handles its left subtree, then itself, then its right subtree.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 1,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Enter inorder(50).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 2,
+   "anchor": "left",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "50 has a left child — recurse into 30 first.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Enter inorder(30).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 4,
+   "anchor": "left",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "30 has a left child — recurse into 20 first.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      },
+      {
+       "id": "calls2",
+       "value": "inorder(20)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "Enter inorder(20).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 6,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      },
+      {
+       "id": "calls2",
+       "value": "inorder(20)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "Left subtree of 20 is done — output 20.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 20
+   },
+   "narration": "inorder(20) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 8,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Left subtree of 30 is done — output 30.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "right",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "Now the right subtree of 30.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "Which value will be output next?",
+    "answer": "40",
+    "explain": "The next output is the leftmost node of 40's subtree."
+   }
+  },
+  {
+   "i": 10,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      },
+      {
+       "id": "calls3",
+       "value": "inorder(40)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "Enter inorder(40).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 11,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      },
+      {
+       "id": "calls3",
+       "value": "inorder(40)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls3",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "Left subtree of 40 is done — output 40.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 12,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls1",
+       "value": "inorder(30)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls1",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 40
+   },
+   "narration": "inorder(40) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 30
+   },
+   "narration": "inorder(30) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Left subtree of 50 is done — output 50.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "right",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "Now the right subtree of 50.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "Which value will be output next?",
+    "answer": "60",
+    "explain": "The next output is the leftmost node of 70's subtree."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Enter inorder(70).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 17,
+   "anchor": "left",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "70 has a left child — recurse into 60 first.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 18,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      },
+      {
+       "id": "calls5",
+       "value": "inorder(60)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 60
+   },
+   "narration": "Enter inorder(60).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 19,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      },
+      {
+       "id": "calls5",
+       "value": "inorder(60)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 60
+   },
+   "narration": "Left subtree of 60 is done — output 60.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "frontier"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 60
+   },
+   "narration": "inorder(60) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Left subtree of 70 is done — output 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "right",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "Now the right subtree of 70.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "value",
+    "prompt": "Which value will be output next?",
+    "answer": "80",
+    "explain": "The next output is the leftmost node of 80's subtree."
+   }
+  },
+  {
+   "i": 23,
+   "anchor": "enter",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      },
+      {
+       "id": "calls6",
+       "value": "inorder(80)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "node": 80
+   },
+   "narration": "Enter inorder(80).",
+   "emphasis": "normal",
+   "invariant": "Every node is output after its entire left subtree."
+  },
+  {
+   "i": 24,
+   "anchor": "visit",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      },
+      {
+       "id": "calls6",
+       "value": "inorder(80)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls6",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 80
+   },
+   "narration": "Left subtree of 80 is done — output 80.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      },
+      {
+       "id": "calls4",
+       "value": "inorder(70)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls4",
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 80
+   },
+   "narration": "inorder(80) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 26,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": [
+      {
+       "id": "calls0",
+       "value": "inorder(50)"
+      }
+     ]
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "calls",
+     "at": "calls0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 70
+   },
+   "narration": "inorder(70) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "return",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "node": 50
+   },
+   "narration": "inorder(50) returns.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 28,
+   "anchor": "done",
+   "snapshot": {
+    "tree": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    },
+    "calls": {
+     "kind": "stack",
+     "items": []
+    },
+    "out": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "out0",
+       "value": 20
+      },
+      {
+       "id": "out1",
+       "value": 30
+      },
+      {
+       "id": "out2",
+       "value": 40
+      },
+      {
+       "id": "out3",
+       "value": 50
+      },
+      {
+       "id": "out4",
+       "value": 60
+      },
+      {
+       "id": "out5",
+       "value": 70
+      },
+      {
+       "id": "out6",
+       "value": 80
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 0,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 1,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n1",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 2,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n4",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 3,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n0",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 4,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n5",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 5,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n2",
+     "tone": "found"
+    },
+    {
+     "type": "edge",
+     "struct": "tree",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "out",
+     "at": 6,
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "tree",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {},
+   "narration": "Output: 20, 30, 40, 50, 60, 70, 80 — sorted, because the tree is a BST.",
+   "emphasis": "result"
+  }
+ ]
+}

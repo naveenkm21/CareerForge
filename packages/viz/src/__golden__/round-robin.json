@@ -1,0 +1,4111 @@
+{
+ "algorithmId": "round-robin",
+ "input": {
+  "arrivals": [
+   0,
+   1,
+   2,
+   4
+  ],
+  "bursts": [
+   5,
+   3,
+   1,
+   2
+  ],
+  "quantum": 2
+ },
+ "result": 4.25,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        5,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [],
+   "vars": {
+    "quantum": 2,
+    "t": 0
+   },
+   "narration": "Quantum = 2. Processes join the ready queue when they arrive.",
+   "emphasis": "normal",
+   "invariant": "A process never runs more than one quantum before yielding."
+  },
+  {
+   "i": 1,
+   "anchor": "arrive",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        5,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready0",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,0",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 0
+   },
+   "narration": "t = 0: P1 arrives and join the back of the queue.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 2,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        5,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 0,
+    "running": "P1",
+    "slice": 2
+   },
+   "narration": "Dispatch P1; it runs for min(quantum, remaining) = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,0",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 2,
+    "running": "P1",
+    "slice": 2
+   },
+   "narration": "P1 runs to t = 2; 3 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "arrive",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready1",
+       "value": "P2"
+      },
+      {
+       "id": "ready2",
+       "value": "P3"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 2,
+    "running": "P1",
+    "slice": 2
+   },
+   "narration": "P2, P3 arrived during that slice — they queue ahead of P1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 5,
+   "anchor": "requeue",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready1",
+       "value": "P2"
+      },
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 2,
+    "running": "P1",
+    "slice": 2
+   },
+   "narration": "P1 is preempted and goes to the back of the queue.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready1",
+       "value": "P2"
+      },
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 2,
+    "running": "P1",
+    "slice": 2
+   },
+   "narration": "The scheduler picks the next process.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which process gets the CPU next?",
+    "options": [
+     "P1",
+     "P2",
+     "P3"
+    ],
+    "answer": "P2",
+    "explain": "Round Robin is FIFO over the ready queue: the front process runs next."
+   }
+  },
+  {
+   "i": 7,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 2,
+    "running": "P2",
+    "slice": 2
+   },
+   "narration": "Dispatch P2; it runs for min(quantum, remaining) = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 8,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,3",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 4,
+    "running": "P2",
+    "slice": 2
+   },
+   "narration": "P2 runs to t = 4; 1 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "arrive",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 4,
+    "running": "P2",
+    "slice": 2
+   },
+   "narration": "P4 arrived during that slice — they queue ahead of P2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 10,
+   "anchor": "requeue",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 4,
+    "running": "P2",
+    "slice": 2
+   },
+   "narration": "P2 is preempted and goes to the back of the queue.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 11,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready2",
+       "value": "P3"
+      },
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 4,
+    "running": "P2",
+    "slice": 2
+   },
+   "narration": "The scheduler picks the next process.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which process gets the CPU next?",
+    "options": [
+     "P1",
+     "P2",
+     "P3",
+     "P4"
+    ],
+    "answer": "P3",
+    "explain": "Round Robin is FIFO over the ready queue: the front process runs next."
+   }
+  },
+  {
+   "i": 12,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 4,
+    "running": "P3",
+    "slice": 1
+   },
+   "narration": "Dispatch P3; it runs for min(quantum, remaining) = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 13,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,4",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 5,
+    "running": "P3",
+    "slice": 1
+   },
+   "narration": "P3 runs to t = 5; 0 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "finish",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 5,
+    "running": "P3",
+    "slice": 1,
+    "finished": 1
+   },
+   "narration": "P3 finishes at t = 5. Waiting time = turnaround 3 − burst 1 = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready3",
+       "value": "P1"
+      },
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P3,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 5,
+    "running": "P3",
+    "slice": 1,
+    "finished": 1
+   },
+   "narration": "The scheduler picks the next process.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which process gets the CPU next?",
+    "options": [
+     "P1",
+     "P2",
+     "P4"
+    ],
+    "answer": "P1",
+    "explain": "Round Robin is FIFO over the ready queue: the front process runs next."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        3,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 5,
+    "running": "P1",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "Dispatch P1; it runs for min(quantum, remaining) = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,5",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,6",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 7,
+    "running": "P1",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "P1 runs to t = 7; 1 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 18,
+   "anchor": "requeue",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 7,
+    "running": "P1",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "P1 is preempted and goes to the back of the queue.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready4",
+       "value": "P4"
+      },
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "frontier"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 7,
+    "running": "P1",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "The scheduler picks the next process.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which process gets the CPU next?",
+    "options": [
+     "P1",
+     "P2",
+     "P4"
+    ],
+    "answer": "P4",
+    "explain": "Round Robin is FIFO over the ready queue: the front process runs next."
+   }
+  },
+  {
+   "i": 20,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        2,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 7,
+    "running": "P4",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "Dispatch P4; it runs for min(quantum, remaining) = 2.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 21,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,7",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,8",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 9,
+    "running": "P4",
+    "slice": 2,
+    "finished": 1
+   },
+   "narration": "P4 runs to t = 9; 0 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "finish",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 9,
+    "running": "P4",
+    "slice": 2,
+    "finished": 2
+   },
+   "narration": "P4 finishes at t = 9. Waiting time = turnaround 5 − burst 2 = 3.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 23,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready5",
+       "value": "P2"
+      },
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P4,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 9,
+    "running": "P4",
+    "slice": 2,
+    "finished": 2
+   },
+   "narration": "The scheduler picks the next process.",
+   "emphasis": "normal",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Which process gets the CPU next?",
+    "options": [
+     "P1",
+     "P2"
+    ],
+    "answer": "P2",
+    "explain": "Round Robin is FIFO over the ready queue: the front process runs next."
+   }
+  },
+  {
+   "i": 24,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        null,
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 9,
+    "running": "P2",
+    "slice": 1,
+    "finished": 2
+   },
+   "narration": "Dispatch P2; it runs for min(quantum, remaining) = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,9",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 10,
+    "running": "P2",
+    "slice": 1,
+    "finished": 2
+   },
+   "narration": "P2 runs to t = 10; 0 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 26,
+   "anchor": "finish",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        10,
+        6
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": [
+      {
+       "id": "ready6",
+       "value": "P1"
+      }
+     ]
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P2,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 10,
+    "running": "P2",
+    "slice": 1,
+    "finished": 3
+   },
+   "narration": "P2 finishes at t = 10. Waiting time = turnaround 9 − burst 3 = 6.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "dispatch",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        1,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        10,
+        6
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        null
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 10,
+    "running": "P1",
+    "slice": 1,
+    "finished": 3
+   },
+   "narration": "Dispatch P1; it runs for min(quantum, remaining) = 1.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 28,
+   "anchor": "run",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        0,
+        null,
+        null
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        10,
+        6
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        "P1"
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "gantt",
+     "at": "cpu,10",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 11,
+    "running": "P1",
+    "slice": 1,
+    "finished": 3
+   },
+   "narration": "P1 runs to t = 11; 0 left.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 29,
+   "anchor": "finish",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        0,
+        11,
+        6
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        10,
+        6
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        "P1"
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 11,
+    "running": "P1",
+    "slice": 1,
+    "finished": 4
+   },
+   "narration": "P1 finishes at t = 11. Waiting time = turnaround 11 − burst 5 = 6.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 30,
+   "anchor": "done",
+   "snapshot": {
+    "procs": {
+     "kind": "table",
+     "columns": [
+      "arrival",
+      "burst",
+      "remaining",
+      "finish",
+      "waiting"
+     ],
+     "rows": [
+      {
+       "id": "P1",
+       "label": "P1",
+       "cells": [
+        0,
+        5,
+        0,
+        11,
+        6
+       ]
+      },
+      {
+       "id": "P2",
+       "label": "P2",
+       "cells": [
+        1,
+        3,
+        0,
+        10,
+        6
+       ]
+      },
+      {
+       "id": "P3",
+       "label": "P3",
+       "cells": [
+        2,
+        1,
+        0,
+        5,
+        2
+       ]
+      },
+      {
+       "id": "P4",
+       "label": "P4",
+       "cells": [
+        4,
+        2,
+        0,
+        9,
+        3
+       ]
+      }
+     ]
+    },
+    "gantt": {
+     "kind": "table",
+     "columns": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+     ],
+     "rows": [
+      {
+       "id": "cpu",
+       "label": "CPU",
+       "cells": [
+        "P1",
+        "P1",
+        "P2",
+        "P2",
+        "P3",
+        "P1",
+        "P1",
+        "P4",
+        "P4",
+        "P2",
+        "P1"
+       ]
+      }
+     ]
+    },
+    "ready": {
+     "kind": "queue",
+     "items": []
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,2",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,3",
+     "tone": "found"
+    },
+    {
+     "type": "cell",
+     "struct": "procs",
+     "at": "P1,4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "quantum": 2,
+    "t": 11,
+    "finished": 4,
+    "avgWaiting": 4.25
+   },
+   "narration": "All done at t = 11. Average waiting time = 4.25.",
+   "emphasis": "result"
+  }
+ ]
+}

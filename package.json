@@ -1,0 +1,38 @@
+{
+  "name": "careerforge",
+  "private": true,
+  "packageManager": "pnpm@11.5.3",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@careerforge/web",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "codegen": "pnpm --filter @careerforge/viz codegen",
+    "codegen:check": "pnpm --filter @careerforge/viz codegen:check",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "db:generate": "pnpm --filter @careerforge/db generate",
+    "db:migrate": "pnpm --filter @careerforge/db migrate",
+    "db:seed": "pnpm --filter @careerforge/db seed",
+    "db:setup": "pnpm db:migrate && pnpm db:seed",
+    "db:reset": "pnpm --filter @careerforge/db reset && pnpm db:setup",
+    "db:demo": "pnpm --filter @careerforge/db demo",
+    "package:beanstalk": "node scripts/package-beanstalk.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "eslint": "9.39.5",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "globals": "16.4.0",
+    "prettier": "3.6.2",
+    "turbo": "2.11.5",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.2"
+  }
+}

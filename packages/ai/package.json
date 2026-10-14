@@ -1,0 +1,24 @@
+{
+  "name": "@careerforge/ai",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.133.0",
+    "@careerforge/content": "workspace:*",
+    "@careerforge/core": "workspace:*",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@careerforge/config": "workspace:*",
+    "@types/node": "22.18.12",
+    "vitest": "3.2.4"
+  }
+}

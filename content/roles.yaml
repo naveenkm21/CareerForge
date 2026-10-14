@@ -1,0 +1,123 @@
+# Role definitions are weight vectors over the skill taxonomy. Two roles in v1:
+# SDE (full) and Frontend (proves the same engine produces a different roadmap).
+# weight: contribution to readiness (0..1). target: mastery considered "ready" (0..1).
+version: 1
+roles:
+  - slug: sde
+    title: Software Engineer
+    family: engineering
+    description: Generalist SDE interviews — DSA-heavy, plus CS fundamentals and one solid project.
+    requirements:
+      - { skill: dsa.arrays.traversal, tier: core, weight: 0.6, target: 0.85 }
+      - { skill: dsa.arrays.two-pointers, tier: core, weight: 0.8, target: 0.8 }
+      - { skill: dsa.arrays.sliding-window, tier: core, weight: 0.8, target: 0.75 }
+      - { skill: dsa.arrays.prefix-sum, tier: core, weight: 0.6, target: 0.75 }
+      - { skill: dsa.hashing, tier: core, weight: 0.9, target: 0.8 }
+      - { skill: dsa.searching.linear-search, tier: core, weight: 0.3, target: 0.9 }
+      - { skill: dsa.searching.binary-search, tier: core, weight: 0.9, target: 0.8 }
+      - { skill: dsa.sorting.elementary, tier: strong, weight: 0.4, target: 0.7 }
+      - { skill: dsa.sorting.divide-conquer, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: dsa.recursion, tier: core, weight: 0.8, target: 0.75 }
+      - { skill: dsa.linked-lists, tier: core, weight: 0.7, target: 0.75 }
+      - { skill: dsa.stacks-queues.stack, tier: core, weight: 0.7, target: 0.8 }
+      - { skill: dsa.stacks-queues.queue, tier: core, weight: 0.6, target: 0.8 }
+      - { skill: dsa.stacks-queues.monotonic-stack, tier: strong, weight: 0.5, target: 0.65 }
+      - { skill: dsa.trees.traversal, tier: core, weight: 0.9, target: 0.8 }
+      - { skill: dsa.trees.bst, tier: core, weight: 0.8, target: 0.75 }
+      - { skill: dsa.heaps, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: dsa.graphs.traversal, tier: core, weight: 0.9, target: 0.75 }
+      - { skill: dsa.graphs.grid, tier: strong, weight: 0.6, target: 0.7 }
+      - { skill: dsa.graphs.shortest-path, tier: strong, weight: 0.7, target: 0.65 }
+      - { skill: dsa.graphs.topological-sort, tier: strong, weight: 0.6, target: 0.65 }
+      - { skill: dsa.greedy, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: dsa.backtracking, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: dsa.dp.1d, tier: core, weight: 0.8, target: 0.65 }
+      - { skill: dsa.dp.2d, tier: strong, weight: 0.7, target: 0.6 }
+      - { skill: cs.oop, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: cs.os.scheduling, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: cs.os.memory, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: cs.os.concurrency, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: cs.dbms.sql, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: cs.dbms.indexing, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: cs.dbms.transactions, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: cs.dbms.normalization, tier: nice, weight: 0.3, target: 0.5 }
+      - { skill: cs.networks.http-lifecycle, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: cs.networks.tcp, tier: nice, weight: 0.3, target: 0.5 }
+      - { skill: dev.git, tier: strong, weight: 0.3, target: 0.7 }
+      - { skill: dev.system-design, tier: nice, weight: 0.4, target: 0.5 }
+      - { skill: dev.projects, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: soft.communication, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: soft.behavioral, tier: strong, weight: 0.5, target: 0.7 }
+
+  - slug: frontend
+    title: Frontend Developer
+    family: engineering
+    description: Product-facing web engineering — the platform, React, performance and accessibility.
+    requirements:
+      - { skill: dev.web.html-css, tier: core, weight: 0.9, target: 0.85 }
+      - { skill: dev.web.javascript, tier: core, weight: 1.0, target: 0.85 }
+      - { skill: dev.web.react, tier: core, weight: 1.0, target: 0.8 }
+      - { skill: dev.web.nextjs, tier: strong, weight: 0.7, target: 0.7 }
+      - { skill: dev.web.performance, tier: strong, weight: 0.7, target: 0.65 }
+      - { skill: dev.web.accessibility, tier: strong, weight: 0.6, target: 0.65 }
+      - { skill: dev.backend.apis, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: dev.testing, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: dev.git, tier: core, weight: 0.5, target: 0.75 }
+      - { skill: dev.projects, tier: core, weight: 0.9, target: 0.75 }
+      - { skill: dsa.arrays.traversal, tier: core, weight: 0.5, target: 0.75 }
+      - { skill: dsa.arrays.two-pointers, tier: strong, weight: 0.4, target: 0.65 }
+      - { skill: dsa.hashing, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: dsa.searching.binary-search, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.stacks-queues.stack, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.trees.traversal, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: dsa.recursion, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: cs.networks.http-lifecycle, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: soft.communication, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: soft.behavioral, tier: strong, weight: 0.5, target: 0.7 }
+
+  - slug: backend
+    title: Backend Developer
+    family: engineering
+    description: APIs, data and infrastructure — databases, caching, auth, containers and system design.
+    requirements:
+      - { skill: dev.backend.apis, tier: core, weight: 1.0, target: 0.8 }
+      - { skill: dev.backend.auth, tier: core, weight: 0.8, target: 0.7 }
+      - { skill: dev.backend.caching, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: dev.backend.docker, tier: strong, weight: 0.6, target: 0.65 }
+      - { skill: dev.backend.cloud, tier: strong, weight: 0.5, target: 0.6 }
+      - { skill: dev.system-design, tier: core, weight: 0.8, target: 0.65 }
+      - { skill: dev.testing, tier: strong, weight: 0.6, target: 0.65 }
+      - { skill: dev.git, tier: core, weight: 0.4, target: 0.75 }
+      - { skill: dev.projects, tier: core, weight: 0.8, target: 0.7 }
+      - { skill: cs.dbms.sql, tier: core, weight: 0.9, target: 0.8 }
+      - { skill: cs.dbms.indexing, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: cs.dbms.transactions, tier: core, weight: 0.7, target: 0.7 }
+      - { skill: cs.os.concurrency, tier: strong, weight: 0.6, target: 0.6 }
+      - { skill: cs.networks.http-lifecycle, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: cs.networks.tcp, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.hashing, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: dsa.arrays.traversal, tier: strong, weight: 0.4, target: 0.7 }
+      - { skill: dsa.graphs.traversal, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.heaps, tier: nice, weight: 0.3, target: 0.5 }
+      - { skill: soft.communication, tier: core, weight: 0.5, target: 0.7 }
+      - { skill: soft.behavioral, tier: strong, weight: 0.4, target: 0.7 }
+
+  - slug: data-ml
+    title: Data / ML Engineer
+    family: data
+    description: Python, statistics and machine learning, with enough SQL and DSA to pass the screen.
+    requirements:
+      - { skill: dev.data.python, tier: core, weight: 1.0, target: 0.8 }
+      - { skill: dev.data.statistics, tier: core, weight: 0.9, target: 0.75 }
+      - { skill: dev.data.ml, tier: core, weight: 1.0, target: 0.75 }
+      - { skill: dev.data.deployment, tier: strong, weight: 0.6, target: 0.6 }
+      - { skill: cs.dbms.sql, tier: core, weight: 0.8, target: 0.75 }
+      - { skill: dev.projects, tier: core, weight: 0.9, target: 0.75 }
+      - { skill: dev.git, tier: strong, weight: 0.4, target: 0.7 }
+      - { skill: dsa.arrays.traversal, tier: core, weight: 0.5, target: 0.7 }
+      - { skill: dsa.hashing, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: dsa.heaps, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.graphs.traversal, tier: strong, weight: 0.4, target: 0.6 }
+      - { skill: dsa.dp.1d, tier: nice, weight: 0.3, target: 0.5 }
+      - { skill: soft.communication, tier: core, weight: 0.6, target: 0.7 }
+      - { skill: soft.behavioral, tier: strong, weight: 0.4, target: 0.7 }

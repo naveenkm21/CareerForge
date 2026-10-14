@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Codegen · lint · typecheck · test · build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: careerforge
+          POSTGRES_PASSWORD: careerforge
+          POSTGRES_DB: careerforge
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U careerforge"
+          --health-interval 2s --health-timeout 3s --health-retries 20
+    env:
+      DATABASE_URL: postgres://careerforge:careerforge@localhost:5432/careerforge
+      NEXT_PUBLIC_AUTH_PROVIDER: dev
+      TURBO_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      # ADR-005: the committed anchor index must match the display sources.
+      - run: pnpm codegen:check
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+
+      # Migrate + seed a real Postgres so the idempotency integration test runs (Phase 1 exit).
+      - run: pnpm db:migrate
+      - run: pnpm db:seed
+      - run: pnpm test
+
+      - run: pnpm build
+
+  migrate-production:
+    name: Migrate + seed production
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Skip when production database is not configured
+        id: guard
+        run: |
+          if [ -z "$DATABASE_URL" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; echo "::notice::DATABASE_URL secret not set — skipping."; fi
+      - if: steps.guard.outputs.skip != 'true'
+        run: pnpm db:migrate && pnpm db:seed
+# Deploys: Vercel's Git integration builds apps/web on every push (preview on PRs, production on
+# main). The gateway deploys to the VM with `docker compose up -d --build` (see infra/vm).

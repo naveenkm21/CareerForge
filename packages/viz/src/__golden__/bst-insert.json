@@ -1,0 +1,3558 @@
+{
+ "algorithmId": "bst-insert",
+ "input": {
+  "values": [
+   50,
+   30,
+   70,
+   20,
+   40,
+   60,
+   80
+  ]
+ },
+ "result": null,
+ "steps": [
+  {
+   "i": 0,
+   "anchor": "init",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": null,
+     "nodes": {}
+    }
+   },
+   "marks": [],
+   "vars": {},
+   "narration": "Insert each value in turn. Smaller keys go left; equal or larger keys go right.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree."
+  },
+  {
+   "i": 1,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": null,
+     "nodes": {}
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 0,
+     "label": "next",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 50,
+    "cur": null
+   },
+   "narration": "Insert 50.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 2,
+   "anchor": "asRoot",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 0,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 50,
+    "cur": null
+   },
+   "narration": "The tree is empty, so 50 becomes the root.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 3,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 1,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 30,
+    "cur": null
+   },
+   "narration": "Insert 30.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 4,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 1,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 30,
+    "cur": 50
+   },
+   "narration": "30 < 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 30 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go left",
+    "explain": "30 < 50."
+   }
+  },
+  {
+   "i": 5,
+   "anchor": "attachLeft",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 1,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n1",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 30,
+    "cur": 50
+   },
+   "narration": "The left slot of 50 is empty — attach 30 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 6,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 2,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 70,
+    "cur": null
+   },
+   "narration": "Insert 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 7,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": null
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 2,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 70,
+    "cur": 50
+   },
+   "narration": "70 ≥ 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 70 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go right",
+    "explain": "70 ≥ 50."
+   }
+  },
+  {
+   "i": 8,
+   "anchor": "attachRight",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 2,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 70,
+    "cur": 50
+   },
+   "narration": "The right slot of 50 is empty — attach 70 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 9,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 3,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 20,
+    "cur": null
+   },
+   "narration": "Insert 20.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 10,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 3,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 20,
+    "cur": 50
+   },
+   "narration": "20 < 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 20 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go left",
+    "explain": "20 < 50."
+   }
+  },
+  {
+   "i": 11,
+   "anchor": "goLeft",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 3,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "v": 20,
+    "cur": 50
+   },
+   "narration": "Move left to 30.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 12,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": null,
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 3,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 20,
+    "cur": 30
+   },
+   "narration": "20 < 30.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 20 at node 30. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go left",
+    "explain": "20 < 30."
+   }
+  },
+  {
+   "i": 13,
+   "anchor": "attachLeft",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 3,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n1",
+     "to": "n3",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n3",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 20,
+    "cur": 30
+   },
+   "narration": "The left slot of 30 is empty — attach 20 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 14,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 4,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 40,
+    "cur": null
+   },
+   "narration": "Insert 40.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 15,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 4,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 40,
+    "cur": 50
+   },
+   "narration": "40 < 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 40 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go left",
+    "explain": "40 < 50."
+   }
+  },
+  {
+   "i": 16,
+   "anchor": "goLeft",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 4,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "v": 40,
+    "cur": 50
+   },
+   "narration": "Move left to 30.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 17,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": null
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 4,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n1",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 40,
+    "cur": 30
+   },
+   "narration": "40 ≥ 30.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 40 at node 30. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go right",
+    "explain": "40 ≥ 30."
+   }
+  },
+  {
+   "i": 18,
+   "anchor": "attachRight",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 4,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n1",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n1",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n1",
+     "to": "n4",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n4",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 40,
+    "cur": 30
+   },
+   "narration": "The right slot of 30 is empty — attach 40 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 19,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 5,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 60,
+    "cur": null
+   },
+   "narration": "Insert 60.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 20,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 5,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 60,
+    "cur": 50
+   },
+   "narration": "60 ≥ 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 60 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go right",
+    "explain": "60 ≥ 50."
+   }
+  },
+  {
+   "i": 21,
+   "anchor": "goRight",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 5,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "v": 60,
+    "cur": 50
+   },
+   "narration": "Move right to 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 22,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": null,
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 5,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 60,
+    "cur": 70
+   },
+   "narration": "60 < 70.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 60 at node 70. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go left",
+    "explain": "60 < 70."
+   }
+  },
+  {
+   "i": 23,
+   "anchor": "attachLeft",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 5,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n2",
+     "to": "n5",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n5",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 60,
+    "cur": 70
+   },
+   "narration": "The left slot of 70 is empty — attach 60 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 24,
+   "anchor": "create",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 6,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": null
+   },
+   "narration": "Insert 80.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 25,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 6,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": 50
+   },
+   "narration": "80 ≥ 50.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 80 at node 50. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go right",
+    "explain": "80 ≥ 50."
+   }
+  },
+  {
+   "i": 26,
+   "anchor": "goRight",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 6,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": 50
+   },
+   "narration": "Move right to 70.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 27,
+   "anchor": "compare",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": null
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 6,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "active"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": 70
+   },
+   "narration": "80 ≥ 70.",
+   "emphasis": "normal",
+   "invariant": "For every node: left subtree < node ≤ right subtree.",
+   "checkpoint": {
+    "kind": "choice",
+    "prompt": "Inserting 80 at node 70. Which way?",
+    "options": [
+     "Go left",
+     "Go right"
+    ],
+    "answer": "Go right",
+    "explain": "80 ≥ 70."
+   }
+  },
+  {
+   "i": 28,
+   "anchor": "attachRight",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "pointer",
+     "struct": "input",
+     "at": 6,
+     "label": "next",
+     "tone": "active"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n0",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n0",
+     "to": "n2",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n2",
+     "tone": "visited"
+    },
+    {
+     "type": "edge",
+     "struct": "bst",
+     "from": "n2",
+     "to": "n6",
+     "tone": "path"
+    },
+    {
+     "type": "cell",
+     "struct": "bst",
+     "at": "n6",
+     "tone": "found"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": 70
+   },
+   "narration": "The right slot of 70 is empty — attach 80 there.",
+   "emphasis": "normal"
+  },
+  {
+   "i": 29,
+   "anchor": "done",
+   "snapshot": {
+    "input": {
+     "kind": "array",
+     "items": [
+      {
+       "id": "input0",
+       "value": 50
+      },
+      {
+       "id": "input1",
+       "value": 30
+      },
+      {
+       "id": "input2",
+       "value": 70
+      },
+      {
+       "id": "input3",
+       "value": 20
+      },
+      {
+       "id": "input4",
+       "value": 40
+      },
+      {
+       "id": "input5",
+       "value": 60
+      },
+      {
+       "id": "input6",
+       "value": 80
+      }
+     ]
+    },
+    "bst": {
+     "kind": "tree",
+     "root": "n0",
+     "nodes": {
+      "n0": {
+       "id": "n0",
+       "value": 50,
+       "left": "n1",
+       "right": "n2"
+      },
+      "n1": {
+       "id": "n1",
+       "value": 30,
+       "left": "n3",
+       "right": "n4"
+      },
+      "n2": {
+       "id": "n2",
+       "value": 70,
+       "left": "n5",
+       "right": "n6"
+      },
+      "n3": {
+       "id": "n3",
+       "value": 20,
+       "left": null,
+       "right": null
+      },
+      "n4": {
+       "id": "n4",
+       "value": 40,
+       "left": null,
+       "right": null
+      },
+      "n5": {
+       "id": "n5",
+       "value": 60,
+       "left": null,
+       "right": null
+      },
+      "n6": {
+       "id": "n6",
+       "value": 80,
+       "left": null,
+       "right": null
+      }
+     }
+    }
+   },
+   "marks": [
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 0,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 1,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 2,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 3,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 4,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 5,
+     "tone": "visited"
+    },
+    {
+     "type": "cell",
+     "struct": "input",
+     "at": 6,
+     "tone": "visited"
+    }
+   ],
+   "vars": {
+    "v": 80,
+    "cur": 70
+   },
+   "narration": "Inserted 7 values.",
+   "emphasis": "result"
+  }
+ ]
+}

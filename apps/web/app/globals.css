@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+@import '@careerforge/ui/tokens.css';
+
+@source '../../../packages/ui/src';
+@source '../../../packages/viz-react/src';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  --color-tone-active: var(--tone-active);
+  --color-tone-active-soft: var(--tone-active-soft);
+  --color-tone-candidate: var(--tone-candidate);
+  --color-tone-candidate-soft: var(--tone-candidate-soft);
+  --color-tone-frontier: var(--tone-frontier);
+  --color-tone-frontier-soft: var(--tone-frontier-soft);
+  --color-tone-visited: var(--tone-visited);
+  --color-tone-visited-soft: var(--tone-visited-soft);
+  --color-tone-path: var(--tone-path);
+  --color-tone-path-soft: var(--tone-path-soft);
+  --color-tone-found: var(--tone-found);
+  --color-tone-found-soft: var(--tone-found-soft);
+  --color-tone-excluded: var(--tone-excluded);
+  --color-tone-excluded-soft: var(--tone-excluded-soft);
+  --color-tone-error: var(--tone-error);
+  --color-tone-error-soft: var(--tone-error-soft);
+
+  --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-family), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
